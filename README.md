@@ -5,6 +5,14 @@
 通过连载短视频和文章的形式帮助有一定编程基础的人快速学习和入门 Golang。
 内容包括 Golang 基础、内置库、web 开发、并发编程等，均来自笔者日常学习和开发经验总结。
 
+## 工具
+
+笔者使用 when-changed 来监控文件变动并且执行 go 代码，视频里会详细演示。
+
+```sh
+pip install when-changed
+when-changed -v -r -1 -s ./    go run main.go
+```
 
 ## 本电子书制作和写作方式
 使用 mkdocs 和 markdown 构建，使用 Python-Markdown-Math 完成数学公式。
