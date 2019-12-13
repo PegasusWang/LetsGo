@@ -1,4 +1,4 @@
-# Golang 视频教程
+# [Golang 视频教程](https://pegasuswang.github.io/LetsGo/)
 
 ![](./golang.png)
 
@@ -6,6 +6,9 @@
 
 通过连载短视频和文章的形式帮助有一定其他语言编程基础的人快速学习和入门 Golang。
 内容包括 Golang 基础、内置库、web 开发、并发编程等，均来自笔者日常学习和开发经验总结。
+教程中会有一些和 Python 等语言特性的对比，方便读者理解。
+
+阅读地址：[https://pegasuswang.github.io/LetsGo/](https://pegasuswang.github.io/LetsGo/)
 
 ## 如何快速上手新语言
 
@@ -27,6 +30,7 @@ when-changed -v -r -1 -s ./    go run main.go
 markdown 语法参考：http://xianbai.me/learn-md/article/about/readme.html
 
 安装依赖：
+
 ```sh
 pip install mkdocs    # 制作电子书, http://markdown-docs-zh.readthedocs.io/zh_CN/latest/
 # https://stackoverflow.com/questions/27882261/mkdocs-and-mathjax/31874157
@@ -39,6 +43,7 @@ pip install -r requirements.txt
 ```
 
 你可以 clone 本项目后在本地编写和查看电子书：
+
 ```sh
 mkdocs serve     # 修改自动更新，浏览器打开 http://localhost:8000 访问
 # 数学公式参考 https://www.zybuluo.com/codeep/note/163962
