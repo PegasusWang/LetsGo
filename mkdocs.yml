@@ -7,5 +7,7 @@ markdown_extensions:
   - mdx_math:
       enable_dollar_delimiter: True  #for use of inline $..$
 
-pages:
-    - 简介: 'index.md'
+nav:
+- 简介: 'index.md'
+- Go基础:
+  - 'Hello Go!': '基础篇/00_hello_go/hello_go.md'
