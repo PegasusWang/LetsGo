@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Hello Go! - Let's Go! Golang 短视频教程</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Hello Go!";
+    var mkdocs_page_input_path = "\u57fa\u7840\u7bc7/00_hello_go/hello_go.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> Let's Go! Golang 短视频教程</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">简介</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Go基础</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Hello Go!</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#why-golang-go">Why Golang(后文均简称 Go) ?</a></li>
+    
+
+    <li class="toctree-l3"><a href="#golang">安装 Golang</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_1">开发工具</a></li>
+    
+
+    <li class="toctree-l3"><a href="#go">你的第一个 Go 程序</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">Let's Go! Golang 短视频教程</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Go基础 &raquo;</li>
+        
+      
+    
+    <li>Hello Go!</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="why-golang-go">Why Golang(后文均简称 Go) ?</h1>
+<p>当然是老板要求的，嘿嘿。笔者工作的前几年都是写 Python，刚毕业那会 Python 还没有那么火。即使到现在，Python
+后端依旧不是主流。不过笔者感觉对于很多中小公司来说 Python 还是够用的，并且 Python 可以做很多事情。
+最近又换工作了到了一家大厂，内部很多是 c艹 项目。对于大公司动辄有百千万甚至上亿的日活来说，很少会使用脚本语言来做高性能后端。
+目前笔者使用 c++ 和 Golang 写后端业务，不过 c++ 写业务来说比较痛苦，很多业务开始使用 Golang 进行重构。
+不得不承认，从国内招聘信息和市场行情来说，这几年 Golang 作为互联网后端语言确实越来越火。</p>
+<p>说说个人感觉 Golang 的一些优缺点吧：</p>
+<ul>
+<li>有个好爹(google)和一堆牛人开发维护</li>
+<li>性能高，并发友好</li>
+<li>语法简洁，容易上手和维护</li>
+</ul>
+<p>也有一些一直被人喷的地方(当然设计哲学不同人有不同看法）：</p>
+<ul>
+<li>错误检查，error check 比较原始</li>
+<li>暂时没有泛型</li>
+<li>生态不够完善等</li>
+</ul>
+<p>总得来说，笔者感觉作为微服务后端语言来说，还是完全够用的。</p>
+<h1 id="golang">安装 Golang</h1>
+<p>本系列不是针对编程新手的教程，如果你还无法访问相关网站，请自行解决。
+笔者还是依旧强烈建议你使用 Linux 操作系统来学习，因为互联网公司大多使用 linxu server。</p>
+<h1 id="_1">开发工具</h1>
+<p>笔者视频中将使用 neovim(vim-go插件)/tmux 等工具来进行开发演示，主要是因为笔者比较熟悉，而不一定是最好用的。
+笔者建议你挑选一个自己熟悉的开发工具来编写 Golang 代码。目前社区中比较流行的有：</p>
+<ul>
+<li>Goland: 流行的 Golang IDE</li>
+<li>Vscode: 巨硬出品的流行代码编辑器，目前社区中广泛使用</li>
+<li>Neovim/vim: 很多 linux/mac 用户的选择，结合 vim-go 等插件开发</li>
+<li>Emacs/Sublime/Atom 等跨平台编辑器</li>
+</ul>
+<h1 id="go">你的第一个 Go 程序</h1>
+<p>好了，让我们来编写和运行第一个 Go 代码吧，打开你的开发工具然后输入以下代码：</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../../.." class="btn btn-neutral" title="简介"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>
