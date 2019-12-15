@@ -17,7 +17,7 @@
 主要面向有一定开发经验的开发者，不会涉及到一些非常具体和细节的问题。 比如如何下载 IDE，如何导出环境变量等，
 编程新手可以先补一补开发基础。
 
-阅读地址：[https://pegasuswang.github.io/LetsGo/](https://pegasuswang.github.io/LetsGo/)
+阅读地址：[ https://pegasuswang.github.io/LetsGo/ ](https://pegasuswang.github.io/LetsGo/)
 
 ## 如何快速上手新语言
 
