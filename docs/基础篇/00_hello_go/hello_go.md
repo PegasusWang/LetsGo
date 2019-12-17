@@ -56,6 +56,8 @@ export PATH=$PATH:$GOPATH/bin
 - Neovim/vim: 很多 linux/mac 用户的选择，结合 vim-go 等插件开发
 - Emacs/Sublime/Atom 等跨平台编辑器，结合对应的 go 语言插件
 
+一个好的习惯是打开你的开发工具的 gofmt(格式化代码) 和 goimports(自动 import)，这样写 go 代码会方便很多。
+
 # 你的第一个 Go 程序
 
 首先记得安装 when-changed 或者类似工具，这样写完代码直接保存就可以自动运行你的 golang 代码了，解放双手的好工具。
