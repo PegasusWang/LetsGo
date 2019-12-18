@@ -57,6 +57,8 @@ export PATH=$PATH:$GOPATH/bin
 - Emacs/Sublime/Atom 等跨平台编辑器，结合对应的 go 语言插件
 
 一个好的习惯是打开你的开发工具的 gofmt(格式化代码) 和 goimports(自动 import)，这样写 go 代码会方便很多。
+最好加上静态检查，比如 golang 有 golangci_lint 工具可以集成到你的编辑器里，(笔者用的 vim neomake)，
+这样编写代码如果有一些小错误开发工具会提示你修正。
 
 # 你的第一个 Go 程序
 
