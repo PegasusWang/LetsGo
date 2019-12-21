@@ -11,3 +11,4 @@ nav:
 - 简介: 'index.md'
 - Go基础:
   - 'Hello Go!': '基础篇/00_hello_go/hello_go.md'
+  - 'Go 基础类型': '基础篇/01_go_basic_types/basic_types.md'
