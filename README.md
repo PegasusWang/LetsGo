@@ -15,7 +15,16 @@
 - 最佳实践。总结业务开发中一些好的实践分享出来，贴地气
 
 主要面向有一定开发经验的开发者，不会涉及到一些非常具体和细节的问题。 比如如何下载 IDE，如何导出环境变量等，
-编程新手可以先补一补开发基础。
+编程新手可以先补一补开发基础。本小书会涉及到以下内容，将会长期不间断更新（除非笔者又换工作学习别的技术栈了）:
+
+- go 基础: 快速上手了解 golang 语法基础并上手开发。go 语法简洁，比其他语言更容易上手
+- go 内置库：熟悉常见内置库的使用方式，增加开发效率
+- go 踩坑: 笔者日常使用过程中碰到的一些坑，或者一些新手经常会犯的错误，防止大家踩坑
+- go web 开发：包含常用的 go web 框架，web 开发常用的第三方库(http/mysql/redis/kafka等)
+- go 高级特性: go 的一些高级语法特性
+- go 并发编程: go 的一大卖点，学习如何实现高性能网络后端
+
+您可以在以下地址阅读：
 
 - 阅读地址：[ https://pegasuswang.github.io/LetsGo/ ](https://pegasuswang.github.io/LetsGo/)
 - 本项目地址：[ https://github.com/PegasusWang/LetsGo ](https://github.com/PegasusWang/LetsGo)
@@ -93,3 +102,8 @@ mkdocs gh-deploy    # 部署到自己的 github pages
 ## 知乎专栏
 
 - [学 Golang 涨工资系列，你的第一个 Go 程序[视频]](https://zhuanlan.zhihu.com/p/97536473)
+
+## 勘误
+
+本系列均来自笔者日常学习和工作总结，如果文章或者视频有误，您可以到本项目 github 仓库或者文章评论区指出，欢迎批评指正。
+笔者会认真对待并且修复错误。
