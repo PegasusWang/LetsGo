@@ -88,6 +88,10 @@
 
     </ul>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../../01_go_basic_types/basic_types/">Go 基础类型</a>
+                </li>
     </ul>
 	    </li>
           
@@ -127,20 +131,20 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="why-golang-go">Why Golang(后文均简称 Go) ?</h1>
-<blockquote>
+                <blockquote>
 <p>Go is not meant to innovate programming theory. It’s meant to innovate programming practice. – Samuel Tesla</p>
 </blockquote>
+<h1 id="why-golang-go">Why Golang(后文均简称 Go) ?</h1>
 <p>当然是老板要求的，嘿嘿。笔者工作的前几年都是写 Python，刚毕业那会 Python 还没有那么火。即使到现在，Python
 后端依旧不是主流。不过笔者感觉对于很多中小公司来说 Python 还是够用的，并且 Python 可以做很多事情。
 最近又换工作了到了一家大厂，内部很多是 c艹 项目。对于大公司动辄有百千万甚至上亿的日活来说，很少会使用脚本语言来做高性能后端。
-目前笔者使用 c++ 和 Golang 写后端业务，不过 c++ 写业务来说比较痛苦，很多业务开始使用 Golang 进行重构。
+目前笔者开始学习使用 c++(历史遗留) 和 Golang 写后端业务，不过 c++ 写业务来说比较痛苦，很多业务开始使用 Golang 进行重构。
 不得不承认，从国内招聘信息和市场行情来说，这几年 Golang 作为互联网后端语言确实越来越火，很多互联网公司都开始使用它。</p>
 <p>说说个人感觉 Golang 的一些优缺点吧(号称 21 世纪的 C 语言):</p>
 <ul>
 <li>有个好爹(google)和一堆牛人开发维护</li>
 <li>性能高，并发友好，goroutine 支持</li>
-<li>工程友好，语法简洁，容易学习、上手和维护。Go 的语法特性相比其他语言来说更加简洁</li>
+<li>工程友好，语法简洁，容易学习、上手和维护。Go 的语法特性相比其他语言来说更加简洁，只有25个关键词</li>
 <li>静态编译型语言，部署非常方便，只需要 build 一个二进制文件扔到服务器上</li>
 <li>国内互联网公司 golang 岗位日益增多，高性能后端、云服务领域一门比较有前景的语言</li>
 </ul>
@@ -151,6 +155,7 @@
 <li>生态不够完善等。Go 还是比较年轻的语言，生态相比一些发展较久的语言还想对欠缺</li>
 </ul>
 <p>总得来说，笔者感觉作为微服务后端语言来说，还是完全够用的。</p>
+<p><img alt="Golang 25 个关键词" src="../golang_keywords.jpg" /></p>
 <h1 id="golang">下载和安装 Golang</h1>
 <p>本系列不是针对编程新手的教程，如果你还无法访问相关网站，请自行解决。
 笔者还是依旧强烈建议你使用 Linux 操作系统来学习，因为互联网公司大多使用 linxu server。
@@ -216,6 +221,7 @@ func main() {
 <ul>
 <li>请安装 golang 开发环境和开发工具，你可以选择一个自己擅长的开发工具编写 go 代码</li>
 <li>请编写你的第一个 golang 代码练习输出 hello Go！</li>
+<li>搜索如何用你的开发工具借助 gofmt 来格式化你的代码，这样写代码的时候会减少心智负担，把精力集中在代码逻辑本身</li>
 </ul>
 <p>下一章我们来看一下 go 语言的数据类型。</p>
               
@@ -224,6 +230,8 @@ func main() {
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../01_go_basic_types/basic_types/" class="btn btn-neutral float-right" title="Go 基础类型">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../../.." class="btn btn-neutral" title="简介"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -254,6 +262,8 @@ func main() {
       
         <span><a href="../../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../../01_go_basic_types/basic_types/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

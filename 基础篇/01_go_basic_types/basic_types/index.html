@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Go 基础类型 - Let's Go! Golang 短视频教程</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Go \u57fa\u7840\u7c7b\u578b";
+    var mkdocs_page_input_path = "\u57fa\u7840\u7bc7/01_go_basic_types/basic_types.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> Let's Go! Golang 短视频教程</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">简介</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Go基础</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../00_hello_go/hello_go/">Hello Go!</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Go 基础类型</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#go">Go 变量标识符</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_1">静态/动态类型，弱类型/强类型</a></li>
+    
+
+    <li class="toctree-l3"><a href="#go_1">go 如何声明一个类型</a></li>
+    
+
+    <li class="toctree-l3"><a href="#go_2">Go 的基础类型</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#bool">bool 类型</a></li>
+        
+            <li><a class="toctree-l4" href="#_2">数值类型(整型和浮点类型)</a></li>
+        
+            <li><a class="toctree-l4" href="#_7">延伸(大整数运算)</a></li>
+        
+            <li><a class="toctree-l4" href="#_8">字符串</a></li>
+        
+            <li><a class="toctree-l4" href="#_10">枚举类型</a></li>
+        
+            <li><a class="toctree-l4" href="#_11">常量和变量</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#_12">小问题：</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_13">参考：</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">Let's Go! Golang 短视频教程</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Go基础 &raquo;</li>
+        
+      
+    
+    <li>Go 基础类型</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <blockquote>
+<p>“In Go, the code does exactly what it says on the page.” – Andrew Gerrand</p>
+</blockquote>
+<h1 id="go">Go 变量标识符</h1>
+<p>给一个 go 变量命名(标识符)的时候，通常使用大骆驼(BigCamel)和小骆驼(smallCamel)命名法，只要保证不和内置的25个关键字冲突就行。
+当然 go 也内置了一些自己的标识符，见下图，我建议你最好不要使用这些同名的预定义标识符来命名变量。
+只要是非空的字母或者数字（第一个必须是字母），并且不和关键词冲突就是合法的标识符。注意标识符区分大小写，并且在 go
+里边只有大写开头的才能导出被其他包使用（后文我们再讨论）。</p>
+<p><img alt="go 预定义标识符" src="../builtin_identifier.png" /></p>
+<h1 id="_1">静态/动态类型，弱类型/强类型</h1>
+<p>静态，动态类型指的是类型是在编译期还是运行期间确定，而弱类型和强类型指的是有没有隐式类型转换。
+比如 Python 就是动态强类型语言(很多人误以为弱类型)，而 php/js 是动态弱类型语言。
+go 是静态强类型语言，我们在编写代码的时候需要先声明变量的类型（或者编译器推导），
+在不同类型之间转换的时候需要我们强制使用类型转换符。</p>
+<h1 id="go_1">go 如何声明一个类型</h1>
+<p>go 中声明一个类型很简单，使用 var 关键字就可以了，声明之后默认使用其类型的零值初始化。
+比如int 类型默认是0，字符串就是空串。</p>
+<p>当然为了简化 go 还提供了一种使用 <code>:=</code> 直接声明并且初始化的方式。请编写如下代码观察输出(我建议你纯手敲练练手速，不要直接复制)：</p>
+<pre><code class="go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var i int64             // 声明一个 int64 变量
+    var b string            // 声明一个字符串
+    fmt.Println(&quot;i is &quot;, i) // 0
+    fmt.Println(&quot;b is &quot;, b) // &quot;&quot;
+
+    // 还有一种简化方式，声明并且赋值，编译器负责推断类型
+    ii := 1
+    s := &quot;Hello Go!&quot;
+    fmt.Println(&quot;ii is &quot;, ii) // 1
+    fmt.Println(&quot;s is &quot;, s)   // Hello Go!&quot;
+}
+</code></pre>
+
+<h1 id="go_2">Go 的基础类型</h1>
+<p>无论是学习过程式、面向对象还是并发编程，我们都需要首先学习一门语言的基础类型，对于大部分业务常用编程语言来说就是数值类型和字符串类型。</p>
+<h2 id="bool">bool 类型</h2>
+<p>bool 就是真或者假，一些编程语言使用 0 和非 0 表示。但是 go 里比如 if 语句后边只能是 bool 值或者返回 bool
+值的表达式，而不像 c 一样可以使用 int 值。</p>
+<p><img alt="" src="../bool.png" /></p>
+<pre><code class="go">// 让我们编写一些小的 demo 代码来测试一下
+func boolDemo() {
+    var b1 bool
+    b2 := false
+    b3 := true
+    if b1 {
+        fmt.Println(&quot;b1 is true&quot;)
+    }
+    if b2 {
+        fmt.Println(&quot;b2 is true&quot;)
+    }
+    if b3 {
+        fmt.Println(&quot;b3 is true&quot;)
+    }
+}
+</code></pre>
+
+<h2 id="_2">数值类型(整型和浮点类型)</h2>
+<h3 id="_3">整数类型</h3>
+<p>整数类型可以说是我们最常用的一种类型，如果你用 python 的话非常省心(Python3 int 就是大数类，内存够用无需担心溢出)，但是 go 里边却有非常多的 int 类型。
+对于一门追求性能的语言来说，有些地方可以省内存就省一点。这里需要注意的就是每种类型取值范围，确保不要超范围了。业务中经常使用也就是
+int64/int32 了。</p>
+<p><img alt="" src="../int_types.png" /></p>
+<p>当然作为整数，一般常用的那就是加减乘除之类的数学运算了：</p>
+<p><img alt="" src="../int_operations.png" /></p>
+<pre><code class="go">// 同样我们编写简单的测试代码来熟悉它们，确保你不要直接复制粘贴。整本电子书和代码都是笔者一个字一个字敲出来的
+func intDemo() {
+    var i64 int64
+    i64 = 10
+    fmt.Println(i64 + 10)
+
+    i32 := int32(42)
+    fmt.Println(i32 + 10)
+
+    fmt.Println(
+        math.MaxInt64, // 需要导入 math 包，见本章示例代码
+    )
+
+    a, b := 10, 0
+    fmt.Println(a / b) // Boom! 会发生什么。错误处理我们后文介绍
+}
+
+func main() {
+    intDemo() // 虽然还没讲到 函数，不过相信你也知道如何调用了
+}
+</code></pre>
+
+<h3 id="_4">浮点数类型</h3>
+<p>接下来是浮点数，很多场景我们计算的时候都需要有小数点，go 里有两种类型的浮点数。</p>
+<p><img alt="" src="../float.png" /></p>
+<p>math 包里很多函数以 float64 作为参数，你可以提前看一下 go 文档看看提供了哪些函数。
+浮点数同样也是常见的加减乘除，这里请大家自己编写一些代码来练习，笔者不再赘述。</p>
+<h3 id="_5">数值转换小提示</h3>
+<ul>
+<li>注意不同数值类型之间转换(大转小)可能有截断，比如一个 int64 转成 int32 类型的数字</li>
+<li>可以使用 int(float) 转换一个 浮点数到整数，小数部分会丢弃。但是如果浮点数的值超过了整数类型范围，结果是不可预期的</li>
+<li>注意计算机使用二进制不能精确表示 float 数字，当比较两个浮点数时你要格外小心不能用等号直接比较。(通常作差绝对值小于一个很小的阈值)</li>
+<li>业务中经常使用 float64，因为 math 函数很多接受 float64 作为参数</li>
+<li>你可以通过 math.MaxInt32 类似的定义查看一个类型的最大值</li>
+</ul>
+<h3 id="_6">复数类型</h3>
+<p>复数在常见业务代码中使用比较少，这里就略过了。你可以使用 complex() 来创建复数。</p>
+<h2 id="_7">延伸(大整数运算)</h2>
+<p>某些场景下， 如果64位依然满足不了你，你可以使用大整数 big.Int 和 有理数 big.Rat 类型。</p>
+<h2 id="_8">字符串</h2>
+<p>业务中另一个最常用的就是字符串(string)了，web 开发几乎天天就是和字符串打交道。Go的字符串是使用 UTF-8
+编码的字符序列，这意味着你可以使用任意国家的语言。
+Go 中我们可以使用双引号(")和反引号(`)来创建字符串，区别反引号会忽略转义符，并且可以创建多行字符串。</p>
+<pre><code class="go">func stringDemo() {
+    // 如果字符串本身也有双引号，就需要把里边的双引号使用 \ 转义
+    s1 := &quot;\&quot;Hello Go\&quot;&quot;
+    // 使用反斜线就可以直接包含双引号了
+    s2 := `&quot;Hello Go&quot;`
+    fmt.Println(s1) // 打印出 &quot;Hello Go&quot;
+    fmt.Println(s2) // 打印出 &quot;Hello Go&quot;
+
+    s3 := `
+你好
+`
+    s4 := &quot;Golang !&quot;
+    fmt.Println(s3 + s4)
+}
+</code></pre>
+
+<p>字符串支持如下操作：</p>
+<p><img alt="" src="../string_operation.png" /></p>
+<h3 id="_9">字符串和数值类型的转换</h3>
+<p>在 Python 里进行这种转换是一件很容易的事情，但是 go 里边可不方便。我列出来以下代码你就知道啦：</p>
+<h2 id="_10">枚举类型</h2>
+<h2 id="_11">常量和变量</h2>
+<p>常量顾名思义你没法改变它，在一些全局变量中使用 const 会更加安全。常量表达式是在编译器计算。</p>
+<h1 id="_12">小问题：</h1>
+<ul>
+<li>为什么有 int 还需要 int32 和 int64，业务代码里如何选择呢？</li>
+<li>请你尝试打印每种 int 类型的数值范围？</li>
+</ul>
+<h1 id="_13">参考：</h1>
+<ul>
+<li>部分图片来自《Go 语言程序设计》</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../../00_hello_go/hello_go/" class="btn btn-neutral" title="Hello Go!"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../00_hello_go/hello_go/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>
