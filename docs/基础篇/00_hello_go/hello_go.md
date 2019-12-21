@@ -1,5 +1,7 @@
 # Why Golang(后文均简称 Go) ?
 
+> Go is not meant to innovate programming theory. It’s meant to innovate programming practice. – Samuel Tesla
+
 当然是老板要求的，嘿嘿。笔者工作的前几年都是写 Python，刚毕业那会 Python 还没有那么火。即使到现在，Python
 后端依旧不是主流。不过笔者感觉对于很多中小公司来说 Python 还是够用的，并且 Python 可以做很多事情。
 最近又换工作了到了一家大厂，内部很多是 c艹 项目。对于大公司动辄有百千万甚至上亿的日活来说，很少会使用脚本语言来做高性能后端。
@@ -12,7 +14,7 @@
 - 性能高，并发友好，goroutine 支持
 - 工程友好，语法简洁，容易学习、上手和维护
 - 静态编译型语言，部署非常方便
-- 国内互联网公司 golang 岗位日益增多，高性能后端领域一门比较有前景的语言
+- 国内互联网公司 golang 岗位日益增多，高性能后端、云服务领域一门比较有前景的语言
 
 也有一些一直被人喷的地方(当然设计哲学不同人有不同看法）：
 
