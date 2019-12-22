@@ -87,9 +87,9 @@
         
             <li><a class="toctree-l4" href="#_8">字符串</a></li>
         
-            <li><a class="toctree-l4" href="#_10">枚举类型</a></li>
+            <li><a class="toctree-l4" href="#_10">常量和变量</a></li>
         
-            <li><a class="toctree-l4" href="#_11">常量和变量</a></li>
+            <li><a class="toctree-l4" href="#_11">枚举</a></li>
         
         </ul>
     
@@ -271,9 +271,89 @@ Go 中我们可以使用双引号(")和反引号(`)来创建字符串，区别�
 <p><img alt="" src="../string_operation.png" /></p>
 <h3 id="_9">字符串和数值类型的转换</h3>
 <p>在 Python 里进行这种转换是一件很容易的事情，但是 go 里边可不方便。我列出来以下代码你就知道啦：</p>
-<h2 id="_10">枚举类型</h2>
-<h2 id="_11">常量和变量</h2>
-<p>常量顾名思义你没法改变它，在一些全局变量中使用 const 会更加安全。常量表达式是在编译器计算。</p>
+<pre><code class="go">func testConvert() { // 测试 int 和 string(decimal) 互相转换的函数
+    // https://yourbasic.org/golang/convert-int-to-string/
+    // int -&gt; string
+    sint := strconv.Itoa(97)
+    fmt.Println(sint, sint == &quot;97&quot;)
+
+    // byte -&gt; string
+    bytea := byte(1)
+    bint := strconv.Itoa(int(bytea))
+    fmt.Println(bint)
+
+    // int64 -&gt; string
+    sint64 := strconv.FormatInt(int64(97), 10)
+    fmt.Println(sint64, sint64 == &quot;97&quot;)
+
+    // int64 -&gt; string (hex) ，十六进制
+    sint64hex := strconv.FormatInt(int64(97), 16)
+    fmt.Println(sint64hex, sint64hex == &quot;61&quot;)
+
+    // string -&gt; int
+    _int, _ := strconv.Atoi(&quot;97&quot;)
+    fmt.Println(_int, _int == int(97))
+
+    // string -&gt; int64
+    _int64, _ := strconv.ParseInt(&quot;97&quot;, 10, 64)
+    fmt.Println(_int64, _int64 == int64(97))
+
+    // https://stackoverflow.com/questions/30299649/parse-string-to-specific-type-of-int-int8-int16-int32-int64
+    // string -&gt; int32，注意 parseInt 始终返回的是 int64，所以还是需要 int32(n) 强转一下
+    _int32, _ := strconv.ParseInt(&quot;97&quot;, 10, 32)
+    fmt.Println(_int32, int32(_int32) == int32(97))
+
+    // int32 -&gt; string, https://stackoverflow.com/questions/39442167/convert-int32-to-string-in-golang
+    i := 42
+    strconv.FormatInt(int64(i), 10) // fast
+    strconv.Itoa(int(i))            // fast
+    fmt.Sprint(i)                   // slow
+
+    // int -&gt; int64 ，不会丢失精度
+    var n int = 97
+    fmt.Println(int64(n) == int64(97))
+
+    // string -&gt; float32/float64  https://yourbasic.org/golang/convert-string-to-float/
+    f := &quot;3.14159265&quot;
+    if s, err := strconv.ParseFloat(f, 32); err == nil {
+        fmt.Println(s) // 3.1415927410125732
+    }
+    if s, err := strconv.ParseFloat(f, 64); err == nil {
+        fmt.Println(s) // 3.14159265
+    }
+}
+</code></pre>
+
+<h2 id="_10">常量和变量</h2>
+<p>常量顾名思义你没法改变它，在一些全局变量中使用 const 会更加安全。常量表达式是在编译期计算。
+对于一些被整个模块或者其他模块使用的变量来说，最好定义成 const 防止被意外修改。
+比如我们会经常在一些文件开头看到类似 const 定义：</p>
+<pre><code class="go">const (
+    Sunday    = 0
+    Monday    = 1
+    Tuesday   = 2
+    Wednesday = 3
+    Thursday  = 4
+    Friday    = 5
+    Saturday  = 6
+)
+</code></pre>
+
+<h2 id="_11">枚举</h2>
+<p>对于上述这种递增场景，go 还提供了一种更加简洁的方式来定义，使用 iota
+表达式，它可以帮助我们完成自增操作(只有这种常见才推荐去使用 iota)</p>
+<pre><code class="go">const (
+    Sunday = iota
+    Monday
+    Tuesday
+    Wednesday
+    Thursday
+    Friday
+    Saturday
+)
+</code></pre>
+
+<p>你可以编写代码打印一下看看剩下的值是多少？</p>
 <h1 id="_12">小问题：</h1>
 <ul>
 <li>为什么有 int 还需要 int32 和 int64，业务代码里如何选择呢？</li>
@@ -282,6 +362,7 @@ Go 中我们可以使用双引号(")和反引号(`)来创建字符串，区别�
 <h1 id="_13">参考：</h1>
 <ul>
 <li>部分图片来自《Go 语言程序设计》</li>
+<li><a href="https://blog.learngoprogramming.com/golang-const-type-enums-iota-bc4befd096d3">Ultimate Visual Guide to Go Enums and iota</a></li>
 </ul>
               
             </div>
