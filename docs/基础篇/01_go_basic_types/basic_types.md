@@ -165,11 +165,95 @@ func stringDemo() {
 
 在 Python 里进行这种转换是一件很容易的事情，但是 go 里边可不方便。我列出来以下代码你就知道啦：
 
-## 枚举类型
+```go
+func testConvert() { // 测试 int 和 string(decimal) 互相转换的函数
+	// https://yourbasic.org/golang/convert-int-to-string/
+	// int -> string
+	sint := strconv.Itoa(97)
+	fmt.Println(sint, sint == "97")
+
+	// byte -> string
+	bytea := byte(1)
+	bint := strconv.Itoa(int(bytea))
+	fmt.Println(bint)
+
+	// int64 -> string
+	sint64 := strconv.FormatInt(int64(97), 10)
+	fmt.Println(sint64, sint64 == "97")
+
+	// int64 -> string (hex) ，十六进制
+	sint64hex := strconv.FormatInt(int64(97), 16)
+	fmt.Println(sint64hex, sint64hex == "61")
+
+	// string -> int
+	_int, _ := strconv.Atoi("97")
+	fmt.Println(_int, _int == int(97))
+
+	// string -> int64
+	_int64, _ := strconv.ParseInt("97", 10, 64)
+	fmt.Println(_int64, _int64 == int64(97))
+
+	// https://stackoverflow.com/questions/30299649/parse-string-to-specific-type-of-int-int8-int16-int32-int64
+	// string -> int32，注意 parseInt 始终返回的是 int64，所以还是需要 int32(n) 强转一下
+	_int32, _ := strconv.ParseInt("97", 10, 32)
+	fmt.Println(_int32, int32(_int32) == int32(97))
+
+	// int32 -> string, https://stackoverflow.com/questions/39442167/convert-int32-to-string-in-golang
+	i := 42
+	strconv.FormatInt(int64(i), 10) // fast
+	strconv.Itoa(int(i))            // fast
+	fmt.Sprint(i)                   // slow
+
+	// int -> int64 ，不会丢失精度
+	var n int = 97
+	fmt.Println(int64(n) == int64(97))
+
+	// string -> float32/float64  https://yourbasic.org/golang/convert-string-to-float/
+	f := "3.14159265"
+	if s, err := strconv.ParseFloat(f, 32); err == nil {
+		fmt.Println(s) // 3.1415927410125732
+	}
+	if s, err := strconv.ParseFloat(f, 64); err == nil {
+		fmt.Println(s) // 3.14159265
+	}
+}
+```
 
 ## 常量和变量
 
-常量顾名思义你没法改变它，在一些全局变量中使用 const 会更加安全。常量表达式是在编译器计算。
+常量顾名思义你没法改变它，在一些全局变量中使用 const 会更加安全。常量表达式是在编译期计算。
+对于一些被整个模块或者其他模块使用的变量来说，最好定义成 const 防止被意外修改。
+比如我们会经常在一些文件开头看到类似 const 定义：
+
+```go
+const (
+	Sunday    = 0
+	Monday    = 1
+	Tuesday   = 2
+	Wednesday = 3
+	Thursday  = 4
+	Friday    = 5
+	Saturday  = 6
+)
+```
+
+## 枚举
+
+对于上述这种递增场景，go 还提供了一种更加简洁的方式来定义，使用 iota
+表达式，它可以帮助我们完成自增操作(只有这种常见才推荐去使用 iota)
+
+```go
+const (
+	Sunday = iota
+	Monday
+	Tuesday
+	Wednesday
+	Thursday
+	Friday
+	Saturday
+)
+```
+你可以编写代码打印一下看看剩下的值是多少？
 
 # 小问题：
 
@@ -179,3 +263,4 @@ func stringDemo() {
 # 参考：
 
 - 部分图片来自《Go 语言程序设计》
+- [Ultimate Visual Guide to Go Enums and iota](https://blog.learngoprogramming.com/golang-const-type-enums-iota-bc4befd096d3)
