@@ -147,9 +147,9 @@ func testConvert() { // 测试 int 和 string(decimal) 互相转换的函数
 	}
 }
 
-func main() {
-	// boolDemo()
-	// intDemo()
-	// stringDemo()
-	testIota()
-}
+// func main() {
+// 	// boolDemo()
+// 	// intDemo()
+// 	// stringDemo()
+// 	testIota()
+// }
