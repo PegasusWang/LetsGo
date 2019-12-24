@@ -164,6 +164,7 @@ func stringDemo() {
 ### 字符串和数值类型的转换
 
 在 Python 里进行这种转换是一件很容易的事情，但是 go 里边可不方便。我列出来以下代码你就知道啦：
+注意这里的 Atoi 是 Ascii  to Integer 的缩写，视频里有个口误。
 
 ```go
 func testConvert() { // 测试 int 和 string(decimal) 互相转换的函数
