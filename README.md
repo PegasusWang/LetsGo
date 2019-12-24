@@ -98,11 +98,13 @@ mkdocs gh-deploy    # 部署到自己的 github pages
 ## B 站地址(连载中)
 
 - [学Golang 涨工资系列，你的第一个 Golang 代码](https://www.bilibili.com/video/av79390466/)
+- [学 golang 涨工资系列，聊聊 Go 的基础类型](https://www.bilibili.com/video/av80297008/)
 
 
 ## 知乎专栏
 
 - [学 Golang 涨工资系列，你的第一个 Go 程序[视频]](https://zhuanlan.zhihu.com/p/97536473)
+- [学 golang 涨工资系列，聊聊 Go 的基础类型](https://zhuanlan.zhihu.com/p/99034721)
 
 ## 勘误
 
