@@ -34,6 +34,11 @@ func main() {
 	fmt.Println("i is ", i) // 0
 	fmt.Println("b is ", b) // ""
 
+	// 同时声明并且赋值
+	var floatNum float64 = 1.0
+	var price1, price2 float64 = 8.8, 9.6
+	fmt.Println(floatNum, price1, price2)
+
 	// 还有一种简化方式，声明并且赋值，编译器负责推断类型
 	ii := 1
 	s := "Hello Go!"
