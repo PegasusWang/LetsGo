@@ -13,3 +13,4 @@ nav:
   - 'Hello Go!': '基础篇/00_hello_go/hello_go.md'
   - 'Go 基础类型': '基础篇/01_go_basic_types/basic_types.md'
   - 'Go 数组和切片': '基础篇/02_go_array_and_slice/array_and_slice.md'
+  - 'Go 映射': '基础篇/03_map/map.md'
