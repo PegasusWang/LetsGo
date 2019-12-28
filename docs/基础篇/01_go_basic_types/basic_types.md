@@ -29,7 +29,7 @@ package main
 import "fmt"
 
 func main() {
-	var i int64             // 声明一个 int64 变量
+	var i int64             // 声明一个 int64 变量。注意类型放在后边，习惯就好了
 	var b string            // 声明一个字符串
 	fmt.Println("i is ", i) // 0
 	fmt.Println("b is ", b) // ""
