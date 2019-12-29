@@ -26,7 +26,7 @@ func testArrayOperation() {
 	names := [4]string{"zhang", "wang", "li", "zhao"}
 	fmt.Printf("names has %d elements\n", len(names))
 	fmt.Println(names[1]) // NOTE: 注意如果下标超过范围会 panic
-	names[3] = "lao zhao"
+	names[3] = "lao zhang"
 	fmt.Println(names[3]) // 赋值
 	// 获取区间
 	fmt.Println(names[2:4])
