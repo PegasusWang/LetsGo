@@ -7,16 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="shortcut icon" href="./img/favicon.ico">
-  <title>Let's Go! Golang 短视频教程</title>
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Go 控制流语句 - Let's Go! Golang 短视频教程</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
-  <script src="./js/jquery-2.1.1.min.js" defer></script>
-  <script src="./js/modernizr-2.8.3.min.js" defer></script>
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Go \u63a7\u5236\u6d41\u8bed\u53e5";
+    var mkdocs_page_input_path = "\u57fa\u7840\u7bc7/04_go_control_flow/go_procedural.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
@@ -29,9 +36,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="./." class="icon icon-home"> Let's Go! Golang 短视频教程</a>
+        <a href="../../.." class="icon icon-home"> Let's Go! Golang 短视频教程</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -43,7 +50,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="./.">简介</a>
+    <a class="" href="../../..">简介</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -52,23 +59,32 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="./基础篇/00_hello_go/hello_go/">Hello Go!</a>
+    <a class="" href="../../00_hello_go/hello_go/">Hello Go!</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="./基础篇/01_go_basic_types/basic_types/">Go 基础类型</a>
+    <a class="" href="../../01_go_basic_types/basic_types/">Go 基础类型</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="./基础篇/02_go_array_and_slice/array_and_slice/">Go 数组和切片</a>
+    <a class="" href="../../02_go_array_and_slice/array_and_slice/">Go 数组和切片</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="./基础篇/03_map/map/">Go 映射</a>
+    <a class="" href="../../03_map/map/">Go 映射</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="./基础篇/04_go_control_flow/go_procedural/">Go 控制流语句</a>
+    <a class="current" href="./">Go 控制流语句</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#_1">过程式编程</a></li>
+    
+
+    <li class="toctree-l3"><a href="#go">Go 控制流语句</a></li>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -83,7 +99,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="./.">Let's Go! Golang 短视频教程</a>
+        <a href="../../..">Let's Go! Golang 短视频教程</a>
       </nav>
 
       
@@ -91,9 +107,15 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="./.">Docs</a> &raquo;</li>
+    <li><a href="../../..">Docs</a> &raquo;</li>
     
+      
+        
+          <li>Go基础 &raquo;</li>
+        
+      
     
+    <li>Go 控制流语句</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -103,22 +125,24 @@
           <div role="main">
             <div class="section">
               
-
-  <h1 id="search">Search Results</h1>
-
-  <form id="content_search" action="search.html">
-    <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-    <input name="q" id="mkdocs-search-query" type="text" class="search_input search-query ui-autocomplete-input" placeholder="Search the Docs" autocomplete="off" autofocus title="Type search term here">
-  </form>
-
-  <div id="mkdocs-search-results" class="search-results">
-    Searching...
-  </div>
-
-
+                <blockquote>
+<p>“Go doesn’t implicitly anything.” – Steven in golang-nuts</p>
+</blockquote>
+<h1 id="_1">过程式编程</h1>
+<p>很多现代化编程语言基本都支持多种编程范式，比如<a href="https://en.wikipedia.org/wiki/Procedural_programming">过程式</a>、函数式、面向对象编程等。本章我们来介绍 go
+语言中的控制流语句，熟悉它们为我们编写函数打好基础。</p>
+<h1 id="go">Go 控制流语句</h1>
+              
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../../03_map/map/" class="btn btn-neutral" title="Go 映射"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -142,13 +166,15 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
+        <span><a href="../../03_map/map/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
       
     </span>
 </div>
-    <script>var base_url = '.';</script>
-    <script src="./js/theme.js" defer></script>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
-      <script src="./search/main.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
 
 </body>
 </html>
