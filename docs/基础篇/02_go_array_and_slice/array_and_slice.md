@@ -96,7 +96,7 @@ func testSlice() {
 	names2 := names[0:3] // 获取子切片 0,1,2 三个元素，注意左闭右开区间
 	fmt.Println(names2)
 	// 尝试修改一下 names2 ，注意 names 也会跟着改变么？
-	names[0] = "lao zhao"
+	names[0] = "lao zhang"
 	fmt.Println(names, names2) // 你会发现names也变了，这里起始它们共用了底层结构，注意这个问题
 
 	// 遍历一个 slice 我们使用 for/range 语法
