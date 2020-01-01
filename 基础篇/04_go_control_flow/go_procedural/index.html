@@ -218,7 +218,7 @@ go 语言中如何实现它们。</p>
     // 常规用法
     day := 0
     switch day {
-    case 0, 7:
+    case 0, 6:
         fmt.Println(&quot;周末&quot;)
     case 1, 2, 3, 4, 5:
         fmt.Println(&quot;工作日&quot;)
@@ -281,7 +281,7 @@ for booleanExpression {
 万不得已需要使用的时候再 google 就好，你很可能永远都用不到这个。</p>
 <h1 id="goto">goto</h1>
 <p>go 和 c 一样支持 goto 语句，但是根据笔者的经验，业务代码中其实用的非常少。大部分逻辑我们不用 goto 就可以处理。
-除了极少数情况外，不太提倡使用 goto，但如果万不得已，你你可以去搜索一下 goto 的用法。</p>
+除了极少数情况外，不太提倡使用 goto，但如果万不得已，你可以去搜索一下 goto 的用法。</p>
 <h1 id="_4">小结</h1>
 <p>go 的控制流相比其他语言来说更加简单，比如连 while 都没有提供，直接用一个 for 来解决。本章还没有介绍
 select，我们将在后续介绍到 channel 和并发编程的时候介绍 select 的使用。
