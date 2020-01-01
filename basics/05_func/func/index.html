@@ -7,16 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="shortcut icon" href="/img/favicon.ico">
-  <title>Let's Go! Golang 短视频教程</title>
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Func - Let's Go! Golang 短视频教程</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
-  <script src="/js/jquery-2.1.1.min.js" defer></script>
-  <script src="/js/modernizr-2.8.3.min.js" defer></script>
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Func";
+    var mkdocs_page_input_path = "basics/05_func/func.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
@@ -29,9 +36,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="/." class="icon icon-home"> Let's Go! Golang 短视频教程</a>
+        <a href="../../.." class="icon icon-home"> Let's Go! Golang 短视频教程</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="//search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -43,7 +50,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="/.">简介</a>
+    <a class="" href="../../..">简介</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -52,23 +59,23 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="/basics/00_hello_go/hello_go/">Hello Go!</a>
+    <a class="" href="../../00_hello_go/hello_go/">Hello Go!</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="/basics/01_go_basic_types/basic_types/">Go 基础类型</a>
+    <a class="" href="../../01_go_basic_types/basic_types/">Go 基础类型</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="/basics/02_go_array_and_slice/array_and_slice/">Go 数组和切片</a>
+    <a class="" href="../../02_go_array_and_slice/array_and_slice/">Go 数组和切片</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="/basics/03_map/map/">Go 映射</a>
+    <a class="" href="../../03_map/map/">Go 映射</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="/basics/04_go_control_flow/go_procedural/">Go 控制流语句</a>
+    <a class="" href="../../04_go_control_flow/go_procedural/">Go 控制流语句</a>
                 </li>
     </ul>
 	    </li>
@@ -83,7 +90,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="/.">Let's Go! Golang 短视频教程</a>
+        <a href="../../..">Let's Go! Golang 短视频教程</a>
       </nav>
 
       
@@ -91,9 +98,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="/.">Docs</a> &raquo;</li>
+    <li><a href="../../..">Docs</a> &raquo;</li>
     
+      
     
+    <li>Func</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -103,12 +112,21 @@
           <div role="main">
             <div class="section">
               
-
-  <h1 id="404-page-not-found">404</h1>
-
-  <p><strong>Page not found</strong></p>
-
-
+                <blockquote>
+<p>“Go is not meant to innovate programming theory. It’s meant to innovate programming practice.” – Samuel Tesla</p>
+</blockquote>
+<h1 id="_1">函数介绍</h1>
+<p>函数可以说是开发大型软件的基石，也是封装代码的基本单位。在一些比较老的不支持 oop 编程语言中，正是一个个函数构建起来大型软件。
+其实之前的代码中已经简单使用过函数，比如我们针对每一种语法特性都写了一个叫做 <code>func testXXX</code> 的函数来在 main
+函数里调用看执行结果。</p>
+<p>本章来分享一些业务开中常用的 go 函数的语法特性，学会函数之后就可以开始怼大型项目了。</p>
+<h1 id="_2">如何定一个函数</h1>
+<h1 id="_3">指针</h1>
+<p>如果你学过c/c++，你可能会遇到各种费解的指针操作。go 也有指针，但是 go
+里边大大简化和限制了指针的使用，所以只要你知道指针的基本概念就可以应付几乎所有场景了。</p>
+<h1 id="_4">函数的传参</h1>
+<h1 id="_5">高阶函数</h1>
+              
             </div>
           </div>
           <footer>
@@ -138,10 +156,10 @@
       
     </span>
 </div>
-    <script>var base_url = '/';</script>
-    <script src="/js/theme.js" defer></script>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
-      <script src="/search/main.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
 
 </body>
 </html>

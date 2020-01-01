@@ -83,23 +83,23 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="基础篇/00_hello_go/hello_go/">Hello Go!</a>
+    <a class="" href="basics/00_hello_go/hello_go/">Hello Go!</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="基础篇/01_go_basic_types/basic_types/">Go 基础类型</a>
+    <a class="" href="basics/01_go_basic_types/basic_types/">Go 基础类型</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="基础篇/02_go_array_and_slice/array_and_slice/">Go 数组和切片</a>
+    <a class="" href="basics/02_go_array_and_slice/array_and_slice/">Go 数组和切片</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="基础篇/03_map/map/">Go 映射</a>
+    <a class="" href="basics/03_map/map/">Go 映射</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="基础篇/04_go_control_flow/go_procedural/">Go 控制流语句</a>
+    <a class="" href="basics/04_go_control_flow/go_procedural/">Go 控制流语句</a>
                 </li>
     </ul>
 	    </li>
@@ -179,7 +179,7 @@
 <li>5.面向对象编程。类和实例，数据和方法，组合and继承，接口等概念</li>
 <li>6.内置库（文件、网络、时间、日志等）</li>
 <li>7.找一个广泛使用的第三方库开始写（抄）项目，比如使用 golang 的 gin web 框架重构你们的 restful 应用</li>
-<li>8.边写边查，大量练习。常用代码片段总结成文档。比如 golang 里边各种转换，你可以建立一个代码仓库专门用来记录笔记和代码片段。</li>
+<li>8.边写边查，大量练习。常用代码片段总结成文档。比如 golang 里边各种转换，你可以建立一个代码仓库专门用来记录笔记和代码片段，在你开发的时候快速查阅会非常方便</li>
 <li>9.第三方库快速编写 demo 代码。从 github 搜索关键词。web 框架/redis/mysql/kafka 等第三方库</li>
 <li>10.最佳实践：遇到的坑；代码分层；单元测试；静态检查。分享与输出（费曼学习法）</li>
 </ul>
@@ -187,7 +187,7 @@
 <ul>
 <li>多写多练。光看书是学不会编程的，练习到手熟。书上的例子自己尝试编写和实现，千万不要只看不写</li>
 <li>照葫芦画瓢，一开始学会模仿别人的写法。看源码，学习优秀的设计和写法</li>
-<li>总结，分享，输出。巩固所学知识。费曼学习法</li>
+<li>做项目，总结，输出。巩固所学知识，技术分享和输出。费曼学习法，会加深的理解层次和记忆效果</li>
 </ul>
 <p><a href="https://www.bilibili.com/video/av79283035">学习一门新编程语言，真没那么难![视频]</a></p>
 <h2 id="_3">工具</h2>
@@ -196,6 +196,10 @@
 <pre><code class="sh">pip install when-changed
 # 监控当前文件夹变动并且执行命令
 when-changed -v -r -1 -s ./ go run main.go
+# 笔者喜欢自己 alias 一个快捷命令放到 zshrc/bashrc 里，比如
+alias go_monitor_run=&quot;when-changed -r -v -1 . go run &quot;
+# 这样就可以直接执行如下命令，修改完之后自动执行代码看效果啦
+go_monitor_run main.go
 </code></pre>
 
 <h2 id="_4">本电子书制作和写作方式</h2>
@@ -242,7 +246,7 @@ mkdocs gh-deploy    # 部署到自己的 github pages
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="基础篇/00_hello_go/hello_go/" class="btn btn-neutral float-right" title="Hello Go!">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="basics/00_hello_go/hello_go/" class="btn btn-neutral float-right" title="Hello Go!">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
     </div>
@@ -270,7 +274,7 @@ mkdocs gh-deploy    # 部署到自己的 github pages
       
       
       
-        <span style="margin-left: 15px"><a href="基础篇/00_hello_go/hello_go/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="basics/00_hello_go/hello_go/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
@@ -284,5 +288,5 @@ mkdocs gh-deploy    # 部署到自己的 github pages
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2020-01-01 10:44:08
+Build Date UTC : 2020-01-01 15:45:37
 -->
