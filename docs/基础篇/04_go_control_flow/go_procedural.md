@@ -85,7 +85,7 @@ func testSwitch() {
 	// 常规用法
 	day := 0
 	switch day {
-	case 0, 7:
+	case 0, 6:
 		fmt.Println("周末")
 	case 1, 2, 3, 4, 5:
 		fmt.Println("工作日")
