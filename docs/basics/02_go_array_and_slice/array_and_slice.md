@@ -74,7 +74,7 @@ func testArrayOperation() {
 // 创建一个类型为 Type, 长度为 length, 容量为 capacity 的 slice。一般我们不太关心容量而是关心长度
 make([]Type, length, c capacity)
 // 创建一个类型为 Type, 长度为 length 的 slice，一般我们不太关心容量，而是让 go 帮我们自动处理扩容问题
- make([]Type, length) // 最常用的一种方式
+ make([]Type, length) // 最常用的一种方式, 如果实现知道 slice 的长度，可以避免 slice 扩容操作，性能更好
 // 创建一个 Type 类型 slice
 []Type{} // 和 make([]Type, 0) 等价
 // 创建并且初始化一个 slice。注意和数组的区别是 [] 里边没有省略号 ...
