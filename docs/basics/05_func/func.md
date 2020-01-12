@@ -116,7 +116,7 @@ func main() {
 }
 ```
 
-看起来似乎是值传递，并没有修改传入的值。好，那再试试如果是一个 map 呢？
+看起来似乎是值传递，并没有修改传入的值。好，如果你那么人为，那再试试如果我们传递一个 map 作为参数呢？
 
 ```go
 func changeMap(m map[string]string) {
@@ -130,19 +130,50 @@ func main() {
 }
 ```
 
-TODO: 搜一下 go 的值传递和引用传递
-
 其实记住以下这些你就知道什么时候可以修改传入的参数了：
 
-- 内置类型：数值类型、字符串、布尔类型。传递的是副本
+- 内置类型：数值类型、字符串、布尔类型、数组。传递的是副本 (所以一般不用数组啦)
 - 引用类型: 切片、映射、通道、接口和函数类型。通过复制传递应用类型值的副本，本质上就是共享底层数据结构
 
-后文讲结构体的时候，我们在来看下如何传递通过传递结构体指针来修改一个结构体。
+这里其实 map/slice 等也是传递的副本，为啥它们就可以修改呢？我们以 slice
+举例，它的内部实现其实是这样的，底层实现包含一个指向数组的指针(ptr), 一个长度 len 和容量 cap
+，传参的时候实际上是 slice 这个结构体的拷贝(只有三个元素而不是copy所有的数组值)，所以复制很轻量，而且通过底层的指针就可以实现修改了。
+
+```go
+// https://golang.org/src/runtime/slice.go
+type slice struct {
+	array unsafe.Pointer
+	len   int
+	cap   int
+}
+```
+
+![](./slice-internal.png)
+
+# 传递指针
+
 如果你学过c/c++，你可能会遇到各种费解的指针操作。go 也有指针，但是 go
 里边大大简化和限制了指针的使用，所以只要你知道指针的基本概念就可以应付几乎所有场景了。
+后文讲结构体的时候，我们在来看下如何传递通过传递结构体指针来修改一个结构体，你会发现大部分指针的使用场景都是针对复杂的结构体。
+
+```go
+func changeString(s *string) {
+	*s = "new lao wang"
+}
+
+func main() {
+	s := "lao wang"
+	changeString(&s)
+	fmt.Println(s)
+}
+```
 
 # 高阶函数
 
 # 闭包问题
 
 # 递归函数
+
+# 参考：
+
+- [Go Slices: usage and internals](https://blog.golang.org/go-slices-usage-and-internals)

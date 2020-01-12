@@ -59,8 +59,15 @@ func changeMap(m map[string]string) {
 	m["王八"] = "绿豆"
 }
 
+func changeString(s *string) {
+	*s = "new lao wang"
+}
+
 func main() {
-	m := map[string]string{"name": "lao wang"}
-	changeMap(m)
-	fmt.Println(m) // map[name:lao wang 王八:绿豆]
+	s := "lao wang"
+	changeString(&s)
+	fmt.Println(s)
+	// m := map[string]string{"name": "lao wang"}
+	// changeMap(m)
+	// fmt.Println(m) // map[name:lao wang 王八:绿豆]
 }
