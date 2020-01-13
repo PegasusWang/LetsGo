@@ -43,8 +43,10 @@ func testSum() {
 	fmt.Println(sum1(1, 2))
 	fmt.Println(sum2(1, 2))
 	fmt.Println(sum3(0, 1, 2, 3))
+	fmt.Println(sum3(0, []int{1, 2, 3}...)) // 传入一个slice
 	fmt.Println(sum4(0, 1, 2, 3))
 }
+
 func changeStr(s string) {
 	s = "hehe"
 	fmt.Println(s)
