@@ -181,7 +181,6 @@ func testAnonymousFunc() {
 	func(s string) {
 		fmt.Println(s)
 	}("hehe")
-}
 ```
 
 # 函数类型
@@ -252,7 +251,37 @@ func main() {
 
 # 闭包
 
+很多语言都有闭包的概念， 所谓闭包就是一个函数“捕获”了和它在同一作用域的其他常量和变量。
+当闭包被调用的时候，不管在程序什么地方调用，闭包能够使用这些常量或者变量，并且只要闭包还在使用它，这些变量就还会存在。
+上文中提到的匿名函数其实就是闭包。来看一个简单的示例：
+
+```go
+// 闭包示例
+func testClosure() {
+	suffix := ".go"
+	addSuffix := func(name string) string {
+		return name + suffix // 这里使用到了 suffix 这个变量，所以 addSuffix 就是一个闭包
+	}
+	fmt.Println(addSuffix("hello_world"))
+}
+```
+
+之后再讲到 goroutine 的时候，我们会看到一个 for 循环里使用闭包的坑。
+
 # 递归函数
+
+如果你学习过其他语言，一定知道递归，就是自己调用自己的函数，go 也是支持递归函数的。比如我们经常看到的斐波那契数：
+
+```go
+func fib(n int) int {
+	if n < 2 {
+		return n
+	}
+	return fib(n-1) + fib(n-2)
+}
+```
+
+递归需要注意的一点就是一定要有一个递归出口，防止无限递归导致栈溢出(stackoverflow)
 
 # 参考：
 

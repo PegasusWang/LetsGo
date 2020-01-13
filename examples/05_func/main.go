@@ -106,6 +106,22 @@ func FilterIntSlice(intVals []int, predicate func(i int) bool) []int {
 	return res
 }
 
+// 闭包示例
+func testClosure() {
+	suffix := ".go"
+	addSuffix := func(name string) string {
+		return name + suffix // 这里使用到了 suffix 这个变量，所以 addSuffix 就是一个闭包
+	}
+	fmt.Println(addSuffix("hello_world"))
+}
+
+func fib(n int) int {
+	if n < 2 {
+		return n
+	}
+	return fib(n-1) + fib(n-2)
+}
+
 func main() {
 	// s := "lao wang"
 	// changeString(&s)
@@ -120,7 +136,10 @@ func main() {
 	// testMapFunc()
 	// funcAsParam()
 
-	ints := []int{1, 2, 3, 4, 5}
-	isOdd := func(i int) bool { return i%2 != 0 } // 是奇数
-	fmt.Println(FilterIntSlice(ints, isOdd))      // [1 3 5]
+	// ints := []int{1, 2, 3, 4, 5}
+	// isOdd := func(i int) bool { return i%2 != 0 } // 是奇数
+	// fmt.Println(FilterIntSlice(ints, isOdd))      // [1 3 5]
+
+	// testClosure()
+	fmt.Println(fib(10))
 }
