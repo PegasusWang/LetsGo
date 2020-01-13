@@ -100,7 +100,9 @@ mkdocs gh-deploy    # 部署到自己的 github pages
 
 ## B 站地址(连载中)
 
-- [学Golang 涨工资系列，你的第一个 Golang 代码](https://www.bilibili.com/video/av79390466/)
+[go 基础系列频道](https://space.bilibili.com/288339968/channel/detail?cid=96412)
+
+- [学 Golang 涨工资系列，你的第一个 Golang 代码](https://www.bilibili.com/video/av79390466/)
 - [学 golang 涨工资系列，聊聊 Go 的基础类型](https://www.bilibili.com/video/av80297008/)
 - [学 golang 涨工资系列，快速入门 go 数组与切片](https://www.bilibili.com/video/av81161132/)
 - [学 golang涨工资系列，golang 映射](https://www.bilibili.com/video/av81161408/)
@@ -110,7 +112,7 @@ mkdocs gh-deploy    # 部署到自己的 github pages
 
 - [学 Golang 涨工资系列，你的第一个 Go 程序[视频]](https://zhuanlan.zhihu.com/p/97536473)
 - [学 golang 涨工资系列，聊聊 Go 的基础类型](https://zhuanlan.zhihu.com/p/99034721)
-- [学Golang涨工资系列，Golang 数组和切片](https://zhuanlan.zhihu.com/p/100512151)
+- [学 Golang 涨工资系列，Golang 数组和切片](https://zhuanlan.zhihu.com/p/100512151)
 - [学 Golang 涨工资系列，Go map映射](https://zhuanlan.zhihu.com/p/100512341)
 - [学 golang 涨工资系列，go 流程控制[视频]](https://zhuanlan.zhihu.com/p/100618984)
 
