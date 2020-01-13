@@ -171,11 +171,84 @@ func main() {
 }
 ```
 
-# 函数类型
-
 # 匿名函数
 
+上面我们看到了 go 函数的常见定义方式，go 中我们也可以使用匿名函数，经常用在一些临时的小函数中，比如下边这个例子，
+定义一个匿名函数并且打印传进去的字符串：
+
+```go
+func testAnonymousFunc() {
+	func(s string) {
+		fmt.Println(s)
+	}("hehe")
+}
+```
+
+# 函数类型
+
+go 里边函数其实也是『一等公民』，函数本身也是一种类型，所以我们可以定义一个函数然后赋值给一个变量，比如:
+
+```go
+func testFuncType() {
+	myPrint := func(s string) { fmt.Println(s) }
+	myPrint("hello go")
+}
+```
+
+如此一来 go 的函数实际上会非常灵活，比如我们可以定一个 map 值为函数的映射：
+
+```go
+func testMapFunc() {
+	funcMap := map[string]func(int, int) int{
+		"add": func(a, b int) int { return a + b },
+		"sub": func(a, b int) int { return a - b },
+	}
+	fmt.Println(funcMap["add"](3, 2))
+	fmt.Println(funcMap["sub"](3, 2))
+}
+```
+
+甚至还可以作为函数的参数传递进去，比如这个例子：
+
+```go
+func Double(n int) int {
+	return n * 2
+}
+func Apply(n int, f func(int) int) int {
+	return f(n) // f 的类型是 "func(int) int"
+}
+func funcAsParam() {
+	fmt.Println(Apply(10, Double))
+}
+```
+
+可以看到 go 的函数使用起来是非常灵活的，有些写法可能你在动态语言中才会经常看到。
+
 # 高阶函数
+
+其实所谓高阶函数就是将一个或者多个其他函数作为自己的参数，并在函数体里调用它们。上边的例子已经演示到啦，
+这里我们再来写一个简单的示例，在很多语言中都可以见到的谓词函数。
+我们经常想从一个数组里边获取我们需要的一组数据，就可以这么写，从一个切片中获取所有奇数(odd number):
+
+```go
+func FilterIntSlice(intVals []int, predicate func(i int) bool) []int {
+	res := make([]int, 0)
+	for _, val := range intVals {
+		if predicate(val) {
+			res = append(res, val)
+		}
+	}
+	return res
+}
+
+func main() {
+	ints := []int{1, 2, 3, 4, 5}
+	isOdd := func(i int) bool { return i%2 != 0 } // 是奇数
+	fmt.Println(FilterIntSlice(ints, isOdd))      // [1 3 5]
+}
+```
+
+是不是很简单，同样我们还可以获取所有的偶数，或者满足某些条件的数字。留给读者作为小练习
 
 # 闭包
 

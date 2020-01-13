@@ -65,11 +65,62 @@ func changeString(s *string) {
 	*s = "new lao wang"
 }
 
+func testAnonymousFunc() {
+	func(s string) {
+		fmt.Println(s)
+	}("hehe")
+}
+
+func testFuncType() {
+	myPrint := func(s string) { fmt.Println(s) }
+	myPrint("hello go")
+}
+
+func testMapFunc() {
+	funcMap := map[string]func(int, int) int{
+		"add": func(a, b int) int { return a + b },
+		"sub": func(a, b int) int { return a - b },
+	}
+
+	fmt.Println(funcMap["add"](3, 2))
+	fmt.Println(funcMap["sub"](3, 2))
+}
+
+func Double(n int) int {
+	return n * 2
+}
+func Apply(n int, f func(int) int) int {
+	return f(n) // f 的类型是 "func(int) int"
+}
+func funcAsParam() {
+	fmt.Println(Apply(10, Double))
+}
+
+func FilterIntSlice(intVals []int, predicate func(i int) bool) []int {
+	res := make([]int, 0)
+	for _, val := range intVals {
+		if predicate(val) {
+			res = append(res, val)
+		}
+	}
+	return res
+}
+
 func main() {
-	s := "lao wang"
-	changeString(&s)
-	fmt.Println(s)
+	// s := "lao wang"
+	// changeString(&s)
+	// fmt.Println(s)
+
 	// m := map[string]string{"name": "lao wang"}
 	// changeMap(m)
 	// fmt.Println(m) // map[name:lao wang 王八:绿豆]
+	// testAnonymousFunc()
+
+	// testFuncType()
+	// testMapFunc()
+	// funcAsParam()
+
+	ints := []int{1, 2, 3, 4, 5}
+	isOdd := func(i int) bool { return i%2 != 0 } // 是奇数
+	fmt.Println(FilterIntSlice(ints, isOdd))      // [1 3 5]
 }
