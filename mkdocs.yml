@@ -16,3 +16,4 @@ nav:
   - 'Go 映射': 'basics/03_map/map.md'
   - 'Go 控制流语句': 'basics/04_go_control_flow/go_procedural.md'
   - 'Go 函数': 'basics/05_func/func.md'
+  - 'Go 错误处理': 'basics/06_error/error.md'
