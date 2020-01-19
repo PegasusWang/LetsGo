@@ -107,6 +107,7 @@ mkdocs gh-deploy    # 部署到自己的 github pages
 - [学 golang 涨工资系列，快速入门 go 数组与切片](https://www.bilibili.com/video/av81161132/)
 - [学 golang涨工资系列，golang 映射](https://www.bilibili.com/video/av81161408/)
 - [学 golang 涨工资系列，go 流程控制](https://www.bilibili.com/video/av81651933/)
+- [学 golang 涨工资系列，go 函数初探](https://www.bilibili.com/video/av83934847/)
 
 ## 知乎专栏
 
