@@ -1,11 +1,39 @@
 site_name: Let's Go! Golang 短视频教程
-theme: readthedocs
+site_author: 'PegasusWang'
+# theme: readthedocs
+
+# Copyright
+copyright: 'Copyright &copy; 2019 - 2020 PegasusWang'
+
+# Configuration
+theme:
+  name: 'material'
+  language: 'en'
+  palette:
+    primary: 'indigo'
+    accent: 'indigo'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  feature:
+    tabs: true
+
 extra_javascript:
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+extra:
+  manifest: 'manifest.webmanifest'
+  social:
+    - type: 'github'
+      link: 'https://github.com/PegasusWang'
 
 markdown_extensions:
   - mdx_math:
       enable_dollar_delimiter: True  #for use of inline $..$
+  - codehilite:
+      guess_lang: False
+  - toc:
+      permalink: true
 
 nav:
 - 简介: 'index.md'
