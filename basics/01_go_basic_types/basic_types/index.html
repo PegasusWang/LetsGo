@@ -1,262 +1,478 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Go 基础类型 - Let's Go! Golang 短视频教程</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Go \u57fa\u7840\u7c7b\u578b";
-    var mkdocs_page_input_path = "basics/01_go_basic_types/basic_types.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
-</head>
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
 
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../../.." class="icon icon-home"> Let's Go! Golang 短视频教程</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="PegasusWang">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Go 基础类型 - Let's Go! Golang 短视频教程</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" href="../../../manifest.webmanifest">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#go" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="Let's Go! Golang 短视频教程" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Let's Go! Golang 短视频教程
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Go 基础类型
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+        
       </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../..">简介</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Go基础</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../00_hello_go/hello_go/">Hello Go!</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Go 基础类型</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#go">Go 变量标识符</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_1">静态/动态类型，弱类型/强类型</a></li>
-    
-
-    <li class="toctree-l3"><a href="#go_1">go 如何声明一个变量</a></li>
-    
-
-    <li class="toctree-l3"><a href="#go_2">Go 的基础类型</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#bool">bool 类型</a></li>
-        
-            <li><a class="toctree-l4" href="#_2">数值类型(整型和浮点类型)</a></li>
-        
-            <li><a class="toctree-l4" href="#_7">延伸(大整数运算)</a></li>
-        
-            <li><a class="toctree-l4" href="#_8">字符串</a></li>
-        
-            <li><a class="toctree-l4" href="#_10">常量和变量</a></li>
-        
-            <li><a class="toctree-l4" href="#_11">枚举</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#_12">小问题：</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_13">参考：</a></li>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../02_go_array_and_slice/array_and_slice/">Go 数组和切片</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../03_map/map/">Go 映射</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../04_go_control_flow/go_procedural/">Go 控制流语句</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../05_func/func/">Go 函数</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../..">Let's Go! Golang 短视频教程</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../../..">Docs</a> &raquo;</li>
+    </div>
+  </nav>
+</header>
     
+    <div class="md-container">
       
         
-          <li>Go基础 &raquo;</li>
-        
       
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
     
-    <li>Go 基础类型</li>
-    <li class="wy-breadcrumbs-aside">
+      <a href="../../.." class="md-tabs__link">
+        简介
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../00_hello_go/hello_go/" class="md-tabs__link md-tabs__link--active">
+          Go基础
+        </a>
       
     </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="Let's Go! Golang 短视频教程" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Let's Go! Golang 短视频教程
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Go基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Go基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../00_hello_go/hello_go/" title="Hello Go!" class="md-nav__link">
+      Hello Go!
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Go 基础类型" class="md-nav__link md-nav__link--active">
+      Go 基础类型
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../02_go_array_and_slice/array_and_slice/" title="Go 数组和切片" class="md-nav__link">
+      Go 数组和切片
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03_map/map/" title="Go 映射" class="md-nav__link">
+      Go 映射
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../04_go_control_flow/go_procedural/" title="Go 控制流语句" class="md-nav__link">
+      Go 控制流语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../05_func/func/" title="Go 函数" class="md-nav__link">
+      Go 函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../06_error/error/" title="Go 错误处理" class="md-nav__link">
+      Go 错误处理
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
               
+                
+                
                 <blockquote>
 <p>“In Go, the code does exactly what it says on the page.” – Andrew Gerrand</p>
 </blockquote>
-<h1 id="go">Go 变量标识符</h1>
+<h1 id="go">Go 变量标识符<a class="headerlink" href="#go" title="Permanent link">&para;</a></h1>
 <p>给一个 go 变量命名(标识符)的时候，通常使用大骆驼(BigCamel)和小骆驼(smallCamel)命名法，只要保证不和内置的25个关键词冲突就行。
 当然 go 也内置了一些自己的标识符，见下图，我建议你最好不要使用这些同名的预定义标识符来命名变量。
 只要是非空的字母或者数字（第一个必须是字母），并且不和关键词冲突就是合法的标识符。注意标识符区分大小写，并且在 go
 里边只有大写开头的才能导出被其他包使用（后文我们再讨论）。</p>
 <p><img alt="go 预定义标识符" src="../00_builtin_identifier.png" /></p>
-<h1 id="_1">静态/动态类型，弱类型/强类型</h1>
+<h1 id="_1">静态/动态类型，弱类型/强类型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>静态，动态类型指的是类型是在编译期还是运行期间确定，而弱类型和强类型指的是有没有隐式类型转换。
 比如 Python 就是动态强类型语言(很多人误以为弱类型)，而 php/js 是动态弱类型语言。
 go 是静态强类型语言，我们在编写代码的时候需要先声明变量的类型（或者编译器推导），
 在不同类型之间转换的时候需要我们强制使用类型转换符。</p>
-<h1 id="go_1">go 如何声明一个变量</h1>
+<h1 id="go_1">go 如何声明一个变量<a class="headerlink" href="#go_1" title="Permanent link">&para;</a></h1>
 <p>go 中声明一个变量很简单，使用 var 关键字就可以了，声明之后默认使用其类型的零值初始化。
 比如int 类型默认是0，字符串就是空串。</p>
 <p>当然为了简化 go 还提供了一种使用 <code>:=</code> 直接声明并且初始化的方式。请编写如下代码观察输出(我建议你纯手敲练练手速，不要直接复制)：</p>
-<pre><code class="go">package main
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
 
-import &quot;fmt&quot;
+<span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 
-func main() {
-    var i int64             // 声明一个 int64 变量。注意类型放在后边，习惯就好了
-    var b string            // 声明一个字符串
-    fmt.Println(&quot;i is &quot;, i) // 0
-    fmt.Println(&quot;b is &quot;, b) // &quot;&quot;
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">i</span> <span class="kt">int64</span>             <span class="c1">// 声明一个 int64 变量。注意类型放在后边，习惯就好了</span>
+    <span class="kd">var</span> <span class="nx">b</span> <span class="kt">string</span>            <span class="c1">// 声明一个字符串</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;i is &quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="c1">// 0</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;b is &quot;</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="c1">// &quot;&quot;</span>
 
-    // 同时声明并且赋值
-    var floatNum float64 = 1.0
-    var price1, price2 float64 = 8.8, 9.6
-    fmt.Println(floatNum, price1, price2)
+    <span class="c1">// 同时声明并且赋值</span>
+    <span class="kd">var</span> <span class="nx">floatNum</span> <span class="kt">float64</span> <span class="p">=</span> <span class="mf">1.0</span>
+    <span class="kd">var</span> <span class="nx">price1</span><span class="p">,</span> <span class="nx">price2</span> <span class="kt">float64</span> <span class="p">=</span> <span class="mf">8.8</span><span class="p">,</span> <span class="mf">9.6</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">floatNum</span><span class="p">,</span> <span class="nx">price1</span><span class="p">,</span> <span class="nx">price2</span><span class="p">)</span>
 
-    // 还有一种简化方式，声明并且赋值，编译器负责推断类型
-    ii := 1
-    s := &quot;Hello Go!&quot;
-    fmt.Println(&quot;ii is &quot;, ii) // 1
-    fmt.Println(&quot;s is &quot;, s)   // Hello Go!&quot;
-}
-</code></pre>
+    <span class="c1">// 还有一种简化方式，声明并且赋值，编译器负责推断类型</span>
+    <span class="nx">ii</span> <span class="o">:=</span> <span class="mi">1</span>
+    <span class="nx">s</span> <span class="o">:=</span> <span class="s">&quot;Hello Go!&quot;</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;ii is &quot;</span><span class="p">,</span> <span class="nx">ii</span><span class="p">)</span> <span class="c1">// 1</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;s is &quot;</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>   <span class="c1">// Hello Go!&quot;</span>
+<span class="p">}</span>
+</pre></div>
 
-<h1 id="go_2">Go 的基础类型</h1>
+
+<h1 id="go_2">Go 的基础类型<a class="headerlink" href="#go_2" title="Permanent link">&para;</a></h1>
 <p>无论是学习过程式、面向对象还是并发编程，我们都需要首先学习一门语言的基础类型，对于大部分业务常用编程语言来说就是数值类型和字符串类型。</p>
-<h2 id="bool">bool 类型</h2>
+<h2 id="bool">bool 类型<a class="headerlink" href="#bool" title="Permanent link">&para;</a></h2>
 <p>bool 就是真或者假，一些编程语言使用 0 和非 0 表示。但是 go 里比如 if 语句后边只能是 bool 值或者返回 bool
 值的表达式，而不像 c 一样可以使用 int 值。</p>
 <p><img alt="" src="../01_bool.png" /></p>
-<pre><code class="go">// 让我们编写一些小的 demo 代码来测试一下
-func boolDemo() {
-    var b1 bool
-    b2 := false
-    b3 := true
-    if b1 {
-        fmt.Println(&quot;b1 is true&quot;)
-    }
-    if b2 {
-        fmt.Println(&quot;b2 is true&quot;)
-    }
-    if b3 {
-        fmt.Println(&quot;b3 is true&quot;)
-    }
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="c1">// 让我们编写一些小的 demo 代码来测试一下</span>
+<span class="kd">func</span> <span class="nx">boolDemo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">b1</span> <span class="kt">bool</span>
+    <span class="nx">b2</span> <span class="o">:=</span> <span class="kc">false</span>
+    <span class="nx">b3</span> <span class="o">:=</span> <span class="kc">true</span>
+    <span class="k">if</span> <span class="nx">b1</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;b1 is true&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="nx">b2</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;b2 is true&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="nx">b3</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;b3 is true&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 
-<h2 id="_2">数值类型(整型和浮点类型)</h2>
-<h3 id="_3">整数类型</h3>
+
+<h2 id="_2">数值类型(整型和浮点类型)<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">整数类型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>整数类型可以说是我们最常用的一种类型，如果你用 python 的话非常省心(Python3 int 就是大数类，内存够用无需担心溢出)，但是 go 里边却有非常多的 int 类型。
 对于一门追求性能的语言来说，有些地方可以省内存就省一点。这里需要注意的就是每种类型取值范围，确保不要超范围了。业务中经常使用也就是
 int64/int32 了。</p>
 <p><img alt="" src="../02_int_types.png" /></p>
 <p>当然作为整数，一般常用的那就是加减乘除之类的数学运算了：</p>
 <p><img alt="" src="../03_int_operations.png" /></p>
-<pre><code class="go">// 同样我们编写简单的测试代码来熟悉它们，确保你不要直接复制粘贴。整本电子书和代码都是笔者一个字一个字敲出来的
-func intDemo() {
-    var i64 int64
-    i64 = 10
-    fmt.Println(i64 + 10)
+<div class="codehilite"><pre><span></span><span class="c1">// 同样我们编写简单的测试代码来熟悉它们，确保你不要直接复制粘贴。整本电子书和代码都是笔者一个字一个字敲出来的</span>
+<span class="kd">func</span> <span class="nx">intDemo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">i64</span> <span class="kt">int64</span>
+    <span class="nx">i64</span> <span class="p">=</span> <span class="mi">10</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">i64</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
 
-    i32 := int32(42)
-    fmt.Println(i32 + 10)
+    <span class="nx">i32</span> <span class="o">:=</span> <span class="nb">int32</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">i32</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
 
-    fmt.Println(
-        math.MaxInt64, // 需要导入 math 包，见本章示例代码
-    )
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span>
+        <span class="nx">math</span><span class="p">.</span><span class="nx">MaxInt64</span><span class="p">,</span> <span class="c1">// 需要导入 math 包，见本章示例代码</span>
+    <span class="p">)</span>
 
-    a, b := 10, 0
-    fmt.Println(a / b) // Boom! 会发生什么。错误处理我们后文介绍
-}
+    <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="o">:=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">/</span> <span class="nx">b</span><span class="p">)</span> <span class="c1">// Boom! 会发生什么。错误处理我们后文介绍</span>
+<span class="p">}</span>
 
-func main() {
-    intDemo() // 虽然还没讲到 函数，不过相信你也知道如何调用了
-}
-</code></pre>
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">intDemo</span><span class="p">()</span> <span class="c1">// 虽然还没讲到 函数，不过相信你也知道如何调用了</span>
+<span class="p">}</span>
+</pre></div>
 
-<h3 id="_4">浮点数类型</h3>
+
+<h3 id="_4">浮点数类型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>接下来是浮点数，很多场景我们计算的时候都需要有小数点，go 里有两种类型的浮点数。</p>
 <p><img alt="" src="../04_float.png" /></p>
 <p>math 包里很多函数以 float64 作为参数，你可以提前看一下 go 文档看看提供了哪些函数。
 浮点数同样也是常见的加减乘除，这里请大家自己编写一些代码来练习，笔者不再赘述。</p>
-<h3 id="_5">数值转换小提示</h3>
+<h3 id="_5">数值转换小提示<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <ul>
 <li>注意不同数值类型之间转换(大转小)可能有截断，比如一个 int64 转成 int32 类型的数字</li>
 <li>可以使用 int(float) 转换一个 浮点数到整数，小数部分会丢弃。但是如果浮点数的值超过了整数类型范围，结果是不可预期的</li>
@@ -264,175 +480,219 @@ func main() {
 <li>业务中经常使用 float64，因为 math 函数很多接受 float64 作为参数</li>
 <li>你可以通过 math.MaxInt32 类似的定义查看一个类型的最大值</li>
 </ul>
-<h3 id="_6">复数类型</h3>
+<h3 id="_6">复数类型<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>复数在常见业务代码中使用比较少，这里就略过了。你可以使用 complex() 来创建复数。</p>
-<h2 id="_7">延伸(大整数运算)</h2>
+<h2 id="_7">延伸(大整数运算)<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>某些场景下， 如果64位依然满足不了你，你可以使用大整数 big.Int 和 有理数 big.Rat 类型。</p>
-<h2 id="_8">字符串</h2>
+<h2 id="_8">字符串<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>业务中另一个最常用的就是字符串(string)了，web 开发几乎天天就是和字符串打交道。Go的字符串是使用 UTF-8
 编码的字符序列，这意味着你可以使用任意国家的语言。
 Go 中我们可以使用双引号(")和反引号(`)来创建字符串，区别反引号会忽略转义符，并且可以创建多行字符串。</p>
-<pre><code class="go">func stringDemo() {
-    // 如果字符串本身也有双引号，就需要把里边的双引号使用 \ 转义
-    s1 := &quot;\&quot;Hello Go\&quot;&quot;
-    // 使用反斜线就可以直接包含双引号了
-    s2 := `&quot;Hello Go&quot;`
-    fmt.Println(s1) // 打印出 &quot;Hello Go&quot;
-    fmt.Println(s2) // 打印出 &quot;Hello Go&quot;
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">stringDemo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 如果字符串本身也有双引号，就需要把里边的双引号使用 \ 转义</span>
+    <span class="nx">s1</span> <span class="o">:=</span> <span class="s">&quot;\&quot;Hello Go\&quot;&quot;</span>
+    <span class="c1">// 使用反斜线就可以直接包含双引号了</span>
+    <span class="nx">s2</span> <span class="o">:=</span> <span class="s">`&quot;Hello Go&quot;`</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s1</span><span class="p">)</span> <span class="c1">// 打印出 &quot;Hello Go&quot;</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s2</span><span class="p">)</span> <span class="c1">// 打印出 &quot;Hello Go&quot;</span>
 
-    s3 := `
-你好
-`
-    s4 := &quot;Golang !&quot;
-    fmt.Println(s3 + s4)
-}
-</code></pre>
+    <span class="nx">s3</span> <span class="o">:=</span> <span class="s">`</span>
+<span class="s">你好</span>
+<span class="s">`</span>
+    <span class="nx">s4</span> <span class="o">:=</span> <span class="s">&quot;Golang !&quot;</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s3</span> <span class="o">+</span> <span class="nx">s4</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>字符串支持如下操作：</p>
 <p><img alt="" src="../05_string_operation.png" /></p>
-<h3 id="_9">字符串和数值类型的转换</h3>
+<h3 id="_9">字符串和数值类型的转换<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>在 Python 里进行这种转换是一件很容易的事情，但是 go 里边可不方便。我列出来以下代码你就知道啦：
 注意这里的 Atoi 是 Ascii  to Integer 的缩写，视频里有个口误。</p>
-<pre><code class="go">func testConvert() { // 测试 int 和 string(decimal) 互相转换的函数
-    // https://yourbasic.org/golang/convert-int-to-string/
-    // int -&gt; string
-    sint := strconv.Itoa(97)
-    fmt.Println(sint, sint == &quot;97&quot;)
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">testConvert</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// 测试 int 和 string(decimal) 互相转换的函数</span>
+    <span class="c1">// https://yourbasic.org/golang/convert-int-to-string/</span>
+    <span class="c1">// int -&gt; string</span>
+    <span class="nx">sint</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">Itoa</span><span class="p">(</span><span class="mi">97</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">sint</span><span class="p">,</span> <span class="nx">sint</span> <span class="o">==</span> <span class="s">&quot;97&quot;</span><span class="p">)</span>
 
-    // byte -&gt; string
-    bytea := byte(1)
-    bint := strconv.Itoa(int(bytea))
-    fmt.Println(bint)
+    <span class="c1">// byte -&gt; string</span>
+    <span class="nx">bytea</span> <span class="o">:=</span> <span class="nb">byte</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nx">bint</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">Itoa</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nx">bytea</span><span class="p">))</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">bint</span><span class="p">)</span>
 
-    // int64 -&gt; string
-    sint64 := strconv.FormatInt(int64(97), 10)
-    fmt.Println(sint64, sint64 == &quot;97&quot;)
+    <span class="c1">// int64 -&gt; string</span>
+    <span class="nx">sint64</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">FormatInt</span><span class="p">(</span><span class="nb">int64</span><span class="p">(</span><span class="mi">97</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">sint64</span><span class="p">,</span> <span class="nx">sint64</span> <span class="o">==</span> <span class="s">&quot;97&quot;</span><span class="p">)</span>
 
-    // int64 -&gt; string (hex) ，十六进制
-    sint64hex := strconv.FormatInt(int64(97), 16)
-    fmt.Println(sint64hex, sint64hex == &quot;61&quot;)
+    <span class="c1">// int64 -&gt; string (hex) ，十六进制</span>
+    <span class="nx">sint64hex</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">FormatInt</span><span class="p">(</span><span class="nb">int64</span><span class="p">(</span><span class="mi">97</span><span class="p">),</span> <span class="mi">16</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">sint64hex</span><span class="p">,</span> <span class="nx">sint64hex</span> <span class="o">==</span> <span class="s">&quot;61&quot;</span><span class="p">)</span>
 
-    // string -&gt; int
-    _int, _ := strconv.Atoi(&quot;97&quot;)
-    fmt.Println(_int, _int == int(97))
+    <span class="c1">// string -&gt; int</span>
+    <span class="nx">_int</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">Atoi</span><span class="p">(</span><span class="s">&quot;97&quot;</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">_int</span><span class="p">,</span> <span class="nx">_int</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="mi">97</span><span class="p">))</span>
 
-    // string -&gt; int64
-    _int64, _ := strconv.ParseInt(&quot;97&quot;, 10, 64)
-    fmt.Println(_int64, _int64 == int64(97))
+    <span class="c1">// string -&gt; int64</span>
+    <span class="nx">_int64</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">ParseInt</span><span class="p">(</span><span class="s">&quot;97&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">_int64</span><span class="p">,</span> <span class="nx">_int64</span> <span class="o">==</span> <span class="nb">int64</span><span class="p">(</span><span class="mi">97</span><span class="p">))</span>
 
-    // https://stackoverflow.com/questions/30299649/parse-string-to-specific-type-of-int-int8-int16-int32-int64
-    // string -&gt; int32，注意 parseInt 始终返回的是 int64，所以还是需要 int32(n) 强转一下
-    _int32, _ := strconv.ParseInt(&quot;97&quot;, 10, 32)
-    fmt.Println(_int32, int32(_int32) == int32(97))
+    <span class="c1">// https://stackoverflow.com/questions/30299649/parse-string-to-specific-type-of-int-int8-int16-int32-int64</span>
+    <span class="c1">// string -&gt; int32，注意 parseInt 始终返回的是 int64，所以还是需要 int32(n) 强转一下</span>
+    <span class="nx">_int32</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">ParseInt</span><span class="p">(</span><span class="s">&quot;97&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">_int32</span><span class="p">,</span> <span class="nb">int32</span><span class="p">(</span><span class="nx">_int32</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int32</span><span class="p">(</span><span class="mi">97</span><span class="p">))</span>
 
-    // int32 -&gt; string, https://stackoverflow.com/questions/39442167/convert-int32-to-string-in-golang
-    i := 42
-    strconv.FormatInt(int64(i), 10) // fast
-    strconv.Itoa(int(i))            // fast
-    fmt.Sprint(i)                   // slow
+    <span class="c1">// int32 -&gt; string, https://stackoverflow.com/questions/39442167/convert-int32-to-string-in-golang</span>
+    <span class="nx">i</span> <span class="o">:=</span> <span class="mi">42</span>
+    <span class="nx">strconv</span><span class="p">.</span><span class="nx">FormatInt</span><span class="p">(</span><span class="nb">int64</span><span class="p">(</span><span class="nx">i</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span> <span class="c1">// fast</span>
+    <span class="nx">strconv</span><span class="p">.</span><span class="nx">Itoa</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span>            <span class="c1">// fast</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprint</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>                   <span class="c1">// slow</span>
 
-    // int -&gt; int64 ，不会丢失精度
-    var n int = 97
-    fmt.Println(int64(n) == int64(97))
+    <span class="c1">// int -&gt; int64 ，不会丢失精度</span>
+    <span class="kd">var</span> <span class="nx">n</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">97</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">int64</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int64</span><span class="p">(</span><span class="mi">97</span><span class="p">))</span>
 
-    // string -&gt; float32/float64  https://yourbasic.org/golang/convert-string-to-float/
-    f := &quot;3.14159265&quot;
-    if s, err := strconv.ParseFloat(f, 32); err == nil {
-        fmt.Println(s) // 3.1415927410125732
-    }
-    if s, err := strconv.ParseFloat(f, 64); err == nil {
-        fmt.Println(s) // 3.14159265
-    }
-}
-</code></pre>
+    <span class="c1">// string -&gt; float32/float64  https://yourbasic.org/golang/convert-string-to-float/</span>
+    <span class="nx">f</span> <span class="o">:=</span> <span class="s">&quot;3.14159265&quot;</span>
+    <span class="k">if</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">ParseFloat</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="mi">32</span><span class="p">);</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="c1">// 3.1415927410125732</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nx">ParseFloat</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="mi">64</span><span class="p">);</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="c1">// 3.14159265</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 
-<h2 id="_10">常量和变量</h2>
+
+<h2 id="_10">常量和变量<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <p>常量顾名思义你没法改变它，在一些全局变量中使用 const 会更加安全。常量表达式是在编译期计算。
 对于一些被整个模块或者其他模块使用的变量来说，最好定义成 const 防止被意外修改。
 比如我们会经常在一些文件开头看到类似 const 定义：</p>
-<pre><code class="go">const (
-    Sunday    = 0
-    Monday    = 1
-    Tuesday   = 2
-    Wednesday = 3
-    Thursday  = 4
-    Friday    = 5
-    Saturday  = 6
-)
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">const</span> <span class="p">(</span>
+    <span class="nx">Sunday</span>    <span class="p">=</span> <span class="mi">0</span>
+    <span class="nx">Monday</span>    <span class="p">=</span> <span class="mi">1</span>
+    <span class="nx">Tuesday</span>   <span class="p">=</span> <span class="mi">2</span>
+    <span class="nx">Wednesday</span> <span class="p">=</span> <span class="mi">3</span>
+    <span class="nx">Thursday</span>  <span class="p">=</span> <span class="mi">4</span>
+    <span class="nx">Friday</span>    <span class="p">=</span> <span class="mi">5</span>
+    <span class="nx">Saturday</span>  <span class="p">=</span> <span class="mi">6</span>
+<span class="p">)</span>
+</pre></div>
 
-<h2 id="_11">枚举</h2>
+
+<h2 id="_11">枚举<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <p>对于上述这种递增场景，go 还提供了一种更加简洁的方式来定义，使用 iota
 表达式，它可以帮助我们完成自增操作(只有这种常见才推荐去使用 iota)</p>
-<pre><code class="go">const (
-    Sunday = iota
-    Monday
-    Tuesday
-    Wednesday
-    Thursday
-    Friday
-    Saturday
-)
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">const</span> <span class="p">(</span>
+    <span class="nx">Sunday</span> <span class="p">=</span> <span class="kc">iota</span>
+    <span class="nx">Monday</span>
+    <span class="nx">Tuesday</span>
+    <span class="nx">Wednesday</span>
+    <span class="nx">Thursday</span>
+    <span class="nx">Friday</span>
+    <span class="nx">Saturday</span>
+<span class="p">)</span>
+</pre></div>
+
 
 <p>你可以编写代码打印一下看看剩下的值是多少？</p>
-<h1 id="_12">小问题：</h1>
+<h1 id="_12">小问题：<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h1>
 <ul>
 <li>为什么有 int 还需要 int32 和 int64，业务代码里如何选择呢？</li>
 <li>请你尝试打印每种 int 类型的数值范围？</li>
 </ul>
-<h1 id="_13">参考：</h1>
+<h1 id="_13">参考：<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h1>
 <ul>
 <li>部分图片来自《Go 语言程序设计》</li>
 <li><a href="https://blog.learngoprogramming.com/golang-const-type-enums-iota-bc4befd096d3">Ultimate Visual Guide to Go Enums and iota</a></li>
 </ul>
+                
+                  
+                
+                
               
-            </div>
+              
+                
+
+
+              
+            </article>
           </div>
-          <footer>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../02_go_array_and_slice/array_and_slice/" class="btn btn-neutral float-right" title="Go 数组和切片">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../../00_hello_go/hello_go/" class="btn btn-neutral" title="Hello Go!"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../00_hello_go/hello_go/" title="Hello Go!" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Hello Go!
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../02_go_array_and_slice/array_and_slice/" title="Go 数组和切片" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Go 数组和切片
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
     </div>
   
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 - 2020 PegasusWang
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/PegasusWang" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    </div>
+  </div>
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
       
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <span><a href="../../00_hello_go/hello_go/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
-      
-        <span style="margin-left: 15px"><a href="../../02_go_array_and_slice/array_and_slice/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script>var base_url = '../../..';</script>
-    <script src="../../../js/theme.js" defer></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
-      <script src="../../../search/main.js" defer></script>
-
-</body>
+    
+  </body>
 </html>

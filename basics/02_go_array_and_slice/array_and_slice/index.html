@@ -1,206 +1,441 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Go 数组和切片 - Let's Go! Golang 短视频教程</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Go \u6570\u7ec4\u548c\u5207\u7247";
-    var mkdocs_page_input_path = "basics/02_go_array_and_slice/array_and_slice.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
-</head>
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
 
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../../.." class="icon icon-home"> Let's Go! Golang 短视频教程</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="PegasusWang">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Go 数组和切片 - Let's Go! Golang 短视频教程</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" href="../../../manifest.webmanifest">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#go-arrayslice" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="Let's Go! Golang 短视频教程" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Let's Go! Golang 短视频教程
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Go 数组和切片
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+        
       </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../..">简介</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Go基础</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../00_hello_go/hello_go/">Hello Go!</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../01_go_basic_types/basic_types/">Go 基础类型</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Go 数组和切片</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#go-arrayslice">Go 数组(array)和切片(slice)</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_1">数组</a></li>
-    
-
-    <li class="toctree-l3"><a href="#slice">切片(slice)</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_2">如何给一个切片排序？</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_3">小练习</a></li>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../03_map/map/">Go 映射</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../04_go_control_flow/go_procedural/">Go 控制流语句</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../05_func/func/">Go 函数</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../..">Let's Go! Golang 短视频教程</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../../..">Docs</a> &raquo;</li>
+    </div>
+  </nav>
+</header>
     
+    <div class="md-container">
       
         
-          <li>Go基础 &raquo;</li>
-        
       
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
     
-    <li>Go 数组和切片</li>
-    <li class="wy-breadcrumbs-aside">
+      <a href="../../.." class="md-tabs__link">
+        简介
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../00_hello_go/hello_go/" class="md-tabs__link md-tabs__link--active">
+          Go基础
+        </a>
       
     </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="Let's Go! Golang 短视频教程" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Let's Go! Golang 短视频教程
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Go基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Go基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../00_hello_go/hello_go/" title="Hello Go!" class="md-nav__link">
+      Hello Go!
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01_go_basic_types/basic_types/" title="Go 基础类型" class="md-nav__link">
+      Go 基础类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Go 数组和切片" class="md-nav__link md-nav__link--active">
+      Go 数组和切片
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03_map/map/" title="Go 映射" class="md-nav__link">
+      Go 映射
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../04_go_control_flow/go_procedural/" title="Go 控制流语句" class="md-nav__link">
+      Go 控制流语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../05_func/func/" title="Go 函数" class="md-nav__link">
+      Go 函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../06_error/error/" title="Go 错误处理" class="md-nav__link">
+      Go 错误处理
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
               
+                
+                
                 <blockquote>
 <p>[Go] really fells like “the C for the 21st century” – Petr Hošek</p>
 </blockquote>
-<h1 id="go-arrayslice">Go 数组(array)和切片(slice)</h1>
+<h1 id="go-arrayslice">Go 数组(array)和切片(slice)<a class="headerlink" href="#go-arrayslice" title="Permanent link">&para;</a></h1>
 <p>数组是我们最常用的线性结构，比如在 python 中我们最常使用的是 list。在 Go
 中提供了两种常见的线性结构：数组(array)和切片(slice)。数组就是固定长度的某种类型的序列，而切片更加灵活，它的长度是可以变化的，
 所以在业务中我们最经常使用的其实还是切片。</p>
-<h1 id="_1">数组</h1>
+<h1 id="_1">数组<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>数组是一个包含相同类型的固定长度的序列，不像动态语言那样可以在 list 中存储不同类型的值，go 语言中数组中的类型需要一致。
 我们来看一下如何创建一个数组，有这么几种形式，注意长度也是数组的一部分（不同长度的数组不是一种类型）:</p>
-<pre><code class="sh">声明: [length]Type
-初始化：[N]Type{value1, value2,..., valueN}
-省略长度：[...]Type{value1, value2,..., valueN}
-二维数组: [N][M]Type
-</code></pre>
+<div class="codehilite"><pre><span></span>声明: <span class="o">[</span>length<span class="o">]</span>Type
+初始化：<span class="o">[</span>N<span class="o">]</span>Type<span class="o">{</span>value1, value2,..., valueN<span class="o">}</span>
+省略长度：<span class="o">[</span>...<span class="o">]</span>Type<span class="o">{</span>value1, value2,..., valueN<span class="o">}</span>
+二维数组: <span class="o">[</span>N<span class="o">][</span>M<span class="o">]</span>Type
+</pre></div>
+
 
 <p>我们来几个小例子，不要光看代码，打开你的开发工具来编辑以下代码吧，又是一个练习手感的好机会:</p>
-<pre><code class="go">package main
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
 
-import &quot;fmt&quot;
+<span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 
-func testArray() {
-    // 声明一个 int64数组，声明之后每个元素是该类型默认的『零值』
-    var arrayIn64 [3]int64
-    arrayIn64[0], arrayIn64[1] = 1, 2
-    fmt.Println(arrayIn64)
-    // 声明并且初始化
-    arrayString := [3]string{&quot;zhang&quot;, &quot;wang&quot;, &quot;li&quot;}
-    fmt.Println(arrayString)
-    // 也可以省略长度，让 go 自动计算。这个时候你需要是使用省略号 ...
-    // 创建一个长度为 3 的 float64 数组
-    arrayFloat := [...]float64{1.5, 8.8, 6.6}
-    fmt.Println(arrayFloat)
-    // 二维数组
-    matrix := [2][2]int64{
-        {0, 1},
-        {2, 3},
-    }
-    fmt.Println(matrix)
-}
+<span class="kd">func</span> <span class="nx">testArray</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 声明一个 int64数组，声明之后每个元素是该类型默认的『零值』</span>
+    <span class="kd">var</span> <span class="nx">arrayIn64</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="kt">int64</span>
+    <span class="nx">arrayIn64</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">arrayIn64</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">arrayIn64</span><span class="p">)</span>
+    <span class="c1">// 声明并且初始化</span>
+    <span class="nx">arrayString</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;zhang&quot;</span><span class="p">,</span> <span class="s">&quot;wang&quot;</span><span class="p">,</span> <span class="s">&quot;li&quot;</span><span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">arrayString</span><span class="p">)</span>
+    <span class="c1">// 也可以省略长度，让 go 自动计算。这个时候你需要是使用省略号 ...</span>
+    <span class="c1">// 创建一个长度为 3 的 float64 数组</span>
+    <span class="nx">arrayFloat</span> <span class="o">:=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">float64</span><span class="p">{</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">8.8</span><span class="p">,</span> <span class="mf">6.6</span><span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">arrayFloat</span><span class="p">)</span>
+    <span class="c1">// 二维数组</span>
+    <span class="nx">matrix</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="kt">int64</span><span class="p">{</span>
+        <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span>
+        <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">matrix</span><span class="p">)</span>
+<span class="p">}</span>
 
-func main() {
-    testArray()
-}
-</code></pre>
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">testArray</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>一般对于数组的操作也就是获取长度(len函数，0到n-1)，获取指定下标的元素([index])，给数组第 i 个元素赋值等。</p>
-<pre><code class="go">func testArrayOperation() {
-    names := [4]string{&quot;zhang&quot;, &quot;wang&quot;, &quot;li&quot;, &quot;zhao&quot;}
-    fmt.Printf(&quot;names has %d elements\n&quot;, len(names))
-    fmt.Println(names[1]) // NOTE: 注意如果下标超过范围会 panic
-    names[3] = &quot;lao zhao&quot;
-    fmt.Println(names[3])
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">testArrayOperation</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">names</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;zhang&quot;</span><span class="p">,</span> <span class="s">&quot;wang&quot;</span><span class="p">,</span> <span class="s">&quot;li&quot;</span><span class="p">,</span> <span class="s">&quot;zhao&quot;</span><span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;names has %d elements\n&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">names</span><span class="p">))</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">names</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1">// NOTE: 注意如果下标超过范围会 panic</span>
+    <span class="nx">names</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;lao zhao&quot;</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">names</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>数组的示例就到这，接下来我们看下切片(slice)，其实在业务开发中切片要远比数组更加常用也更加灵活，甚至可能你都不会用到数组，
 而是一直使用切片来代替。</p>
-<h1 id="slice">切片(slice)</h1>
+<h1 id="slice">切片(slice)<a class="headerlink" href="#slice" title="Permanent link">&para;</a></h1>
 <p>切片比数组更加灵活，长度是可以变化的。你可能会好奇它和数组的区别以及底层实现。实际上它和 python 的 list
 比较类似，可以自动扩容。你可以简单地理解为切片是一个指向数组的指针，这个数组有它的总容量(capacity)，和目前使用使用的长度(length)。
 创建一个切片我们可以使用构造方式或者内置的 make 函数。</p>
-<pre><code>// 创建一个类型为 Type, 长度为 length, 容量为 capacity 的 slice。一般我们不太关心容量而是关心长度
+<div class="codehilite"><pre><span></span>// 创建一个类型为 Type, 长度为 length, 容量为 capacity 的 slice。一般我们不太关心容量而是关心长度
 make([]Type, length, c capacity)
 // 创建一个类型为 Type, 长度为 length 的 slice，一般我们不太关心容量，而是让 go 帮我们自动处理扩容问题
  make([]Type, length) // 最常用的一种方式, 如果实现知道 slice 的长度，可以避免 slice 扩容操作，性能更好
@@ -208,102 +443,145 @@ make([]Type, length, c capacity)
 []Type{} // 和 make([]Type, 0) 等价
 // 创建并且初始化一个 slice。注意和数组的区别是 [] 里边没有省略号 ...
 []Type{value1, value2, ... , valueN}
-</code></pre>
+</pre></div>
+
 
 <p>以下是 slice 的常见操作，很多和数组比较类似：</p>
 <p><img alt="slice操作" src="../slice_operation.png" /></p>
 <p>同样编写一些示例代码来快速学习它，这里将使用笔者业务中最常用的一些方式:</p>
-<pre><code class="go">func testSlice() {
-    // 创建并且初始化一个 slice
-    names := []string{&quot;zhang&quot;, &quot;wang&quot;, &quot;li&quot;, &quot;zhao&quot;}
-    // 打印 names, 长度和容量
-    fmt.Println(names, len(names), cap(names))
-    names2 := names[0:3] // 获取子切片 0,1,2 三个元素，注意左闭右开区间
-    fmt.Println(names2)
-    // 尝试修改一下 names2 ，注意 names 也会跟着改变么？
-    names[0] = &quot;lao zhang&quot;
-    fmt.Println(names, names2) // 你会发现names也变了，这里起始它们共用了底层结构，注意这个问题
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">testSlice</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 创建并且初始化一个 slice</span>
+    <span class="nx">names</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;zhang&quot;</span><span class="p">,</span> <span class="s">&quot;wang&quot;</span><span class="p">,</span> <span class="s">&quot;li&quot;</span><span class="p">,</span> <span class="s">&quot;zhao&quot;</span><span class="p">}</span>
+    <span class="c1">// 打印 names, 长度和容量</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">names</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">names</span><span class="p">),</span> <span class="nb">cap</span><span class="p">(</span><span class="nx">names</span><span class="p">))</span>
+    <span class="nx">names2</span> <span class="o">:=</span> <span class="nx">names</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1">// 获取子切片 0,1,2 三个元素，注意左闭右开区间</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">names2</span><span class="p">)</span>
+    <span class="c1">// 尝试修改一下 names2 ，注意 names 也会跟着改变么？</span>
+    <span class="nx">names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;lao zhang&quot;</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">names</span><span class="p">,</span> <span class="nx">names2</span><span class="p">)</span> <span class="c1">// 你会发现names也变了，这里起始它们共用了底层结构，注意这个问题</span>
 
-    // 遍历一个 slice 我们使用 for/range 语法
-    for idx, name := range names { // 如果没有用到下标 idx，可以写成下划线 _ 作为占位符，但是不能省略
-        fmt.Println(idx, name)
-    }
+    <span class="c1">// 遍历一个 slice 我们使用 for/range 语法</span>
+    <span class="k">for</span> <span class="nx">idx</span><span class="p">,</span> <span class="nx">name</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">names</span> <span class="p">{</span> <span class="c1">// 如果没有用到下标 idx，可以写成下划线 _ 作为占位符，但是不能省略</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">idx</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span>
+    <span class="p">}</span>
 
-    // 修改切片主要通过赋值和 append 操作。使用 append 修改切片
-    vals := make([]int, 0)
-    for i := 0; i &lt; 3; i++ {
-        vals = append(vals, i)
-    }
-    fmt.Println(vals)
-    vals2 := []int{3, 4, 5}
-    newVals := append(vals, vals2...) // 可以使用省略号的方式『解包』一个 slice 来连接两个 slice
-    fmt.Println(newVals)
-}
-</code></pre>
+    <span class="c1">// 修改切片主要通过赋值和 append 操作。使用 append 修改切片</span>
+    <span class="nx">vals</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+        <span class="nx">vals</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">vals</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">vals</span><span class="p">)</span>
+    <span class="nx">vals2</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+    <span class="nx">newVals</span> <span class="o">:=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">vals</span><span class="p">,</span> <span class="nx">vals2</span><span class="o">...</span><span class="p">)</span> <span class="c1">// 可以使用省略号的方式『解包』一个 slice 来连接两个 slice</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">newVals</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
 
-<h1 id="_2">如何给一个切片排序？</h1>
+
+<h1 id="_2">如何给一个切片排序？<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <p>切片操作和 python list 比较类似，但是也要注意一些区别。比如子切片和原切片共享底层结构，如果需要深拷贝你得自己去复制一个新的。
 另外 go 只支持正数的索引，你需要保证 slice 索引值必须要在 0 到 length-1，否则会出现 panic 导致程序退出。</p>
 <p>这里介绍一下如何来排序和搜索一个 slice，除了自己写排序算法之外，标准库提供了 sort 包来帮助我们处理排序问题。
 常用的有几个函数，go 标准库文档已经有非常好的示例（好好学英语啊）：</p>
-<pre><code class="go">sort.Ints(a []int) // Ints sorts a slice of ints in increasing order.
-sort.Float64s(a []float64) // Float64s sorts a slice of float64s in increasing order (not-a-number values are treated as less than other values).
-sort.Search(n int, f func(int) bool) int // Search uses binary search to find and return the smallest index i in [0, n) at which f(i) is true
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="nx">sort</span><span class="p">.</span><span class="nx">Ints</span><span class="p">(</span><span class="nx">a</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="c1">// Ints sorts a slice of ints in increasing order.</span>
+<span class="nx">sort</span><span class="p">.</span><span class="nx">Float64s</span><span class="p">(</span><span class="nx">a</span> <span class="p">[]</span><span class="kt">float64</span><span class="p">)</span> <span class="c1">// Float64s sorts a slice of float64s in increasing order (not-a-number values are treated as less than other values).</span>
+<span class="nx">sort</span><span class="p">.</span><span class="nx">Search</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="kt">int</span> <span class="c1">// Search uses binary search to find and return the smallest index i in [0, n) at which f(i) is true</span>
+</pre></div>
 
-<h1 id="_3">小练习</h1>
+
+<h1 id="_3">小练习<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
 <ul>
 <li>请给一个 slice 反向排序？不知道的话请搜索 go 的 sort 文档</li>
 <li>什么情况下我们要去关心 slice 的容量呢？append 之后它的容量如何变化呢？</li>
 <li>sort 包里的稳定排序和非稳定排序有什么区别？</li>
 </ul>
+                
+                  
+                
+                
               
-            </div>
+              
+                
+
+
+              
+            </article>
           </div>
-          <footer>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../03_map/map/" class="btn btn-neutral float-right" title="Go 映射">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../../01_go_basic_types/basic_types/" class="btn btn-neutral" title="Go 基础类型"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../01_go_basic_types/basic_types/" title="Go 基础类型" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Go 基础类型
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../03_map/map/" title="Go 映射" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Go 映射
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
     </div>
   
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 - 2020 PegasusWang
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/PegasusWang" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    </div>
+  </div>
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
       
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <span><a href="../../01_go_basic_types/basic_types/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
-      
-        <span style="margin-left: 15px"><a href="../../03_map/map/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script>var base_url = '../../..';</script>
-    <script src="../../../js/theme.js" defer></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
-      <script src="../../../search/main.js" defer></script>
-
-</body>
+    
+  </body>
 </html>

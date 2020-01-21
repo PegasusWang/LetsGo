@@ -1,270 +1,490 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Go 函数 - Let's Go! Golang 短视频教程</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Go \u51fd\u6570";
-    var mkdocs_page_input_path = "basics/05_func/func.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
-</head>
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
 
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../../.." class="icon icon-home"> Let's Go! Golang 短视频教程</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="PegasusWang">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Go 函数 - Let's Go! Golang 短视频教程</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" href="../../../manifest.webmanifest">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="Let's Go! Golang 短视频教程" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Let's Go! Golang 短视频教程
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Go 函数
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+        
       </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../..">简介</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Go基础</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../00_hello_go/hello_go/">Hello Go!</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../01_go_basic_types/basic_types/">Go 基础类型</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../02_go_array_and_slice/array_and_slice/">Go 数组和切片</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../03_map/map/">Go 映射</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../04_go_control_flow/go_procedural/">Go 控制流语句</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Go 函数</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#_1">函数介绍</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_2">如何定义一个函数</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_3">泛型</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_4">默认参数</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_5">函数的传参</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_6">传递指针</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_7">匿名函数</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_8">函数类型</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_9">高阶函数</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_10">闭包</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_11">递归函数</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_12">参考：</a></li>
-    
-
-    </ul>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../..">Let's Go! Golang 短视频教程</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../../..">Docs</a> &raquo;</li>
+    </div>
+  </nav>
+</header>
     
+    <div class="md-container">
       
         
-          <li>Go基础 &raquo;</li>
-        
       
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
     
-    <li>Go 函数</li>
-    <li class="wy-breadcrumbs-aside">
+      <a href="../../.." class="md-tabs__link">
+        简介
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../00_hello_go/hello_go/" class="md-tabs__link md-tabs__link--active">
+          Go基础
+        </a>
       
     </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="Let's Go! Golang 短视频教程" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Let's Go! Golang 短视频教程
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Go基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Go基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../00_hello_go/hello_go/" title="Hello Go!" class="md-nav__link">
+      Hello Go!
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01_go_basic_types/basic_types/" title="Go 基础类型" class="md-nav__link">
+      Go 基础类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../02_go_array_and_slice/array_and_slice/" title="Go 数组和切片" class="md-nav__link">
+      Go 数组和切片
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03_map/map/" title="Go 映射" class="md-nav__link">
+      Go 映射
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../04_go_control_flow/go_procedural/" title="Go 控制流语句" class="md-nav__link">
+      Go 控制流语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Go 函数" class="md-nav__link md-nav__link--active">
+      Go 函数
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../06_error/error/" title="Go 错误处理" class="md-nav__link">
+      Go 错误处理
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
               
+                
+                
                 <blockquote>
 <p>“Go is not meant to innovate programming theory. It’s meant to innovate programming practice.” – Samuel Tesla</p>
 </blockquote>
-<h1 id="_1">函数介绍</h1>
+<h1 id="_1">函数介绍<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>函数可以说是开发大型软件的基石，也是封装代码的基本单位。在一些比较老的不支持 oop 的编程语言中，正是一个个函数构建起来大型软件。
 其实之前的代码中已经简单使用过函数，比如我们针对每一种语法特性都写了一个叫做 <code>func testXXX</code> 的函数来在 main
 函数里调用看执行结果。</p>
 <p>本章来分享一些业务开中常用的 go 函数的语法特性帮助你快速上手，学会函数之后就可以开始实现逻辑封装了。</p>
-<h1 id="_2">如何定义一个函数</h1>
+<h1 id="_2">如何定义一个函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <p>go 定义一个函数比较简单，语法如下：</p>
-<pre><code class="go">// optionalParameters 是 (param1 type1, param2 type2 ...) 这种形式
-func functionName(optionalParameters) optionalReturnType {
-  body
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="c1">// optionalParameters 是 (param1 type1, param2 type2 ...) 这种形式</span>
+<span class="kd">func</span> <span class="nx">functionName</span><span class="p">(</span><span class="nx">optionalParameters</span><span class="p">)</span> <span class="nx">optionalReturnType</span> <span class="p">{</span>
+  <span class="nx">body</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>来看一个非常简单的函数，计算两个数字之和：</p>
-<pre><code class="go">func sum0(a int, b int) int {
-    return a + b
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">sum0</span><span class="p">(</span><span class="nx">a</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>是不是很简单，有个小技巧就是如果多个参数类型一致，可以只写一个类型声明，比如：</p>
-<pre><code class="go">func sum1(a, b int) int {
-    return a + b
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">sum1</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>我们甚至还可以给返回值命名，这个时候需要通过赋值的方式来更新结果，而且 return 可以不用带返回值</p>
-<pre><code class="go">func sum2(a, b int) (res int) {
-    res = a + b
-    return
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">sum2</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">res</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span> <span class="p">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+    <span class="k">return</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>go 还支持可变参数，在 python 里我们知道使用的是 <code>*args</code>，在 go 里边使用三个省略号来实现，
 比如想要计算 n 个 int 数字之和，可以这么写：(注意可变参数其实被包装成了一个 slice)</p>
-<pre><code class="go">func sum3(init int, vals ...int) int {
-    sum := init
-    for _, val := range vals { // vals is []int
-        sum += val
-    }
-    return sum
-}
-// fmt.Println(sum3(0, 1, 2, 3))
-// fmt.Println(sum3(0, []int{1,2,3}...))  // 还可以解包一个 slice 来作为参数传入，给一个 slice 加上三个省略号
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">sum3</span><span class="p">(</span><span class="nx">init</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">vals</span> <span class="o">...</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="nx">sum</span> <span class="o">:=</span> <span class="nx">init</span>
+    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">val</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">vals</span> <span class="p">{</span> <span class="c1">// vals is []int</span>
+        <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">val</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">sum</span>
+<span class="p">}</span>
+<span class="c1">// fmt.Println(sum3(0, 1, 2, 3))</span>
+<span class="c1">// fmt.Println(sum3(0, []int{1,2,3}...))  // 还可以解包一个 slice 来作为参数传入，给一个 slice 加上三个省略号</span>
+</pre></div>
+
 
 <p>再进一步，函数还可以返回多个值，这个相比 c 来说非常方便，比如除了 sum 之外我们再返回一个可变参数的个数：
 (其实 go 最后一个参数经常用来返回错误类型，这个之后讨论错误处理的时候再涉及)</p>
-<pre><code class="go">func sum4(init int, vals ...int) (int, int) {
-    sum := init
-    fmt.Println(vals, len(vals))
-    for _, val := range vals {
-        sum += val
-    }
-    return sum, len(vals)
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">sum4</span><span class="p">(</span><span class="nx">init</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">vals</span> <span class="o">...</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">sum</span> <span class="o">:=</span> <span class="nx">init</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">vals</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">vals</span><span class="p">))</span>
+    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">val</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">vals</span> <span class="p">{</span>
+        <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">val</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">sum</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">vals</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>这大概就是函数定义的常见方式，虽然它们形式上很简单，但其实已经包含了很多基本的要素，其他复杂的函数无非是更多的参数，
 更加复杂的参数或者返回值类型而已。</p>
-<h1 id="_3">泛型</h1>
+<h1 id="_3">泛型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
 <p>先卖个关子，go 目前为止还没有直接提供泛型支持，我们可以使用空接口 interface{} 来实现，之后讲到接口的时候我们再来看如何实现。</p>
-<h1 id="_4">默认参数</h1>
+<h1 id="_4">默认参数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
 <p>很遗憾，go 开发者老顽固们拒绝支持默认参数，不过倒是有一些比较 trick 的方法来实现。
 一种是通过传递零值并且代码里判断是否是零值来实现，另一种是通过传递一个结构体来实现(结构体章节再讲)。</p>
-<pre><code class="go">// https://stackoverflow.com/questions/19612449/default-value-in-gos-method
-// 可以通过传递零值或者 nil 的方式来判断。
-// Both parameters are optional, use empty string for default value
-func Concat1(a string, b int) string {
-    if a == &quot;&quot; {
-        a = &quot;default-a&quot;
-    }
-    if b == 0 {
-        b = 5
-    }
-    return fmt.Sprintf(&quot;%s%d&quot;, a, b)
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="c1">// https://stackoverflow.com/questions/19612449/default-value-in-gos-method</span>
+<span class="c1">// 可以通过传递零值或者 nil 的方式来判断。</span>
+<span class="c1">// Both parameters are optional, use empty string for default value</span>
+<span class="kd">func</span> <span class="nx">Concat1</span><span class="p">(</span><span class="nx">a</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="nx">a</span> <span class="o">==</span> <span class="s">&quot;&quot;</span> <span class="p">{</span>
+        <span class="nx">a</span> <span class="p">=</span> <span class="s">&quot;default-a&quot;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="nx">b</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+        <span class="nx">b</span> <span class="p">=</span> <span class="mi">5</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%s%d&quot;</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
 
-<h1 id="_5">函数的传参</h1>
+
+<h1 id="_5">函数的传参<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
 <p>每当学习一门新语言的时候，我都会留意下函数的传值问题，究竟是值传递(深拷贝参数的值)还是引用传递(传入指针)。
 这两种参数传递方式最大的区别就是我们是否可以修改传入参数的值。 先来看一个小例子，尝试传入一个字符串然后修改它，看看是否起作用：</p>
-<pre><code class="go">func changeStr(s string) {
-    s = &quot;hehe&quot;
-    fmt.Println(s)
-}
-func main() {
-    name := &quot;lao wang&quot;
-    changeStr(name)
-    fmt.Println(name) // 打印出来还是 &quot;lao wang&quot;，没有修改成功，似乎是『值传递』
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">changeStr</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">s</span> <span class="p">=</span> <span class="s">&quot;hehe&quot;</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">name</span> <span class="o">:=</span> <span class="s">&quot;lao wang&quot;</span>
+    <span class="nx">changeStr</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="c1">// 打印出来还是 &quot;lao wang&quot;，没有修改成功，似乎是『值传递』</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>看起来似乎是值传递，并没有修改传入的值。好，如果你那么认为，那再试试如果我们传递一个 map 作为参数呢？</p>
-<pre><code class="go">func changeMap(m map[string]string) {
-    m[&quot;王八&quot;] = &quot;绿豆&quot;
-}
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">changeMap</span><span class="p">(</span><span class="nx">m</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">m</span><span class="p">[</span><span class="s">&quot;王八&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;绿豆&quot;</span>
+<span class="p">}</span>
 
-func main() {
-    m := map[string]string{&quot;name&quot;: &quot;lao wang&quot;}
-    changeMap(m)
-    fmt.Println(m) // map[name:lao wang 王八:绿豆], 似乎又可以修改了，函数里的修改起作用了
-}
-</code></pre>
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">m</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;lao wang&quot;</span><span class="p">}</span>
+    <span class="nx">changeMap</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span> <span class="c1">// map[name:lao wang 王八:绿豆], 似乎又可以修改了，函数里的修改起作用了</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>你会发现我们可以修改 map 的值。其实记住以下这些你就知道什么时候可以修改传入的参数了：</p>
 <ul>
@@ -274,168 +494,221 @@ func main() {
 <p>这里其实 map/slice 等也是传递的副本，为啥它们就可以修改呢？我们以 slice
 举例，它的内部实现其实是这样的，底层实现包含一个指向数组的指针(ptr), 一个长度 len 和容量 cap
 ，传参的时候实际上是 slice 这个结构体的拷贝(只有三个元素而不是copy所有的底层数组里的值)，所以复制很轻量，而且通过底层的指针也可以实现修改。</p>
-<pre><code class="go">// https://golang.org/src/runtime/slice.go
-type slice struct {
-    array unsafe.Pointer
-    len   int
-    cap   int
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="c1">// https://golang.org/src/runtime/slice.go</span>
+<span class="kd">type</span> <span class="nx">slice</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">array</span> <span class="nx">unsafe</span><span class="p">.</span><span class="nx">Pointer</span>
+    <span class="nx">len</span>   <span class="kt">int</span>
+    <span class="nx">cap</span>   <span class="kt">int</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p><img alt="" src="../slice-internal.png" /></p>
 <p>所以我们看到go 里边所有的函数参数都是值拷贝，只不过对于一些复合结构因为复制的结构体里包含指针，所以可以修改它的底层结构。</p>
-<h1 id="_6">传递指针</h1>
+<h1 id="_6">传递指针<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
 <p>如果你学过c/c++，你可能会遇到各种费解的指针操作。go 也有指针，但是 go
 里边大大简化和限制了指针的使用，所以只要你知道指针的基本概念就可以应付几乎所有场景了。
 后文讲结构体的时候，我们在来看下如何传递通过传递结构体指针来修改一个结构体，你会发现大部分指针的使用场景都是针对复杂的结构体。</p>
-<pre><code class="go">func changeString(s *string) { // go 同样使用 * 声明指针类型
-    *s = &quot;new lao wang&quot;
-}
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">changeString</span><span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="kt">string</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// go 同样使用 * 声明指针类型</span>
+    <span class="o">*</span><span class="nx">s</span> <span class="p">=</span> <span class="s">&quot;new lao wang&quot;</span>
+<span class="p">}</span>
 
-func main() {
-    s := &quot;lao wang&quot;
-    changeString(&amp;s) // go 和 c 一样使用 &amp; 作为取地址操作符
-    fmt.Println(s)
-}
-</code></pre>
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">s</span> <span class="o">:=</span> <span class="s">&quot;lao wang&quot;</span>
+    <span class="nx">changeString</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">s</span><span class="p">)</span> <span class="c1">// go 和 c 一样使用 &amp; 作为取地址操作符</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
 
-<h1 id="_7">匿名函数</h1>
+
+<h1 id="_7">匿名函数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
 <p>上面我们看到了 go 函数的常见定义方式，go 中我们也可以使用匿名函数，经常用在一些临时的小函数中，比如下边这个例子，
 定义一个匿名函数并且打印传进去的字符串：</p>
-<pre><code class="go">func testAnonymousFunc() {
-    func(s string) {
-        fmt.Println(s)
-    }(&quot;hehe&quot;)
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">testAnonymousFunc</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">func</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+    <span class="p">}(</span><span class="s">&quot;hehe&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
 
-<h1 id="_8">函数类型</h1>
+
+<h1 id="_8">函数类型<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h1>
 <p>go 里边函数其实也是『一等公民』，函数本身也是一种类型，所以我们可以定义一个函数然后赋值给一个变量，比如:</p>
-<pre><code class="go">func testFuncType() {
-    myPrint := func(s string) { fmt.Println(s) }
-    myPrint(&quot;hello go&quot;)
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">testFuncType</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">myPrint</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">}</span>
+    <span class="nx">myPrint</span><span class="p">(</span><span class="s">&quot;hello go&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>如此一来 go 的函数实际上会非常灵活，比如我们可以定一个 map 值为函数的映射：</p>
-<pre><code class="go">func testMapFunc() {
-    funcMap := map[string]func(int, int) int{
-        &quot;add&quot;: func(a, b int) int { return a + b },
-        &quot;sub&quot;: func(a, b int) int { return a - b },
-    }
-    fmt.Println(funcMap[&quot;add&quot;](3, 2))
-    fmt.Println(funcMap[&quot;sub&quot;](3, 2))
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">testMapFunc</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">funcMap</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span><span class="p">{</span>
+        <span class="s">&quot;add&quot;</span><span class="p">:</span> <span class="kd">func</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span> <span class="p">},</span>
+        <span class="s">&quot;sub&quot;</span><span class="p">:</span> <span class="kd">func</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span> <span class="p">},</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">funcMap</span><span class="p">[</span><span class="s">&quot;add&quot;</span><span class="p">](</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">funcMap</span><span class="p">[</span><span class="s">&quot;sub&quot;</span><span class="p">](</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>甚至还可以作为函数的参数传递进去，比如这个例子：</p>
-<pre><code class="go">func Double(n int) int {
-    return n * 2
-}
-func Apply(n int, f func(int) int) int {
-    return f(n) // f 的类型是 &quot;func(int) int&quot;
-}
-func funcAsParam() {
-    fmt.Println(Apply(10, Double))
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">Double</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">n</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="nx">Apply</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">f</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="c1">// f 的类型是 &quot;func(int) int&quot;</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="nx">funcAsParam</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Apply</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">Double</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>可以看到 go 的函数使用起来是非常灵活的，有些写法可能你在动态语言中才会经常看到。</p>
-<h1 id="_9">高阶函数</h1>
+<h1 id="_9">高阶函数<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h1>
 <p>其实所谓高阶函数就是将一个或者多个其他函数作为自己的参数，并在函数体里调用它们。上边的例子已经演示到啦，
 这里我们再来写一个简单的示例，在很多语言中都可以见到的谓词函数。
 我们经常想从一个数组里边获取我们需要的一组数据，就可以这么写，从一个切片中获取所有奇数(odd number):</p>
-<pre><code class="go">func FilterIntSlice(intVals []int, predicate func(i int) bool) []int {
-    res := make([]int, 0)
-    for _, val := range intVals {
-        if predicate(val) {
-            res = append(res, val)
-        }
-    }
-    return res
-}
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">FilterIntSlice</span><span class="p">(</span><span class="nx">intVals</span> <span class="p">[]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">predicate</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span>
+    <span class="nx">res</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">val</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">intVals</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="nx">predicate</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">res</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">res</span>
+<span class="p">}</span>
 
-func main() {
-    ints := []int{1, 2, 3, 4, 5}
-    isOdd := func(i int) bool { return i%2 != 0 } // 是奇数
-    fmt.Println(FilterIntSlice(ints, isOdd))      // [1 3 5]
-}
-</code></pre>
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">ints</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+    <span class="nx">isOdd</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">}</span> <span class="c1">// 是奇数</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">FilterIntSlice</span><span class="p">(</span><span class="nx">ints</span><span class="p">,</span> <span class="nx">isOdd</span><span class="p">))</span>      <span class="c1">// [1 3 5]</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>是不是很简单，同样我们还可以获取所有的偶数，或者满足某些条件的数字。留给读者作为小练习</p>
-<h1 id="_10">闭包</h1>
+<h1 id="_10">闭包<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h1>
 <p>很多语言都有闭包的概念， 所谓闭包就是一个函数“捕获”了和它在同一作用域的其他常量和变量。
 当闭包被调用的时候，不管在程序什么地方调用，闭包能够使用这些常量或者变量，并且只要闭包还在使用它，这些变量就不会销毁，一直存在。
 上文中提到的匿名函数其实就是闭包。来看一个简单的示例：</p>
-<pre><code class="go">// 闭包示例
-func testClosure() {
-    suffix := &quot;.go&quot;
-    addSuffix := func(name string) string {
-        return name + suffix // 这里使用到了 suffix 这个变量，所以 addSuffix 就是一个闭包
-    }
-    fmt.Println(addSuffix(&quot;hello_world&quot;))
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="c1">// 闭包示例</span>
+<span class="kd">func</span> <span class="nx">testClosure</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">suffix</span> <span class="o">:=</span> <span class="s">&quot;.go&quot;</span>
+    <span class="nx">addSuffix</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">name</span> <span class="o">+</span> <span class="nx">suffix</span> <span class="c1">// 这里使用到了 suffix 这个变量，所以 addSuffix 就是一个闭包</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">addSuffix</span><span class="p">(</span><span class="s">&quot;hello_world&quot;</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>之后再讲到 goroutine 的时候，我们会看到一个 for 循环里使用闭包的坑。</p>
-<h1 id="_11">递归函数</h1>
+<h1 id="_11">递归函数<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h1>
 <p>如果你学习过其他语言，一定知道递归，就是自己调用自己的函数，go 也是支持递归函数的。比如我们经常看到的斐波那契数：</p>
-<pre><code class="go">func fib(n int) int {
-    if n &lt; 2 {
-        return n
-    }
-    return fib(n-1) + fib(n-2)
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">fib</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="nx">n</span> <span class="p">&lt;</span> <span class="mi">2</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">n</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">fib</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nx">fib</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>递归需要注意的一点就是一定要有一个递归出口，防止无限递归导致栈溢出(stackoverflow)</p>
-<h1 id="_12">参考：</h1>
+<h1 id="_12">参考：<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h1>
 <ul>
 <li><a href="https://blog.golang.org/go-slices-usage-and-internals">Go Slices: usage and internals</a></li>
 </ul>
+                
+                  
+                
+                
               
-            </div>
+              
+                
+
+
+              
+            </article>
           </div>
-          <footer>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="../../04_go_control_flow/go_procedural/" class="btn btn-neutral" title="Go 控制流语句"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../04_go_control_flow/go_procedural/" title="Go 控制流语句" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Go 控制流语句
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../06_error/error/" title="Go 错误处理" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Go 错误处理
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
     </div>
   
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 - 2020 PegasusWang
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/PegasusWang" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    </div>
+  </div>
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
       
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <span><a href="../../04_go_control_flow/go_procedural/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
-      
-    </span>
-</div>
-    <script>var base_url = '../../..';</script>
-    <script src="../../../js/theme.js" defer></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
-      <script src="../../../search/main.js" defer></script>
-
-</body>
+    
+  </body>
 </html>

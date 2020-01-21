@@ -1,148 +1,503 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="None">
-  
-  <link rel="shortcut icon" href="img/favicon.ico">
-  <title>简介 - Let's Go! Golang 短视频教程</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "\u7b80\u4ecb";
-    var mkdocs_page_input_path = "index.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="js/jquery-2.1.1.min.js" defer></script>
-  <script src="js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
-</head>
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
 
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> Let's Go! Golang 短视频教程</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="PegasusWang">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Let's Go! Golang 短视频教程</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="assets/fonts/material-icons.css">
+    
+      <link rel="manifest" href="manifest.webmanifest">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#golang" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="." title="Let's Go! Golang 短视频教程" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Let's Go! Golang 短视频教程
+            </span>
+            <span class="md-header-nav__topic">
+              
+                简介
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+        
       </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href=".">简介</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#golang">Golang 视频教程</a></li>
+      
+    </div>
+  </nav>
+</header>
     
-        <ul>
+    <div class="md-container">
+      
         
-            <li><a class="toctree-l3" href="#_1">目的</a></li>
+      
+      
         
-            <li><a class="toctree-l3" href="#_2">如何快速上手新语言</a></li>
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
         
-            <li><a class="toctree-l3" href="#_3">工具</a></li>
-        
-            <li><a class="toctree-l3" href="#_4">本电子书制作和写作方式</a></li>
-        
-            <li><a class="toctree-l3" href="#b">B 站地址(连载中)</a></li>
-        
-            <li><a class="toctree-l3" href="#_5">知乎专栏</a></li>
-        
-            <li><a class="toctree-l3" href="#_6">勘误</a></li>
-        
-        </ul>
+  <li class="md-tabs__item">
     
-
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Go基础</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="basics/00_hello_go/hello_go/">Hello Go!</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="basics/01_go_basic_types/basic_types/">Go 基础类型</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="basics/02_go_array_and_slice/array_and_slice/">Go 数组和切片</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="basics/03_map/map/">Go 映射</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="basics/04_go_control_flow/go_procedural/">Go 控制流语句</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="basics/05_func/func/">Go 函数</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <a href="." class="md-tabs__link md-tabs__link--active">
+        简介
+      </a>
+    
+  </li>
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">Let's Go! Golang 短视频教程</a>
-      </nav>
-
+        
+  
+  
+    <li class="md-tabs__item">
       
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>简介</li>
-    <li class="wy-breadcrumbs-aside">
+        <a href="basics/00_hello_go/hello_go/" class="md-tabs__link">
+          Go基础
+        </a>
       
     </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="." title="Let's Go! Golang 短视频教程" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Let's Go! Golang 短视频教程
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        简介
+      </label>
+    
+    <a href="." title="简介" class="md-nav__link md-nav__link--active">
+      简介
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    目的
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    如何快速上手新语言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    工具
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    本电子书制作和写作方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    B 站地址(连载中)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    知乎专栏
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    勘误
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Go基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Go基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="basics/00_hello_go/hello_go/" title="Hello Go!" class="md-nav__link">
+      Hello Go!
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="basics/01_go_basic_types/basic_types/" title="Go 基础类型" class="md-nav__link">
+      Go 基础类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="basics/02_go_array_and_slice/array_and_slice/" title="Go 数组和切片" class="md-nav__link">
+      Go 数组和切片
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="basics/03_map/map/" title="Go 映射" class="md-nav__link">
+      Go 映射
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="basics/04_go_control_flow/go_procedural/" title="Go 控制流语句" class="md-nav__link">
+      Go 控制流语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="basics/05_func/func/" title="Go 函数" class="md-nav__link">
+      Go 函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="basics/06_error/error/" title="Go 错误处理" class="md-nav__link">
+      Go 错误处理
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    目的
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    如何快速上手新语言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    工具
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    本电子书制作和写作方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    B 站地址(连载中)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    知乎专栏
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    勘误
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
               
-                <h1 id="golang"><a href="https://pegasuswang.github.io/LetsGo/">Golang 视频教程</a></h1>
+                
+                
+                <h1 id="golang"><a href="https://pegasuswang.github.io/LetsGo/">Golang 视频教程</a><a class="headerlink" href="#golang" title="Permanent link">&para;</a></h1>
 <p><img alt="" src="golang.png" /></p>
-<h2 id="_1">目的</h2>
+<h2 id="_1">目的<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>通过连载短视频和文章的形式帮助有一定其他语言编程基础的人快速学习和入门 Golang。
 内容包括 Golang 基础、内置库、web 开发、并发编程等，均来自笔者日常学习和开发经验总结。
 教程中会有一些和 Python 等语言特性的对比，方便读者理解。希望教程有如下特色：</p>
@@ -170,7 +525,7 @@
 <li>阅读地址：<a href="https://pegasuswang.github.io/LetsGo/"> https://pegasuswang.github.io/LetsGo/ </a></li>
 <li>本项目地址：<a href="https://github.com/PegasusWang/LetsGo"> https://github.com/PegasusWang/LetsGo </a></li>
 </ul>
-<h2 id="_2">如何快速上手新语言</h2>
+<h2 id="_2">如何快速上手新语言<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>笔者的经验就是『学以致用』，如果光学不练，很快就会忘记。学一门新语言的最好方式就是在熟悉了基本语法以后，
 通过<strong>大量</strong>的编码和项目练习来熟悉它。期间你还需要频繁借助文档/搜索引擎等工具，边写边查，很快就可以上手。
 之后再去考虑一些具体的语言细节和深入的特性，</p>
@@ -194,39 +549,42 @@
 <li>做项目，总结，输出。巩固所学知识，技术分享和输出。费曼学习法，会加深的理解层次和记忆效果</li>
 </ul>
 <p><a href="https://www.bilibili.com/video/av79283035">学习一门新编程语言，真没那么难![视频]</a></p>
-<h2 id="_3">工具</h2>
+<h2 id="_3">工具<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>笔者使用 when-changed 来监控文件变动并且执行 go 代码，这样你可以边写代码，保存后自动运行观察结果，
 在写代码验证你的想法的时候会比较方便，视频里笔者会详细演示。</p>
-<pre><code class="sh">pip install when-changed
-# 监控当前文件夹变动并且执行命令
+<div class="codehilite"><pre><span></span>pip install when-changed
+<span class="c1"># 监控当前文件夹变动并且执行命令</span>
 when-changed -v -r -1 -s ./ go run main.go
-# 笔者喜欢自己 alias 一个快捷命令放到 zshrc/bashrc 里，比如
-alias go_monitor_run=&quot;when-changed -r -v -1 . go run &quot;
-# 这样就可以直接执行如下命令，修改完之后自动执行代码看效果啦
+<span class="c1"># 笔者喜欢自己 alias 一个快捷命令放到 zshrc/bashrc 里，比如</span>
+<span class="nb">alias</span> <span class="nv">go_monitor_run</span><span class="o">=</span><span class="s2">&quot;when-changed -r -v -1 . go run &quot;</span>
+<span class="c1"># 这样就可以直接执行如下命令，修改完之后自动执行代码看效果啦</span>
 go_monitor_run main.go
-</code></pre>
+</pre></div>
 
-<h2 id="_4">本电子书制作和写作方式</h2>
+
+<h2 id="_4">本电子书制作和写作方式<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>使用 mkdocs 和 markdown 构建，使用 Python-Markdown-Math 完成数学公式。
 markdown 语法参考：http://xianbai.me/learn-md/article/about/readme.html</p>
 <p>安装依赖：</p>
-<pre><code class="sh">pip install mkdocs    # 制作电子书, http://markdown-docs-zh.readthedocs.io/zh_CN/latest/
-# https://stackoverflow.com/questions/27882261/mkdocs-and-mathjax/31874157
+<div class="codehilite"><pre><span></span>pip install mkdocs    <span class="c1"># 制作电子书, http://markdown-docs-zh.readthedocs.io/zh_CN/latest/</span>
+<span class="c1"># https://stackoverflow.com/questions/27882261/mkdocs-and-mathjax/31874157</span>
 pip install https://github.com/mitya57/python-markdown-math/archive/master.zip
 
-# 或者直接
+<span class="c1"># 或者直接</span>
 pip install -r requirements.txt
 
-# 如果你 fork 了本项目，可以定期拉取主仓库的代码来获取更新，目前还在不断更新相关章节
-</code></pre>
+<span class="c1"># 如果你 fork 了本项目，可以定期拉取主仓库的代码来获取更新，目前还在不断更新相关章节</span>
+</pre></div>
+
 
 <p>你可以 clone 本项目后在本地编写和查看电子书：</p>
-<pre><code class="sh">mkdocs serve     # 修改自动更新，浏览器打开 http://localhost:8000 访问
-# 数学公式参考 https://www.zybuluo.com/codeep/note/163962
-mkdocs gh-deploy    # 部署到自己的 github pages
-</code></pre>
+<div class="codehilite"><pre><span></span>mkdocs serve     <span class="c1"># 修改自动更新，浏览器打开 http://localhost:8000 访问</span>
+<span class="c1"># 数学公式参考 https://www.zybuluo.com/codeep/note/163962</span>
+mkdocs gh-deploy    <span class="c1"># 部署到自己的 github pages</span>
+</pre></div>
 
-<h2 id="b">B 站地址(连载中)</h2>
+
+<h2 id="b">B 站地址(连载中)<a class="headerlink" href="#b" title="Permanent link">&para;</a></h2>
 <p><a href="https://space.bilibili.com/288339968/channel/detail?cid=96412">go 基础系列频道</a></p>
 <ul>
 <li><a href="https://www.bilibili.com/video/av79390466/">学 Golang 涨工资系列，你的第一个 Golang 代码</a></li>
@@ -234,8 +592,9 @@ mkdocs gh-deploy    # 部署到自己的 github pages
 <li><a href="https://www.bilibili.com/video/av81161132/">学 golang 涨工资系列，快速入门 go 数组与切片</a></li>
 <li><a href="https://www.bilibili.com/video/av81161408/">学 golang涨工资系列，golang 映射</a></li>
 <li><a href="https://www.bilibili.com/video/av81651933/">学 golang 涨工资系列，go 流程控制</a></li>
+<li><a href="https://www.bilibili.com/video/av83934847/">学 golang 涨工资系列，go 函数初探</a></li>
 </ul>
-<h2 id="_5">知乎专栏</h2>
+<h2 id="_5">知乎专栏<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://zhuanlan.zhihu.com/p/97536473">学 Golang 涨工资系列，你的第一个 Go 程序[视频]</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/99034721">学 golang 涨工资系列，聊聊 Go 的基础类型</a></li>
@@ -243,57 +602,82 @@ mkdocs gh-deploy    # 部署到自己的 github pages
 <li><a href="https://zhuanlan.zhihu.com/p/100512341">学 Golang 涨工资系列，Go map映射</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/100618984">学 golang 涨工资系列，go 流程控制[视频]</a></li>
 </ul>
-<h2 id="_6">勘误</h2>
+<h2 id="_6">勘误<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>本系列均来自笔者日常学习和工作总结，疏漏之处在所难免，如果文章或者视频有误，您可以到本项目 github 仓库或者文章评论区指出，欢迎批评指正。
 笔者会认真对待并且修复错误。</p>
+                
+                  
+                
+                
               
-            </div>
+              
+                
+
+
+              
+            </article>
           </div>
-          <footer>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="basics/00_hello_go/hello_go/" class="btn btn-neutral float-right" title="Hello Go!">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+        
+          <a href="basics/00_hello_go/hello_go/" title="Hello Go!" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Hello Go!
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
     </div>
   
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 - 2020 PegasusWang
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/PegasusWang" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    </div>
+  </div>
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    
+      <script src="assets/javascripts/application.808e90bb.js"></script>
       
+      <script>app.initialize({version:"1.0.4",url:{base:"."}})</script>
       
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
-        <span style="margin-left: 15px"><a href="basics/00_hello_go/hello_go/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script>var base_url = '.';</script>
-    <script src="js/theme.js" defer></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
-      <script src="search/main.js" defer></script>
-
-</body>
+    
+  </body>
 </html>
-
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2020-01-13 16:41:33
--->

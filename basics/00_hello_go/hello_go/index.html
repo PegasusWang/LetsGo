@@ -1,156 +1,379 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Hello Go! - Let's Go! Golang 短视频教程</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Hello Go!";
-    var mkdocs_page_input_path = "basics/00_hello_go/hello_go.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
-</head>
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
 
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../../.." class="icon icon-home"> Let's Go! Golang 短视频教程</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="PegasusWang">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Hello Go! - Let's Go! Golang 短视频教程</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" href="../../../manifest.webmanifest">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#why-golang-go" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="Let's Go! Golang 短视频教程" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Let's Go! Golang 短视频教程
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Hello Go!
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+        
       </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../..">简介</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Go基础</span>
-    <ul class="subnav">
-                <li class=" current">
-                    
-    <a class="current" href="./">Hello Go!</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#why-golang-go">Why Golang(后文均简称 Go) ?</a></li>
-    
-
-    <li class="toctree-l3"><a href="#golang">下载和安装 Golang</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_1">配置环境变量</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_2">开发工具</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_3">善用工具</a></li>
-    
-
-    <li class="toctree-l3"><a href="#go">你的第一个 Go 程序</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#_4">练习</a></li>
-        
-        </ul>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../01_go_basic_types/basic_types/">Go 基础类型</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../02_go_array_and_slice/array_and_slice/">Go 数组和切片</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../03_map/map/">Go 映射</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../04_go_control_flow/go_procedural/">Go 控制流语句</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../05_func/func/">Go 函数</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../..">Let's Go! Golang 短视频教程</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../../..">Docs</a> &raquo;</li>
+    </div>
+  </nav>
+</header>
     
+    <div class="md-container">
       
         
-          <li>Go基础 &raquo;</li>
-        
       
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
     
-    <li>Hello Go!</li>
-    <li class="wy-breadcrumbs-aside">
+      <a href="../../.." class="md-tabs__link">
+        简介
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" class="md-tabs__link md-tabs__link--active">
+          Go基础
+        </a>
       
     </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="Let's Go! Golang 短视频教程" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Let's Go! Golang 短视频教程
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Go基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Go基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Hello Go!" class="md-nav__link md-nav__link--active">
+      Hello Go!
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01_go_basic_types/basic_types/" title="Go 基础类型" class="md-nav__link">
+      Go 基础类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../02_go_array_and_slice/array_and_slice/" title="Go 数组和切片" class="md-nav__link">
+      Go 数组和切片
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03_map/map/" title="Go 映射" class="md-nav__link">
+      Go 映射
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../04_go_control_flow/go_procedural/" title="Go 控制流语句" class="md-nav__link">
+      Go 控制流语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../05_func/func/" title="Go 函数" class="md-nav__link">
+      Go 函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../06_error/error/" title="Go 错误处理" class="md-nav__link">
+      Go 错误处理
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
               
+                
+                
                 <blockquote>
 <p>Go is not meant to innovate programming theory. It’s meant to innovate programming practice. – Samuel Tesla</p>
 </blockquote>
-<h1 id="why-golang-go">Why Golang(后文均简称 Go) ?</h1>
+<h1 id="why-golang-go">Why Golang(后文均简称 Go) ?<a class="headerlink" href="#why-golang-go" title="Permanent link">&para;</a></h1>
 <p>当然是老板要求的，嘿嘿。笔者工作的前几年都是写 Python，刚毕业那会 Python 还没有那么火。即使到现在，Python
 后端依旧不是主流。不过笔者感觉对于很多中小公司来说 Python 还是够用的，并且 Python 可以做很多事情。
 最近又换工作了到了一家大厂，内部很多是 c艹 项目。对于大公司动辄有百千万甚至上亿的日活来说，很少会使用脚本语言来做高性能后端。
@@ -172,7 +395,7 @@
 </ul>
 <p>总得来说，笔者感觉作为微服务后端语言来说，还是完全够用的。下图是 go 的关键词列表，只有 25 个：</p>
 <p><img alt="Golang 25 个关键词" src="../golang_keywords.jpg" /></p>
-<h1 id="golang">下载和安装 Golang</h1>
+<h1 id="golang">下载和安装 Golang<a class="headerlink" href="#golang" title="Permanent link">&para;</a></h1>
 <p>本系列不是针对编程新手的教程，如果你还无法访问相关网站，请自行解决。
 笔者还是依旧强烈建议你使用 Linux 操作系统来学习，因为互联网公司大多使用 linxu server。
 请到 golang 官网下载并且安装你的对应系统环境的安装包(go是跨平台的MacOS/Windows/Linux)</p>
@@ -182,16 +405,17 @@
 </ul>
 <p>当然如果你是使用 linux/macos 还可以用对应包管理器来安装。比如笔者使用 macos 的 <code>brew install</code> 就可以安装了。
 安装完成之后输入 <code>go version</code> 输出了 go 版本就安装完成，建议安装最新的版本就好，对于目前学习 go 来说版本影响不大。</p>
-<h1 id="_1">配置环境变量</h1>
+<h1 id="_1">配置环境变量<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>go 需要配置环境变量指定其安装路径(GOROOT)和(GOPATH)，笔者在类 unix 系统下一般只需要配置一下 GOPATH 指定你的项目路径。
 比如加入如下配置到你的 <code>.bashrc</code> 或者 <code>.zshrc</code> 里边。
 这里比如我在我的用户根目录建立一个名字为 go 的文件夹存放我的 go 代码。</p>
-<pre><code class="sh">export GOPATH=$HOME/go        # don't forget to change your path correctly!
-export PATH=$PATH:$GOPATH/bin
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">GOPATH</span><span class="o">=</span><span class="nv">$HOME</span>/go        <span class="c1"># don&#39;t forget to change your path correctly!</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GOPATH</span>/bin
+</pre></div>
+
 
 <p>之后重启终端或者 source 一下你改的 rc 文件就可以了。 到这里如果安装完成并且配置好了环境变量就可以开始编写代码了。</p>
-<h1 id="_2">开发工具</h1>
+<h1 id="_2">开发工具<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <p>笔者视频中将使用 neovim(vim-go插件)/tmux 等工具来进行开发演示，主要是因为笔者比较熟悉，而不一定是最好用的。
 笔者建议你挑选一个自己熟悉的开发工具来编写 Golang 代码。目前社区中比较流行的有：</p>
 <ul>
@@ -200,26 +424,27 @@ export PATH=$PATH:$GOPATH/bin
 <li>Neovim/vim: 很多 linux/mac 用户的选择，结合 vim-go 等插件开发。配合 <a href="https://zhuanlan.zhihu.com/p/102306124">coc.nvim</a> 补全</li>
 <li>Emacs/Sublime/Atom 等跨平台编辑器，结合对应的 go 语言插件</li>
 </ul>
-<h1 id="_3">善用工具</h1>
+<h1 id="_3">善用工具<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
 <p>一个好的编码习惯是打开你的开发工具的 gofmt(格式化代码) 和 goimports(自动 import)，这样写 go
 代码会方便很多，比如保存代码的时候编辑器自动帮助你格式化代码并且引入依赖的包，大大减轻了编写代码的心智负担。
 最好也加上静态检查，比如 golang 有 <a href="https://github.com/golangci/golangci-lint">golangci-lint</a> 工具可以集成到你的编辑器里，(笔者用的 vim neomake)，
 这样编写代码如果有一些小错误开发工具会提示你修正，减少一些在低级代码错误上浪费的时间。</p>
-<h1 id="go">你的第一个 Go 程序</h1>
+<h1 id="go">你的第一个 Go 程序<a class="headerlink" href="#go" title="Permanent link">&para;</a></h1>
 <p>首先记得安装 when-changed 或者类似工具，这样写完代码直接保存就可以自动运行你的 golang 代码了，解放双手的好工具。
 笔者会使用 tmux 打开两个窗口，一个窗口编写代码，一个用来运行 go 并且保存代码之后自动运行输出结果。</p>
 <p>在你的 GOPATH 下创建一个文件夹用来编写测试代码。 比如笔者的是 GOPATH 是 <code>$HOME/go</code>，然后进入到 src 里边，
 随便创建一个文件夹比如叫做 expamples，然后编写一个 main.go 就可以了</p>
 <p>好了，让我们来编写和运行第一个 Go 代码吧，打开你的开发工具然后输入以下代码：</p>
-<pre><code class="go">// hello_go.go
-package main
+<div class="codehilite"><pre><span></span><span class="c1">// hello_go.go</span>
+<span class="kn">package</span> <span class="nx">main</span>
 
-import &quot;fmt&quot;
+<span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 
-func main() {
-    fmt.Println(&quot;Hello Golang!&quot;)
-}
-</code></pre>
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Hello Golang!&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>麻雀虽小五脏俱全，简单看下这段代码都用到了哪些语法特性：</p>
 <ul>
@@ -233,60 +458,100 @@ func main() {
 </ul>
 <p>你可以 git clone 这个项目到你的 <code>GOPATH/src</code> 下，然后进入 expamples 里的文件夹，找到 go 文件就可以使用 go run
 运行示例代码。 视频里我会演示编写一个简单的 go 代码并且运行它。</p>
-<h2 id="_4">练习</h2>
+<h2 id="_4">练习<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
 <li>请安装 golang 开发环境和开发工具，你可以选择一个自己擅长的开发工具编写 go 代码。有些 go 工具需要网络代理</li>
 <li>请编写你的第一个 golang 代码练习输出 hello Go！</li>
 <li>搜索如何用你的开发工具借助 gofmt 来格式化你的代码，这样写代码的时候会减少心智负担，把精力集中在代码逻辑本身</li>
 </ul>
 <p>下一章我们来看一下 go 语言的数据类型。</p>
+                
+                  
+                
+                
               
-            </div>
+              
+                
+
+
+              
+            </article>
           </div>
-          <footer>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../01_go_basic_types/basic_types/" class="btn btn-neutral float-right" title="Go 基础类型">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../../.." class="btn btn-neutral" title="简介"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../.." title="简介" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                简介
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../01_go_basic_types/basic_types/" title="Go 基础类型" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Go 基础类型
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
     </div>
   
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 - 2020 PegasusWang
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/PegasusWang" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    </div>
+  </div>
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
       
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <span><a href="../../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
-      
-        <span style="margin-left: 15px"><a href="../../01_go_basic_types/basic_types/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script>var base_url = '../../..';</script>
-    <script src="../../../js/theme.js" defer></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
-      <script src="../../../search/main.js" defer></script>
-
-</body>
+    
+  </body>
 </html>
