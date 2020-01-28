@@ -20,7 +20,24 @@ func Divide(a, b int) (int, error) {
 	return a / b, nil
 }
 
-func main() {
+func MustDivide(a, b int) int {
+	if b == 0 {
+		panic("divide by zero")
+	}
+	return a / b
+}
+
+func Divide2(a, b int) (res int, err error) {
+	defer func() {
+		if e := recover(); e != nil {
+			err = fmt.Errorf("%v", e)
+		}
+	}()
+	res = MustDivide(a, b)
+	return res, nil
+}
+
+func testDivide() {
 	// fmt.Println(testDefer())
 	a, b := 1, 0
 	res, err := Divide(a, b)
@@ -28,4 +45,9 @@ func main() {
 		fmt.Println(err) // error 类型实现了 Error() 方法可以打印出来
 	}
 	fmt.Println(res)
+}
+
+func main() {
+	// MustDivide(1, 0)
+	fmt.Println(Divide2(1, 0))
 }
