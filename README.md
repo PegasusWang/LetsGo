@@ -98,7 +98,7 @@ mkdocs serve     # 修改自动更新，浏览器打开 http://localhost:8000 �
 mkdocs gh-deploy    # 部署到自己的 github pages
 ```
 
-## B 站地址(连载中)
+## B 站短视频地址(连载中)
 
 [go 基础系列频道](https://space.bilibili.com/288339968/channel/detail?cid=96412)
 

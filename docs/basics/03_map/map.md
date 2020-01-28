@@ -1,6 +1,9 @@
-> "Go is like a better C, from the guys that didn’t bring you C++." – Ikai Lan
+# 学习 go 的映射 map
 
-# 映射(map)
+!!! quote
+		"Go is like a better C, from the guys that didn’t bring you C++." – Ikai Lan
+
+## 映射(map)
 
 本章介绍映射，在很多编程语言中都有类似的用来保存键值对(key-value)的数据结构，比如 python 中的 dict, c++ 中的 map。一般底层使用哈希
 表或者红黑树来实现 map，查询效率是非常高的。如果你熟悉其他语言的 map 结构，上手 go 的 map 非常容易。
@@ -26,9 +29,11 @@ map[KeyType]ValueType{key1: value1, key2: value2,..., keyN: valueN}
 
 ![map 操作](./map_operation.png)
 
-这里需要注意的就是使用 `v := m[k]` 这种方式获取值，如果相应的 k 不存在，map 不会像 python 一样抛错(KeyError)，而是直接给
-你返回一个类型的零值(数字是0，字符串是空串)，这个可能不是你期望的，所以一般我们用 `v, found := m[k]` 这种语法，如果不存
-在 k 的话，found 的值是 false，这样就知道究竟是否存在这个 k 了。
+
+!!! warning
+		这里需要注意的就是使用 `v := m[k]` 这种方式获取值，如果相应的 k 不存在，map 不会像 python 一样抛错(KeyError)，而是直接给
+		你返回一个类型的零值(数字是0，字符串是空串)，这个可能不是你期望的，所以一般我们用 `v, found := m[k]` 这种语法，如果不存
+		在 k 的话，found 的值是 false，这样就知道究竟是否存在这个 k 了。
 
 我们同样编写一些小的测试代码来熟悉 map 的使用:
 
@@ -66,7 +71,7 @@ func main() {
 }
 ```
 
-# 如何实现 set？
+## 如何实现 set？
 
 set 经常在讲 map 的时候提到，它是集合类型，和数学上的集合概念类似，保存唯一的值的容器，经常用来判断一个元素是否已经存在
 。go 里不像 python 直接提供了一个内置 set 类型，但其实根据 map 我们也可以用来实现一个简单的 set 结构，只需要创建一个 map
@@ -84,7 +89,7 @@ func testUseMapAsSet() {
 }
 ```
 
-# 练习
+## 练习
 
 - 尝试编写一个词频统计程序，你需要查询下如何用 go 读取文件，然后统计每个单词出现的次数？
 - 内置的 map 并不是并发安全的，怎么样修改才是并发安全的呢？

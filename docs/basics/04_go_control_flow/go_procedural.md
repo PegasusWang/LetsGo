@@ -1,17 +1,20 @@
-> “Go doesn’t implicitly anything.” – Steven in golang-nuts
+# 学习 go 的过程式编程
 
-# 过程式编程
+!!! quote
+    “Go doesn’t implicitly anything.” – Steven in golang-nuts
+
+## 过程式编程
 
 很多现代化编程语言基本都支持多种编程范式，比如[过程式](https://en.wikipedia.org/wiki/Procedural_programming)、函数式、面向对象编程等。本章我们来介绍 go
 语言中的控制流语句，熟悉它们为我们编写函数打好基础。
 
-# Go 控制流语句
+## Go 控制流语句
 
 对于很多常见的编程语言来说，控制流语句是实现过程式编程的基础，最常见的就是分之和循环，比如很多编程语言中都有
 if/else/elseif/switch/while/for 等关键词用来实现分之和循环。不同的编程语言使用它们基本上也都是大同小异，本章我们来看下在
 go 语言中如何实现它们。
 
-# 分之
+## 分之
 
 go 语言提供了三种分之方式，if/switch/select，分别来看下它们的使用方式和注意事项。
 
@@ -104,7 +107,7 @@ func testSwitch() {
 }
 ```
 
-# 循环
+## 循环
 
 再来看下循环，和其他语言不同的是，go 只提供了一个关键词 for 来实现循环（没有 while 和 do while），是不是非常吝啬。
 不过你会发现其实只要一个 for 就可以满足需求了，当然它提供了几种不同的使用方式，来瞅瞅：
@@ -152,12 +155,12 @@ func testFor() {
 其实 break 和 continue 还支持后边跟一个跳转标签，但是一般代码中用得比较少，你只需要知道还有这个功能，
 万不得已需要使用的时候再 google 就好，你很可能永远都用不到这个。
 
-# goto
+## goto
 
 go 和 c 一样支持 goto 语句，但是根据笔者的经验，业务代码中其实用的非常少。大部分逻辑我们不用 goto 就可以处理。
 除了极少数情况外，不太提倡使用 goto，但如果万不得已，你可以去搜索一下 goto 的用法。
 
-# 小结
+## 小结
 
 go 的控制流相比其他语言来说更加简单，比如连 while 都没有提供，直接用一个 for 来解决。本章还没有介绍
 select，我们将在后续介绍到 channel 和并发编程的时候介绍 select 的使用。

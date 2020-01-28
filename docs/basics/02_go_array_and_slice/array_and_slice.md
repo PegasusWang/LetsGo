@@ -1,12 +1,15 @@
-> [Go] really fells like “the C for the 21st century” – Petr Hošek
+# 学习和使用 Go 数组和切片
 
-# Go 数组(array)和切片(slice)
+!!! quote
+	[Go] really fells like “the C for the 21st century” – Petr Hošek
+
+## Go 数组(array)和切片(slice)
 
 数组是我们最常用的线性结构，比如在 python 中我们最常使用的是 list。在 Go
 中提供了两种常见的线性结构：数组(array)和切片(slice)。数组就是固定长度的某种类型的序列，而切片更加灵活，它的长度是可以变化的，
 所以在业务中我们最经常使用的其实还是切片。
 
-# 数组
+## 数组
 数组是一个包含相同类型的固定长度的序列，不像动态语言那样可以在 list 中存储不同类型的值，go 语言中数组中的类型需要一致。
 我们来看一下如何创建一个数组，有这么几种形式，注意长度也是数组的一部分（不同长度的数组不是一种类型）:
 
@@ -64,7 +67,7 @@ func testArrayOperation() {
 数组的示例就到这，接下来我们看下切片(slice)，其实在业务开发中切片要远比数组更加常用也更加灵活，甚至可能你都不会用到数组，
 而是一直使用切片来代替。
 
-# 切片(slice)
+## 切片(slice)
 
 切片比数组更加灵活，长度是可以变化的。你可能会好奇它和数组的区别以及底层实现。实际上它和 python 的 list
 比较类似，可以自动扩容。你可以简单地理解为切片是一个指向数组的指针，这个数组有它的总容量(capacity)，和目前使用使用的长度(length)。
@@ -116,7 +119,7 @@ func testSlice() {
 }
 ```
 
-# 如何给一个切片排序？
+## 如何给一个切片排序？
 
 切片操作和 python list 比较类似，但是也要注意一些区别。比如子切片和原切片共享底层结构，如果需要深拷贝你得自己去复制一个新的。
 另外 go 只支持正数的索引，你需要保证 slice 索引值必须要在 0 到 length-1，否则会出现 panic 导致程序退出。
@@ -130,7 +133,7 @@ sort.Float64s(a []float64) // Float64s sorts a slice of float64s in increasing o
 sort.Search(n int, f func(int) bool) int // Search uses binary search to find and return the smallest index i in [0, n) at which f(i) is true
 ```
 
-# 小练习
+## 小练习
 
 - 请给一个 slice 反向排序？不知道的话请搜索 go 的 sort 文档
 - 什么情况下我们要去关心 slice 的容量呢？append 之后它的容量如何变化呢？

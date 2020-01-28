@@ -1,6 +1,9 @@
-> "You can't write perfect software. Software can't be perfect. Protect your code and users from the inevitable errors.
+# go 是如何处理错误的？
 
-# 错误处理
+!!! quote
+    "You can't write perfect software. Software can't be perfect. Protect your code and users from the inevitable errors.
+
+## 错误处理
 
 如果你使用过 Python/Java 等流行的编程语言，你会发现它们使用异常机制来进行错误处理，Python 中你可以使用 try/except
 来进行异常的捕获和处理，如果异常没有被捕获，就会造成程序退出。还可以通过异常栈来追踪异常的调用信息从而帮助我们修复异常代码。
@@ -37,18 +40,23 @@ func (router HttpRouter) parse(reader *bufio.Reader) (Request, Response) {
 在 go 的惯例中，一般函数多个返回值的最后一个值用来返回错误，返回 nil 表示没有错误，调用者通过检查返回的错误是否是 nil
 就知道是否需要处理错误了。
 
-# defer 语句
+## defer 语句
 
 go 中提供了一个 defer 语句用来延迟一个函数(匿名函数)或者方法的执行，它会在函数执行完成之后调用。一般为了防止代码里有资源泄露，
 对于打开的资源比如文件等我们需要显示进行关闭，这种场合就是 defer 发挥作用最好的场景，也是 go 代码中使用 defer 最常用的场景。
 
-```go
+``` go tab="Go"
 f, err := os.Open(file)
 if err != nil {
   // handle err
   return err
 }
 defer f.Close() // 保证文件会在函数返回之后关闭，防止资源泄露
+```
+
+``` py tab="Python"
+with open("filepath", "r") as f:
+    # do with file
 ```
 
 如果你用过 python 的话，go 中的 defer 和 python 使用 with 语句保证资源会被关闭目的一样。
@@ -74,7 +82,7 @@ func main() {
 }
 ```
 
-# go 的 error 类型
+## go 的 error 类型
 
 上文提到一般我们在 go 中通过返回一个 error 来表示错误或者异常状态，这是 go 代码中最常见的方式。那 error 究竟是什么呢？
 其实 error 是 go 的一个内置的接口类型，比如你可以使用开发工具跳进去看下 error 的定义（注意这里使用到了接口，后面会介绍）。
@@ -126,7 +134,7 @@ func (p *pp) Write(b []byte) (ret int, err error) {
 
 在我们的业务代码中也是这样，如果你希望返回一个错误，可以在函数的最后一个返回值返回一个错误类型。
 
-# Go 的异常处理 panic/recover
+## Go 的异常处理 panic/recover
 
 上边我们提到了错误，这里聊聊 go 的异常处理机制 panic(恐慌)/recover(恢复)，其实一般我们使用的是错误处理(error)而不是 panic。因为只有非常严重的场景
 下才会发生 panic 导致代码退出。平常我们使用的 web 框架，一般即使出错了，我们也希望整个进程继续执行，而不是直接退出无法处理用户请求。
@@ -181,7 +189,7 @@ func Divide2(a, b int) (res int, err error) {
 
 文末还有几篇不错的文章供大家参考，多看一些流行的源码，你就知道它们的使用场合了。
 
-# 参考：
+## 参考：
 
 - [Go 面向失败编程](https://developer.aliyun.com/article/740696)
 - [Error handling and Go](https://blog.golang.org/error-handling-and-go)
