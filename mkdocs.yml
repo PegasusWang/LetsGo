@@ -1,39 +1,40 @@
 site_name: Let's Go! Golang 短视频教程
 site_author: 'PegasusWang'
+repo_name: 'LetsGo'
+repo_url: 'https://github.com/PegasusWang/LetsGo'
 # theme: readthedocs
 
-# Copyright
 copyright: 'Copyright &copy; 2019 - 2020 PegasusWang'
 
-# Configuration
+# Configuration, https://squidfunk.github.io/mkdocs-material/
 theme:
   name: 'material'
-  language: 'en'
   palette:
     primary: 'black'
     accent: 'indigo'
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
-  feature:
-    tabs: true
 
 extra_javascript:
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 extra:
-  manifest: 'manifest.webmanifest'
+  # disqus: 'pegasus'
   social:
     - type: 'github'
       link: 'https://github.com/PegasusWang'
 
 markdown_extensions:
+  - admonition
   - mdx_math:
-      enable_dollar_delimiter: True  #for use of inline $..$
+      enable_dollar_delimiter: true  #for use of inline $..$
   - codehilite:
-      guess_lang: False
+      linenums: true
+      guess_lang: true
   - toc:
       permalink: true
+  - pymdownx.superfences
 
 nav:
 - 简介: 'index.md'
