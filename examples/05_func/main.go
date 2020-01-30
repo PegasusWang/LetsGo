@@ -4,42 +4,42 @@ import (
 	"fmt"
 )
 
-func sum0(a int, b int) int {
-	return a + b
+func changeStr(s string) {
+	s = "hehe"
+	fmt.Println(s)
+}
+func changeStrByPtr(s *string) {
+	*s = "new hehe"
 }
 
-func sum1(a, b int) int {
-	return a + b
+func changeMap(m map[string]string) {
+	m["王八"] = "绿豆"
 }
 
-func sum2(a, b int) (res int) {
-	res = a + b
-	return
-}
-
-func sum3(init int, vals ...int) int {
-	sum := init
-	for _, val := range vals {
-		sum += val
+func FilterIntSlice(intVals []int, predicate func(i int) bool) []int {
+	res := make([]int, 0)
+	for _, val := range intVals {
+		if predicate(val) {
+			res = append(res, val)
+		}
 	}
-	return sum
-}
-
-func sum4(init int, vals ...int) (int, int) {
-	sum := init
-	for _, val := range vals {
-		sum += val
-	}
-	return sum, len(vals)
+	return res
 }
 
 func main() {
-	fmt.Println(sum0(1, 2))
-	fmt.Println(sum1(1, 2))
-	fmt.Println(sum2(1, 2))
-	fmt.Println(sum3(0, 1, 2, 3))
-	fmt.Println(sum3(0, []int{1, 2, 3}...))
-	fmt.Println(sum4(0, []int{1, 2, 3}...))
-	sum, length := sum4(0, []int{1, 2, 3}...)
-	fmt.Println(sum, length)
+	name := "lao wang"
+	changeStr(name) // 值传递
+	fmt.Println(name)
+
+	m := map[string]string{"name": "wang"}
+	changeMap(m)
+	fmt.Println(m)
+
+	name2 := "name2"
+	changeStrByPtr(&name2)
+	fmt.Println(name2)
+
+	ints := []int{1, 2, 3, 4, 5}
+	isEven := func(i int) bool { return i%2 == 0 }
+	fmt.Println(FilterIntSlice(ints, isEven))
 }
