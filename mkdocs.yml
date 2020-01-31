@@ -29,7 +29,7 @@ markdown_extensions:
   - admonition
   - mdx_math:
       enable_dollar_delimiter: true  #for use of inline $..$
-  - codehilite:
+  - codehilite: # https://squidfunk.github.io/mkdocs-material/extensions/codehilite/
       linenums: true
       guess_lang: true
   - toc:
@@ -47,3 +47,4 @@ nav:
   - 'Go 函数': 'basics/05_func/func.md'
   - 'Go 错误处理': 'basics/06_error/error.md'
   - 'Go 面向对象编程': 'basics/07_oop/oop.md'
+  - 'Go struct': 'basics/08_struct/struct.md'
