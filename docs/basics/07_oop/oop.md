@@ -19,7 +19,7 @@ Java/C++/Python 等都支持 OOP。如果你使用过 Java/Python 的 OOP，应�
 ## 如何自定义类型？
 
 go 支持使用 type 关键词来定义自己的类型，比如我们来定义一个 Enum 类型，go 默认没有提供 enum 类型，我们可以通过 type
-自己定义一个枚举类型：
+自己定义一个枚举类型(在业务代码中经常用到枚举):
 
 ```go
 package main
@@ -52,8 +52,9 @@ func main() {
 }
 ```
 
-你会发现虽然 Enum 是使用 int 定义的，但是你是无法直接进行比较的，go 认为它们是不同的类型。怎么办么？
-你可以使用 int 来进行类型转换，比如使用 `fmt.Println(int(Init) == status)`，这里我们使用另一个种方式，就是给自定义类型增加方法。
+你会发现虽然 Enum 是使用 int 定义的，但是你是无法直接进行比较的，go 认为它们是不同的类型。怎么办呢？
+你可以使用 int 来进行类型转换，比如使用 `fmt.Println(int(Init) == status)`，这里我们使用另一个种方式，
+就是给自定义类型增加方法(method)。
 
 go 允许我们给自定义类型定义方法，所谓的方法其实就是有接收者(receiver)的函数，之前我们已经介绍过函数的定义格式如下：
 
@@ -63,7 +64,7 @@ func functionName(optionalParameters) optionalReturnType {
 }
 ```
 
-方法的定义类似，只不过多了一个接收者，它的格式如下：
+方法的定义方式比较类似，只不过多了一个接收者，你可以理解为方法就是有接收者的函数，它的格式如下：
 
 ```go
 func (r Receiver) functionName(optionalParameters) optionalReturnType {
@@ -122,7 +123,7 @@ func (e Enum) String() string {
 	}[e]
 }
 
-func main() {
+func main() { // 测试一下我们自己定义的 Enum
 	status := 0
 	fmt.Println(Init.Int() == status)
 
@@ -132,7 +133,7 @@ func main() {
 ```
 
 这样我们就自己定义了一个业务代码常用的枚举类型，通过给自定义类型添加方法，我们可以给类型加入非常多有用的功能。
-可以方法和普通函数相比，就是多了一个接收者， `func (e Enum) String() string {}`，之后学习 struct 定义方法的时候也是类似的。
+可以看到方法和普通函数相比，就是多了一个接收者， `func (e Enum) String() string {}`，之后学习 struct 定义方法的时候也是类似的。
 
 除了基本类型，我们还可以自定义一些复杂类型，比如以下一些例子：
 
@@ -151,11 +152,13 @@ func main() {
 }
 ```
 
-除了基于内置类型，我们还可以使用 go 提供的结构体 struct 来自己自己的类型。下一篇文章将介绍下如何使用 struct
+可以看到相比使用内置类型，我们自己命名的 Counter/Queue 等含义更加清晰和明确，还能通过增加方法实现更多功能。
+除了基于内置类型，我们还可以使用 go 提供的结构体 struct 来定义自己的类型。下一篇文章将介绍下如何使用 struct
 来实现面向对象编程。
 
 ## 小练习
 
+- 请你给 Enum 实现对应的返回英文名称的功能
 - 尝试使用自己定义的 Counter 类型来统计一个字符串中不同单词的个数，你可以统计一个文件中的单词个数么？
 
 ## 参考
