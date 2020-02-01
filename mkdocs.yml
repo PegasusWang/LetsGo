@@ -48,3 +48,4 @@ nav:
   - 'Go 错误处理': 'basics/06_error/error.md'
   - 'Go 面向对象编程': 'basics/07_oop/oop.md'
   - 'Go struct': 'basics/08_struct/struct.md'
+  - 'Go 接口': 'basics/09_interface/interface.md'
