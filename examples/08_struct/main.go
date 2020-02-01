@@ -18,14 +18,41 @@ func (a *Animal) SetPetName(petName string) {
 	// (*a).petName = petName
 }
 
-func main() {
-	a := Animal{Name: "dog", Age: 3}
-	a.SetPetName("hehe")
-	a.Sleep()
-	fmt.Println(a, a.Name, a.Age)
+func NewAnimal(name string, age int) *Animal {
+	a := Animal{
+		Name: name,
+		Age:  age,
+	}
+	return &a
+}
+
+func testAnimal() {
+	// a := Animal{Name: "dog", Age: 3}
+	// a.SetPetName("hehe")
+	// a.Sleep()
+	// fmt.Println(a, a.Name, a.Age)
 
 	// aPtr := &Animal{Name: "dog", Age: 3}
 	// aPtr.SetPetName("little dog")
 	// aPtr.Sleep()
 	// fmt.Println(aPtr.petName) // 是不是可以设置成功了
+
+	a := NewAnimal("cat", 3)
+	fmt.Println(a)
+}
+
+type Dog struct {
+	Animal // embedding
+
+	Color string
+}
+
+func (d Dog) Sleep() {
+	fmt.Println("Dog method Sleep")
+}
+
+func main() {
+	d := Dog{}
+	d.Name = "dog"
+	d.Sleep()
 }
