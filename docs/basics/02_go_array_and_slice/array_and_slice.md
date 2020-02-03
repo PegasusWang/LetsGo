@@ -119,6 +119,35 @@ func testSlice() {
 }
 ```
 
+!!! tip
+    如果在创建一个 slice 之前预先知道了它的长度，make 函数最好传递长度进去，防止 append 操作可能导致重新分配内存降低效率。
+		比如下边这个例子，使用第二种方式效率更高一些：
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	manyInts := make([]int, 1000000)
+
+	// bad way
+	a := make([]int, 0)
+	for _, val := range manyInts {
+		a = append(a, val+val) // 扩容 a 会导致重新分配内存
+	}
+	fmt.Println(a)
+
+	// good way
+	b := make([]int, len(manyInts))
+	for i, val := range manyInts {
+		b[i] = val + val // 注意这里是赋值了，不是 append
+	}
+	fmt.Println(b)
+}
+```
+
+
 ## 如何给一个切片排序？
 
 切片操作和 python list 比较类似，但是也要注意一些区别。比如子切片和原切片共享底层结构，如果需要深拷贝你得自己去复制一个新的。
