@@ -453,6 +453,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../09_interface/interface/" title="Go 接口" class="md-nav__link">
+      Go 接口
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -762,7 +774,7 @@ Python 的实现就没有那么严格，Python 里边是通过命名的方式来
 </td></tr></table>
 
 <p>运行代码你就会发现我们成功修改了 Animal 的 petName 成员了。一般如果必须需要修改结构体，或者结构体数据成员比较多（减少复制成本），
-我们就需要使用指针接收者。如果你不好判断使用指针还是值接收者，推荐你使用指针接收者。</p>
+我们就需要使用指针接收者。如果你不好判断使用指针还是值接收者，推荐你使用指针接收者。(注意一般我们使用非常简短的名称给receiver命名)</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>注意代码里的 NOTE 注释，go 里提供了简化指针访问成员的方式，比如我们没有使用 <code>(*a).petName</code> 而是直接使用的
@@ -948,6 +960,20 @@ Animal，我们想复用 Animal 里的成员，可以在 Dog struct 里嵌入一
             </div>
           </a>
         
+        
+          <a href="../../09_interface/interface/" title="Go 接口" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Go 接口
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>

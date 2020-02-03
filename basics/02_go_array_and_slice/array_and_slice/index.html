@@ -425,6 +425,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../09_interface/interface/" title="Go 接口" class="md-nav__link">
+      Go 接口
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -677,6 +689,55 @@
     <span class="nx">vals2</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
     <span class="nx">newVals</span> <span class="o">:=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">vals</span><span class="p">,</span> <span class="nx">vals2</span><span class="o">...</span><span class="p">)</span> <span class="c1">// 可以使用省略号的方式『解包』一个 slice 来连接两个 slice</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">newVals</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>如果在创建一个 slice 之前预先知道了它的长度，make 函数最好传递长度进去，防止 append 操作可能导致重新分配内存降低效率。
+    比如下边这个例子，使用第二种方式效率更高一些：</p>
+</div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">manyInts</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">)</span>
+
+    <span class="c1">// bad way</span>
+    <span class="nx">a</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">val</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">manyInts</span> <span class="p">{</span>
+        <span class="nx">a</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">val</span><span class="o">+</span><span class="nx">val</span><span class="p">)</span> <span class="c1">// 扩容 a 会导致重新分配内存</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+
+    <span class="c1">// good way</span>
+    <span class="nx">b</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">manyInts</span><span class="p">))</span>
+    <span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">val</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">manyInts</span> <span class="p">{</span>
+        <span class="nx">b</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">val</span> <span class="o">+</span> <span class="nx">val</span> <span class="c1">// 注意这里是赋值了，不是 append</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table>
