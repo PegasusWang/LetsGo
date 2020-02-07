@@ -134,6 +134,8 @@ func (p *pp) Write(b []byte) (ret int, err error) {
 
 在我们的业务代码中也是这样，如果你希望返回一个错误，可以在函数的最后一个返回值返回一个错误类型。
 
+## 自定义自己的业务异常 TODO
+
 ## Go 的异常处理 panic/recover
 
 上边我们提到了错误，这里聊聊 go 的异常处理机制 panic(恐慌)/recover(恢复)，其实一般我们使用的是错误处理(error)而不是 panic。因为只有非常严重的场景

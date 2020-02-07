@@ -167,3 +167,7 @@ sort.Search(n int, f func(int) bool) int // Search uses binary search to find an
 - 请给一个 slice 反向排序？不知道的话请搜索 go 的 sort 文档
 - 什么情况下我们要去关心 slice 的容量呢？append 之后它的容量如何变化呢？
 - sort 包里的稳定排序和非稳定排序有什么区别？
+
+## 参考
+
+- [Slice Tricks](https://github.com/golang/go/wiki/SliceTricks)

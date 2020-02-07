@@ -92,4 +92,5 @@ func testUseMapAsSet() {
 ## 练习
 
 - 尝试编写一个词频统计程序，你需要查询下如何用 go 读取文件，然后统计每个单词出现的次数？
+- 给你一个有重复数字的 []int slice，请你用 map 实现一个去重函数 `func unique(intVals []int) []int`
 - 内置的 map 并不是并发安全的，怎么样修改才是并发安全的呢？
