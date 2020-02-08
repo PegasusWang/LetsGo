@@ -377,6 +377,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#go_1" class="md-nav__link">
+    go 如何自定义自己的业务异常
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#go-panicrecover" class="md-nav__link">
     Go 的异常处理 panic/recover
   </a>
@@ -479,6 +486,13 @@
         <li class="md-nav__item">
   <a href="#go-error" class="md-nav__link">
     go 的 error 类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go_1" class="md-nav__link">
+    go 如何自定义自己的业务异常
   </a>
   
 </li>
@@ -714,6 +728,57 @@
 </td></tr></table>
 
 <p>在我们的业务代码中也是这样，如果你希望返回一个错误，可以在函数的最后一个返回值返回一个错误类型。</p>
+<h2 id="go_1">go 如何自定义自己的业务异常<a class="headerlink" href="#go_1" title="Permanent link">&para;</a></h2>
+<p>在 python 之类的使用异常处理的编程语言里，我们可以通过继承 Exception 类来自定义自己的业务异常。那在 go
+里如何实现类似的需求呢？比如我们经常需要根据自己的业务代码来自定义错误，笔者这里介绍一个常用的方式。</p>
+<p>这里用到的了一些 struct 定义的语法，如果你现在不懂也没关系，大概了解一下就行，看完 struct 章节你就懂了。其实我们只需要自己定义一个结构体，
+然后实现 <code>Error()</code> 方法就实现了 go 的 error 接口。比如这里我们的 web 服务叫做 Article 服务，那么我们可以定义叫做
+ArticleError 的错误类型。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">errors</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;fmt&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">ArticleError</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">Code</span>    <span class="kt">int32</span>
+    <span class="nx">Message</span> <span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">ArticleError</span><span class="p">)</span> <span class="nx">Error</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;[ArticleError] Code=%d, Message=%s&quot;</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">Code</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">Message</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">NewArticleError</span><span class="p">(</span><span class="nx">code</span> <span class="kt">int32</span><span class="p">,</span> <span class="nx">message</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&amp;</span><span class="nx">ArticleError</span><span class="p">{</span>
+        <span class="nx">Code</span><span class="p">:</span>    <span class="nx">code</span><span class="p">,</span>
+        <span class="nx">Message</span><span class="p">:</span> <span class="nx">message</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>如果出现了业务错误，你就可以调用 NewArticleError 函数并且传入你业务里定义的错误码和错误信息创建一个错误类型了。</p>
 <h2 id="go-panicrecover">Go 的异常处理 panic/recover<a class="headerlink" href="#go-panicrecover" title="Permanent link">&para;</a></h2>
 <p>上边我们提到了错误，这里聊聊 go 的异常处理机制 panic(恐慌)/recover(恢复)，其实一般我们使用的是错误处理(error)而不是 panic。因为只有非常严重的场景
 下才会发生 panic 导致代码退出。平常我们使用的 web 框架，一般即使出错了，我们也希望整个进程继续执行，而不是直接退出无法处理用户请求。
