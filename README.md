@@ -105,9 +105,10 @@ mkdocs gh-deploy    # 部署到自己的 github pages
 - [学 Golang 涨工资系列，你的第一个 Golang 代码](https://www.bilibili.com/video/av79390466/)
 - [学 golang 涨工资系列，聊聊 Go 的基础类型](https://www.bilibili.com/video/av80297008/)
 - [学 golang 涨工资系列，快速入门 go 数组与切片](https://www.bilibili.com/video/av81161132/)
-- [学 golang涨工资系列，golang 映射](https://www.bilibili.com/video/av81161408/)
+- [学 golang 涨工资系列，golang 映射](https://www.bilibili.com/video/av81161408/)
 - [学 golang 涨工资系列，go 流程控制](https://www.bilibili.com/video/av81651933/)
 - [学 golang 涨工资系列，go 函数初探](https://www.bilibili.com/video/av83934847/)
+- [学 golang 涨工资系列，学习 go 函数特性](https://www.bilibili.com/video/av83934847/)
 
 ## 知乎专栏
 
@@ -115,7 +116,8 @@ mkdocs gh-deploy    # 部署到自己的 github pages
 - [学 golang 涨工资系列，聊聊 Go 的基础类型](https://zhuanlan.zhihu.com/p/99034721)
 - [学 Golang 涨工资系列，Golang 数组和切片](https://zhuanlan.zhihu.com/p/100512151)
 - [学 Golang 涨工资系列，Go map映射](https://zhuanlan.zhihu.com/p/100512341)
-- [学 golang 涨工资系列，go 流程控制[视频]](https://zhuanlan.zhihu.com/p/100618984)
+- [学 golang 涨工资系列，go 流程控制](https://zhuanlan.zhihu.com/p/100618984)
+- [学 golang 涨工资系列，一起学习 go 函数](https://zhuanlan.zhihu.com/p/105768214)
 
 ## 勘误
 
