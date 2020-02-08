@@ -138,8 +138,10 @@ func (p *pp) Write(b []byte) (ret int, err error) {
 
 在 python 之类的使用异常处理的编程语言里，我们可以通过继承 Exception 类来自定义自己的业务异常。那在 go
 里如何实现类似的需求呢？比如我们经常需要根据自己的业务代码来自定义错误，笔者这里介绍一个常用的方式。
-这里用到的了一些 struct 定义的语法，如果你现在不懂也没关系，大概了解一下就行。其实我们只需要自己定义一个结构体，
-然后实现 `Error()` 方法就实现了go 的 error 接口。
+
+这里用到的了一些 struct 定义的语法，如果你现在不懂也没关系，大概了解一下就行，看完 struct 章节你就懂了。其实我们只需要自己定义一个结构体，
+然后实现 `Error()` 方法就实现了 go 的 error 接口。比如这里我们的 web 服务叫做 Article 服务，那么我们可以定义叫做
+ArticleError 的错误类型。
 
 ```go
 package errors
@@ -148,22 +150,24 @@ import (
 	"fmt"
 )
 
-type AppConfigError struct {
+type ArticleError struct {
 	Code    int32
 	Message string
 }
 
-func (e *AppConfigError) Error() string {
-	return fmt.Sprintf("[AppConfigError] Code=%d, Message=%s", e.Code, e.Message)
+func (e *ArticleError) Error() string {
+	return fmt.Sprintf("[ArticleError] Code=%d, Message=%s", e.Code, e.Message)
 }
 
-func NewAppConfigError(code int32, message string) error {
-	return &AppConfigError{
+func NewArticleError(code int32, message string) error {
+	return &ArticleError{
 		Code:    code,
 		Message: message,
 	}
 }
 ```
+
+如果出现了业务错误，你就可以调用 NewArticleError 函数并且传入你业务里定义的错误码和错误信息创建一个错误类型了。
 
 ## Go 的异常处理 panic/recover
 
