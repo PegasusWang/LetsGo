@@ -134,7 +134,36 @@ func (p *pp) Write(b []byte) (ret int, err error) {
 
 在我们的业务代码中也是这样，如果你希望返回一个错误，可以在函数的最后一个返回值返回一个错误类型。
 
-## 自定义自己的业务异常 TODO
+## go 如何自定义自己的业务异常
+
+在 python 之类的使用异常处理的编程语言里，我们可以通过继承 Exception 类来自定义自己的业务异常。那在 go
+里如何实现类似的需求呢？比如我们经常需要根据自己的业务代码来自定义错误，笔者这里介绍一个常用的方式。
+这里用到的了一些 struct 定义的语法，如果你现在不懂也没关系，大概了解一下就行。其实我们只需要自己定义一个结构体，
+然后实现 `Error()` 方法就实现了go 的 error 接口。
+
+```go
+package errors
+
+import (
+	"fmt"
+)
+
+type AppConfigError struct {
+	Code    int32
+	Message string
+}
+
+func (e *AppConfigError) Error() string {
+	return fmt.Sprintf("[AppConfigError] Code=%d, Message=%s", e.Code, e.Message)
+}
+
+func NewAppConfigError(code int32, message string) error {
+	return &AppConfigError{
+		Code:    code,
+		Message: message,
+	}
+}
+```
 
 ## Go 的异常处理 panic/recover
 
