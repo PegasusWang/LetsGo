@@ -92,9 +92,9 @@ func main() {
 	dog := Dog{Name: "xiaobai"}
 	cat := Cat{Name: "hellokitty"}
 	s = dog
-	AnimalSleep(s)
+	AnimalSleep(s) // 使用 dog 的 Sleep()
 	s = cat
-	AnimalSleep(s)
+	AnimalSleep(s) // 使用 cat 的 Sleep()
 
   // 创建一个 Sleeper 切片
 	sleepList := []Sleeper{Dog{Name: "xiaobai"}, Cat{Name: "kitty"}}
@@ -191,18 +191,134 @@ func main() {
 }
 ```
 
-大功告成，这里我们就实现了接口的嵌入。来总结一下重点内容：
+大功告成，这里我们就实现了接口的嵌入，代码都是比较简单直白的。来总结一下重点内容：
 
 - go 可以声明接口，它包含了一系列方法声明
-- struct 可以实现接口，只要一个 struct 实现了一个接口的所有方法，我们就说 struct 实现了接口（隐式的）
-- 接口也可以嵌入来声明一个新的接口
+- struct 可以实现接口，只要一个 struct 实现了一个接口的所有方法，我们就说 struct 实现了这个接口（隐式的）
+- 接口也可以通过嵌入来声明一个新的接口，比如 ReadWriter 内嵌了 Reader 和 Writer。
+- go 提倡“小而美”的接口，然后通过嵌入来组合新接口
+
+## 类型断言(type assert)
+
+上文我们看到在使用接口的地方，我们可以传入一个具体的实现了接口的 struct 类型，但是我们如何获取传入的到底是哪种 struct 类型呢？
+go 给我们提供了一种方式叫做类型断言来获取具体的类型，它的语法比较简单，格式如下：
+
+```go
+instance, ok := interfaceVal.(RealType) // 如果 ok 为 true 的话，接口值就转成了我们需要的类型
+```
+
+我们继续再上边的代码里加上类型断言的演示，注意类型断言那几行代码，再 for 循环里边我们使用类型断言获取了接口值的真正类型。
+
+```go
+func main() {
+	sleepList := []LazyAnimal{Dog{Name: "xiaobai"}, Cat{Name: "kitty"}}
+	foodName := "food"
+	for _, s := range sleepList {
+		s.Sleep()
+		s.Eat(foodName)
+
+		// 类型断言 type assert
+		if dog, ok := s.(Dog); ok {
+			fmt.Printf("I am a Dog, my name is %s", dog.Name)
+		}
+		if cat, ok := s.(Cat); ok {
+			fmt.Printf("I am a Cat, my name is %s", cat.Name)
+		}
+	}
+}
+```
 
 ## 使用空接口实现泛型
 
-## 类型断言
+之前在函数那一章我们提到 go 目前没有直接提供对泛型的支持，学了接口之后其实我们可以用接口来实现。
+上文提到，如果一个 struct 实现了一个接口声明所有方法，我们就说这个 struct (隐式)实现了这个接口，那如果是一个没有声明
+任何方法的空接口(empty interface)呢？按照这个定义岂不是所有类型都实现了空接口么？
+
+你猜对了，所有类型都实现了空接口(`interface{}`)，所以可以用空接口+类型断言转成任何我们需要的类型。来看下这个例子，
+我们创建了一个空接口数组，它的元素可以是任何类型：
+
+```go hl_lines="24"
+package main
+
+import (
+	"fmt"
+)
+
+type Dog struct {
+	Name string
+}
+
+func (d Dog) Sleep() {
+	fmt.Printf("Dog %s is sleeping\n", d.Name)
+}
+
+type Cat struct {
+	Name string
+}
+
+func (c Cat) Sleep() {
+	fmt.Printf("Cat %s is sleeping\n", c.Name)
+}
+
+func main() {
+	animalList := []interface{}{Dog{Name: "xiaobai"}, Cat{Name: "kitty"}}
+	for _, s := range animalList {
+		if dog, ok := s.(Dog); ok {
+			fmt.Printf("I am a Dog, my name is %s\n", dog.Name)
+		}
+		if cat, ok := s.(Cat); ok {
+			fmt.Printf("I am a Cat, my name is %s\n", cat.Name)
+		}
+	}
+}
+```
+
+那我们如何实现泛型呢？空接口其实给了我们思路。既然它能转成所有类型，那我们以空接口作为参数不就好了嘛，这个想法是对的。
+如果你有留意的话，到现在我们的代码示例里边使用最多的是啥，其实是这句话 `fmt.Println()`，不知道你之前有没有发现这个函数
+居然可以传递任意类型进去，用的是什么黑魔法呢？
+
+既然我们知道了空接口，可以自己实现一个简单的可以打印多种类型的 MyPrint 函数。
+
+```go
+func MyPrint(i interface{}) {
+	switch o := i.(type) {
+	case int:
+		fmt.Printf("%d\n", o)
+	case float64:
+		fmt.Printf("%f\n", o)
+	case string:
+		fmt.Printf("%s\n", o)
+	default:
+		fmt.Printf("%+v\n", o)
+	}
+}
+
+func main() {
+	MyPrint(1)
+	MyPrint(4.2)
+	MyPrint("hello")
+	MyPrint(map[string]string{"hello": "go"})
+}
+```
+
+实际上如果你用开发工具跳转包 fmt 对应 `fmt.Println` 的函数实现，可以看到它也是以空接口作为参数的:
+
+```go
+// Println formats using the default formats for its operands and writes to standard output.
+// Spaces are always added between operands and a newline is appended.
+// It returns the number of bytes written and any write error encountered.
+func Println(a ...interface{}) (n int, err error) {
+	return Fprintln(os.Stdout, a...)
+}
+```
+
+空接口在实现泛型的时候很有用，不过一般情况下如果不是必要，我们还是单独实现对应类型的函数就好，代码可读性也更高。
 
 ## 练习
+
+- 实现一个简单的 `a+b` 函数，需要同时支持 int 和 float64 参数
 
 ## 参考
 
 - [Golang and inheritance](https://stackoverflow.com/questions/32188653/golang-and-inheritance)
+- [why generics](https://blog.golang.org/why-generics)
