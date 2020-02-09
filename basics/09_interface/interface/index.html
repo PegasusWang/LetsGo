@@ -406,6 +406,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#type-assert" class="md-nav__link">
+    类型断言(type assert)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     使用空接口实现泛型
   </a>
@@ -414,20 +421,13 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    类型断言
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
     练习
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     参考
   </a>
   
@@ -484,6 +484,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#type-assert" class="md-nav__link">
+    类型断言(type assert)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     使用空接口实现泛型
   </a>
@@ -492,20 +499,13 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    类型断言
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
     练习
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     参考
   </a>
   
@@ -681,9 +681,9 @@ go 的接口是一种抽象的自定义类型，没法直接实例化，它声�
     <span class="nx">dog</span> <span class="o">:=</span> <span class="nx">Dog</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&quot;xiaobai&quot;</span><span class="p">}</span>
     <span class="nx">cat</span> <span class="o">:=</span> <span class="nx">Cat</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&quot;hellokitty&quot;</span><span class="p">}</span>
     <span class="nx">s</span> <span class="p">=</span> <span class="nx">dog</span>
-    <span class="nx">AnimalSleep</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+    <span class="nx">AnimalSleep</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="c1">// 使用 dog 的 Sleep()</span>
     <span class="nx">s</span> <span class="p">=</span> <span class="nx">cat</span>
-    <span class="nx">AnimalSleep</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+    <span class="nx">AnimalSleep</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="c1">// 使用 cat 的 Sleep()</span>
 
   <span class="c1">// 创建一个 Sleeper 切片</span>
     <span class="nx">sleepList</span> <span class="o">:=</span> <span class="p">[]</span><span class="nx">Sleeper</span><span class="p">{</span><span class="nx">Dog</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&quot;xiaobai&quot;</span><span class="p">},</span> <span class="nx">Cat</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&quot;kitty&quot;</span><span class="p">}}</span>
@@ -837,18 +837,197 @@ go 的接口是一种抽象的自定义类型，没法直接实例化，它声�
 </pre></div>
 </td></tr></table>
 
-<p>大功告成，这里我们就实现了接口的嵌入。来总结一下重点内容：</p>
+<p>大功告成，这里我们就实现了接口的嵌入，代码都是比较简单直白的。来总结一下重点内容：</p>
 <ul>
 <li>go 可以声明接口，它包含了一系列方法声明</li>
-<li>struct 可以实现接口，只要一个 struct 实现了一个接口的所有方法，我们就说 struct 实现了接口（隐式的）</li>
-<li>接口也可以嵌入来声明一个新的接口</li>
+<li>struct 可以实现接口，只要一个 struct 实现了一个接口的所有方法，我们就说 struct 实现了这个接口（隐式的）</li>
+<li>接口也可以通过嵌入来声明一个新的接口，比如 ReadWriter 内嵌了 Reader 和 Writer。</li>
+<li>go 提倡“小而美”的接口，然后通过嵌入来组合新接口</li>
 </ul>
+<h2 id="type-assert">类型断言(type assert)<a class="headerlink" href="#type-assert" title="Permanent link">&para;</a></h2>
+<p>上文我们看到在使用接口的地方，我们可以传入一个具体的实现了接口的 struct 类型，但是我们如何获取传入的到底是哪种 struct 类型呢？
+go 给我们提供了一种方式叫做类型断言来获取具体的类型，它的语法比较简单，格式如下：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nx">instance</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">interfaceVal</span><span class="p">.(</span><span class="nx">RealType</span><span class="p">)</span> <span class="c1">// 如果 ok 为 true 的话，接口值就转成了我们需要的类型</span>
+</pre></div>
+</td></tr></table>
+
+<p>我们继续再上边的代码里加上类型断言的演示，注意类型断言那几行代码，再 for 循环里边我们使用类型断言获取了接口值的真正类型。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">sleepList</span> <span class="o">:=</span> <span class="p">[]</span><span class="nx">LazyAnimal</span><span class="p">{</span><span class="nx">Dog</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&quot;xiaobai&quot;</span><span class="p">},</span> <span class="nx">Cat</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&quot;kitty&quot;</span><span class="p">}}</span>
+    <span class="nx">foodName</span> <span class="o">:=</span> <span class="s">&quot;food&quot;</span>
+    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">s</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">sleepList</span> <span class="p">{</span>
+        <span class="nx">s</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">()</span>
+        <span class="nx">s</span><span class="p">.</span><span class="nx">Eat</span><span class="p">(</span><span class="nx">foodName</span><span class="p">)</span>
+
+        <span class="c1">// 类型断言 type assert</span>
+        <span class="k">if</span> <span class="nx">dog</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">s</span><span class="p">.(</span><span class="nx">Dog</span><span class="p">);</span> <span class="nx">ok</span> <span class="p">{</span>
+            <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;I am a Dog, my name is %s&quot;</span><span class="p">,</span> <span class="nx">dog</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="nx">cat</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">s</span><span class="p">.(</span><span class="nx">Cat</span><span class="p">);</span> <span class="nx">ok</span> <span class="p">{</span>
+            <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;I am a Cat, my name is %s&quot;</span><span class="p">,</span> <span class="nx">cat</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
 <h2 id="_2">使用空接口实现泛型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h2 id="_3">类型断言<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h2 id="_4">练习<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h2 id="_5">参考<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>之前在函数那一章我们提到 go 目前没有直接提供对泛型的支持，学了接口之后其实我们可以用接口来实现。
+上文提到，如果一个 struct 实现了一个接口声明所有方法，我们就说这个 struct (隐式)实现了这个接口，那如果是一个没有声明
+任何方法的空接口(empty interface)呢？按照这个定义岂不是所有类型都实现了空接口么？</p>
+<p>你猜对了，所有类型都实现了空接口(<code>interface{}</code>)，所以可以用空接口+类型断言转成任何我们需要的类型。来看下这个例子，
+我们创建了一个空接口数组，它的元素可以是任何类型：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;fmt&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">Dog</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">Name</span> <span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="nx">Dog</span><span class="p">)</span> <span class="nx">Sleep</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;Dog %s is sleeping\n&quot;</span><span class="p">,</span> <span class="nx">d</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">Cat</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">Name</span> <span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">Cat</span><span class="p">)</span> <span class="nx">Sleep</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;Cat %s is sleeping\n&quot;</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="hll">    <span class="nx">animalList</span> <span class="o">:=</span> <span class="p">[]</span><span class="kd">interface</span><span class="p">{}{</span><span class="nx">Dog</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&quot;xiaobai&quot;</span><span class="p">},</span> <span class="nx">Cat</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&quot;kitty&quot;</span><span class="p">}}</span>
+</span>    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">s</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">animalList</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="nx">dog</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">s</span><span class="p">.(</span><span class="nx">Dog</span><span class="p">);</span> <span class="nx">ok</span> <span class="p">{</span>
+            <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;I am a Dog, my name is %s\n&quot;</span><span class="p">,</span> <span class="nx">dog</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="nx">cat</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">s</span><span class="p">.(</span><span class="nx">Cat</span><span class="p">);</span> <span class="nx">ok</span> <span class="p">{</span>
+            <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;I am a Cat, my name is %s\n&quot;</span><span class="p">,</span> <span class="nx">cat</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>那我们如何实现泛型呢？空接口其实给了我们思路。既然它能转成所有类型，那我们以空接口作为参数不就好了嘛，这个想法是对的。
+如果你有留意的话，到现在我们的代码示例里边使用最多的是啥，其实是这句话 <code>fmt.Println()</code>，不知道你之前有没有发现这个函数
+居然可以传递任意类型进去，用的是什么黑魔法呢？</p>
+<p>既然我们知道了空接口，可以自己实现一个简单的可以打印多种类型的 MyPrint 函数。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">MyPrint</span><span class="p">(</span><span class="nx">i</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="nx">o</span> <span class="o">:=</span> <span class="nx">i</span><span class="p">.(</span><span class="kd">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="kt">int</span><span class="p">:</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%d\n&quot;</span><span class="p">,</span> <span class="nx">o</span><span class="p">)</span>
+    <span class="k">case</span> <span class="kt">float64</span><span class="p">:</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%f\n&quot;</span><span class="p">,</span> <span class="nx">o</span><span class="p">)</span>
+    <span class="k">case</span> <span class="kt">string</span><span class="p">:</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%s\n&quot;</span><span class="p">,</span> <span class="nx">o</span><span class="p">)</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%+v\n&quot;</span><span class="p">,</span> <span class="nx">o</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">MyPrint</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nx">MyPrint</span><span class="p">(</span><span class="mf">4.2</span><span class="p">)</span>
+    <span class="nx">MyPrint</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
+    <span class="nx">MyPrint</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;hello&quot;</span><span class="p">:</span> <span class="s">&quot;go&quot;</span><span class="p">})</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>实际上如果你用开发工具跳转包 fmt 对应 <code>fmt.Println</code> 的函数实现，可以看到它也是以空接口作为参数的:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// Println formats using the default formats for its operands and writes to standard output.</span>
+<span class="c1">// Spaces are always added between operands and a newline is appended.</span>
+<span class="c1">// It returns the number of bytes written and any write error encountered.</span>
+<span class="kd">func</span> <span class="nx">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">...</span><span class="kd">interface</span><span class="p">{})</span> <span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">Fprintln</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span> <span class="nx">a</span><span class="o">...</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>空接口在实现泛型的时候很有用，不过一般情况下如果不是必要，我们还是单独实现对应类型的函数就好，代码可读性也更高。</p>
+<h2 id="_3">练习<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>实现一个简单的 <code>a+b</code> 函数，需要同时支持 int 和 float64 参数</li>
+</ul>
+<h2 id="_4">参考<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://stackoverflow.com/questions/32188653/golang-and-inheritance">Golang and inheritance</a></li>
+<li><a href="https://blog.golang.org/why-generics">why generics</a></li>
 </ul>
                 
                   
