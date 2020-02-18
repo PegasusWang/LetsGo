@@ -229,3 +229,4 @@ func Divide2(a, b int) (res int, err error) {
 - [Go 面向失败编程](https://developer.aliyun.com/article/740696)
 - [Error handling and Go](https://blog.golang.org/error-handling-and-go)
 - [Defer, Panic, and Recover](https://blog.golang.org/defer-panic-and-recover)
+- [Go Best Practices — Error handling](https://medium.com/@sebdah/go-best-practices-error-handling-2d15e1f0c5ee)
