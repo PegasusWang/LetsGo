@@ -390,13 +390,20 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    小练习
+    源码延伸
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    小练习
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     参考
   </a>
   
@@ -485,13 +492,20 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    小练习
+    源码延伸
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    小练习
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     参考
   </a>
   
@@ -733,12 +747,63 @@ Java/C++/Python 等都支持 OOP。如果你使用过 Java/Python 的 OOP，应�
 <p>可以看到相比使用内置类型，我们自己命名的 Counter/Queue 等含义更加清晰和明确，还能通过增加方法实现更多功能。
 除了基于内置类型，我们还可以使用 go 提供的结构体 struct 来定义自己的类型。下一篇文章将介绍下如何使用 struct
 来实现面向对象编程。</p>
-<h2 id="_4">小练习<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">源码延伸<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>通过看一些 go 的源码，我们可以学习并且模仿 go 的惯用法，比如本文提到的 Enum 类型，在 go 的源码你可以找到类似实现。
+以下是 go 的内置的 http server 中关于枚举的实现方式(去掉了注释)：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// src/net/http/server.go</span>
+<span class="kd">type</span> <span class="nx">ConnState</span> <span class="kt">int</span>
+
+<span class="kd">const</span> <span class="p">(</span>
+    <span class="nx">StateNew</span>      <span class="nx">ConnState</span> <span class="p">=</span> <span class="kc">iota</span>
+    <span class="nx">StateActive</span>
+    <span class="nx">StateIdle</span>
+    <span class="nx">StateHijacked</span>
+    <span class="nx">StateClosed</span>
+<span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">stateName</span> <span class="p">=</span> <span class="kd">map</span><span class="p">[</span><span class="nx">ConnState</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
+    <span class="nx">StateNew</span><span class="p">:</span>      <span class="s">&quot;new&quot;</span><span class="p">,</span>
+    <span class="nx">StateActive</span><span class="p">:</span>   <span class="s">&quot;active&quot;</span><span class="p">,</span>
+    <span class="nx">StateIdle</span><span class="p">:</span>     <span class="s">&quot;idle&quot;</span><span class="p">,</span>
+    <span class="nx">StateHijacked</span><span class="p">:</span> <span class="s">&quot;hijacked&quot;</span><span class="p">,</span>
+    <span class="nx">StateClosed</span><span class="p">:</span>   <span class="s">&quot;closed&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">ConnState</span><span class="p">)</span> <span class="nx">String</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">stateName</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>在你的业务代码中，你也可以使用类似的方式来实现枚举类型。经常在调用一些内置函数的时候跳进去看看，可以让你学到很多 go 的
+习惯用法，也推荐你经常看看。</p>
+<h2 id="_5">小练习<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
 <li>请你给 Enum 实现对应的返回英文名称的功能</li>
 <li>尝试使用自己定义的 Counter 类型来统计一个字符串中不同单词的个数，你可以统计一个文件中的单词个数么？</li>
 </ul>
-<h2 id="_5">参考<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">参考<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://blog.learngoprogramming.com/golang-const-type-enums-iota-bc4befd096d3">Ultimate Visual Guide to Go Enums and iota</a></li>
 </ul>
