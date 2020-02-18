@@ -156,6 +156,39 @@ func main() {
 除了基于内置类型，我们还可以使用 go 提供的结构体 struct 来定义自己的类型。下一篇文章将介绍下如何使用 struct
 来实现面向对象编程。
 
+## 源码延伸
+
+通过看一些 go 的源码，我们可以学习并且模仿 go 的惯用法，比如本文提到的 Enum 类型，在 go 的源码你可以找到类似实现。
+以下是 go 的内置的 http server 中关于枚举的实现方式(去掉了注释)：
+
+```go
+// src/net/http/server.go
+type ConnState int
+
+const (
+	StateNew      ConnState = iota
+	StateActive
+	StateIdle
+	StateHijacked
+	StateClosed
+)
+
+var stateName = map[ConnState]string{
+	StateNew:      "new",
+	StateActive:   "active",
+	StateIdle:     "idle",
+	StateHijacked: "hijacked",
+	StateClosed:   "closed",
+}
+
+func (c ConnState) String() string {
+	return stateName[c]
+}
+```
+
+在你的业务代码中，你也可以使用类似的方式来实现枚举类型。经常在调用一些内置函数的时候跳进去看看，可以让你学到很多 go 的
+习惯用法，也推荐你经常看看。
+
 ## 小练习
 
 - 请你给 Enum 实现对应的返回英文名称的功能
