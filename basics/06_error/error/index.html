@@ -595,17 +595,25 @@
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
 <label for="__tab_1_0">Go</label>
-<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nx">f</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nx">f</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
 <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
   <span class="c1">// handle err</span>
   <span class="k">return</span> <span class="nx">err</span>
 <span class="p">}</span>
 <span class="k">defer</span> <span class="nx">f</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span> <span class="c1">// 保证文件会在函数返回之后关闭，防止资源泄露</span>
+
+<span class="c1">// 也常用在使用锁的地方，防止忘记释放锁</span>
+<span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+<span class="k">defer</span> <span class="nx">mu</span><span class="p">.</span><span class="nx">UnLock</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
 <input name="__tabs_1" type="radio" id="__tab_1_1" />
@@ -847,6 +855,7 @@ ArticleError 的错误类型。</p>
 <li><a href="https://blog.golang.org/error-handling-and-go">Error handling and Go</a></li>
 <li><a href="https://blog.golang.org/defer-panic-and-recover">Defer, Panic, and Recover</a></li>
 <li><a href="https://medium.com/@sebdah/go-best-practices-error-handling-2d15e1f0c5ee">Go Best Practices — Error handling</a></li>
+<li><a href="https://qcrao.com/2019/09/18/golang-error-break-through/">Golang error 的突围</a></li>
 </ul>
                 
                   
