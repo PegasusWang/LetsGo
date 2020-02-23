@@ -162,7 +162,7 @@ func main() {
 以下是 go 的内置的 http server 中关于枚举的实现方式(去掉了注释)：
 
 ```go
-// src/net/http/server.go
+// https://golang.google.cn/src/net/http/server.go
 type ConnState int
 
 const (

@@ -52,6 +52,10 @@ if err != nil {
   return err
 }
 defer f.Close() // 保证文件会在函数返回之后关闭，防止资源泄露
+
+// 也常用在使用锁的地方，防止忘记释放锁
+mu.Lock()
+defer mu.UnLock()
 ```
 
 ``` py tab="Python"
@@ -230,3 +234,4 @@ func Divide2(a, b int) (res int, err error) {
 - [Error handling and Go](https://blog.golang.org/error-handling-and-go)
 - [Defer, Panic, and Recover](https://blog.golang.org/defer-panic-and-recover)
 - [Go Best Practices — Error handling](https://medium.com/@sebdah/go-best-practices-error-handling-2d15e1f0c5ee)
+- [Golang error 的突围](https://qcrao.com/2019/09/18/golang-error-break-through/)
