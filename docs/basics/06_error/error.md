@@ -206,14 +206,14 @@ func MustDivide(a, b int) int {
 可以把一个 panic 包装成为 error 再返回，而不是让进程退出：
 
 ```go
-func Divide2(a, b int) (res int, err error) {
+func Divide2(a, b int) (res int, e error) {
 	defer func() {
-		if e := recover(); e != nil {
-			err = fmt.Errorf("%v", e)
+		if err := recover(); err != nil {
+			e = fmt.Errorf("%v", err)
 		}
 	}()
 	res = MustDivide(a, b)
-	return res, nil
+	return // 命名返回值不用加上返回的参数
 }
 ```
 
