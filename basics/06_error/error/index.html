@@ -828,14 +828,14 @@ ArticleError 的错误类型。</p>
 6
 7
 8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">Divide2</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">res</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">Divide2</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">res</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">e</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="nx">e</span> <span class="o">:=</span> <span class="nb">recover</span><span class="p">();</span> <span class="nx">e</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-            <span class="nx">err</span> <span class="p">=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;%v&quot;</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nb">recover</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="nx">e</span> <span class="p">=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;%v&quot;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
         <span class="p">}</span>
     <span class="p">}()</span>
     <span class="nx">res</span> <span class="p">=</span> <span class="nx">MustDivide</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nx">res</span><span class="p">,</span> <span class="kc">nil</span>
+    <span class="k">return</span> <span class="c1">// 命名返回值不用加上返回的参数</span>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table>
