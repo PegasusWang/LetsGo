@@ -43,9 +43,9 @@ func Divide2(a, b int) (res int, e error) {
 }
 
 func main() {
-	// fmt.Println(testDefer())
-	// MustDivide(1, 0)
-	// fmt.Println("end")
-	res, err := Divide2(10, 0)
-	fmt.Println(res, err)
+	fmt.Println(testDefer())
+	MustDivide(1, 0)
+	fmt.Println("end")
+	// res, err := Divide2(10, 0)
+	// fmt.Println(res, err)
 }

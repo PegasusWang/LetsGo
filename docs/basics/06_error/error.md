@@ -42,8 +42,8 @@ func (router HttpRouter) parse(reader *bufio.Reader) (Request, Response) {
 
 ## defer 语句
 
-go 中提供了一个 defer 语句用来延迟一个函数(匿名函数)或者方法的执行，它会在函数执行完成之后调用。一般为了防止代码里有资源泄露，
-对于打开的资源比如文件等我们需要显示进行关闭，这种场合就是 defer 发挥作用最好的场景，也是 go 代码中使用 defer 最常用的场景。
+go 中提供了一个 defer 语句用来延迟一个函数(匿名函数)或者方法的执行，它会在函数执行完成(return)之后调用。一般为了防止代码里有资源泄露，
+对于打开的资源比如文件等我们需要显式关闭，这种场合就是 defer 发挥作用最好的场景，也是 go 代码中使用 defer 最常用的场景。
 
 ``` go tab="Go"
 f, err := os.Open(file)
@@ -63,7 +63,7 @@ with open("filepath", "r") as f:
     # do with file
 ```
 
-如果你用过 python 的话，go 中的 defer 和 python 使用 with 语句保证资源会被关闭目的一样。
+如果你用过 python 的话，go 中的 defer 和 python 使用 with 语句保证资源会被关闭目的类似。
 另外函数里可以使用多个 defer 语句，如果有多个 defer 它们会按照后进先出(Last In First Out)的顺序执行。
 运行以下小例子，看看输出是否和你想的一样：
 
