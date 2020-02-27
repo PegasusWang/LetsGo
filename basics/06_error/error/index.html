@@ -590,8 +590,8 @@
 <p>在 go 的惯例中，一般函数多个返回值的最后一个值用来返回错误，返回 nil 表示没有错误，调用者通过检查返回的错误是否是 nil
 就知道是否需要处理错误了。</p>
 <h2 id="defer">defer 语句<a class="headerlink" href="#defer" title="Permanent link">&para;</a></h2>
-<p>go 中提供了一个 defer 语句用来延迟一个函数(匿名函数)或者方法的执行，它会在函数执行完成之后调用。一般为了防止代码里有资源泄露，
-对于打开的资源比如文件等我们需要显示进行关闭，这种场合就是 defer 发挥作用最好的场景，也是 go 代码中使用 defer 最常用的场景。</p>
+<p>go 中提供了一个 defer 语句用来延迟一个函数(匿名函数)或者方法的执行，它会在函数执行完成(return)之后调用。一般为了防止代码里有资源泄露，
+对于打开的资源比如文件等我们需要显式关闭，这种场合就是 defer 发挥作用最好的场景，也是 go 代码中使用 defer 最常用的场景。</p>
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
 <label for="__tab_1_0">Go</label>
@@ -624,7 +624,7 @@
 </pre></div>
 </td></tr></table></div>
 </div>
-<p>如果你用过 python 的话，go 中的 defer 和 python 使用 with 语句保证资源会被关闭目的一样。
+<p>如果你用过 python 的话，go 中的 defer 和 python 使用 with 语句保证资源会被关闭目的类似。
 另外函数里可以使用多个 defer 语句，如果有多个 defer 它们会按照后进先出(Last In First Out)的顺序执行。
 运行以下小例子，看看输出是否和你想的一样：</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
