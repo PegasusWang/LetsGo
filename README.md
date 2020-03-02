@@ -96,6 +96,7 @@ pip install -r requirements.txt
 mkdocs serve     # 修改自动更新，浏览器打开 http://localhost:8000 访问
 # 数学公式参考 https://www.zybuluo.com/codeep/note/163962
 mkdocs gh-deploy    # 部署到自己的 github pages
+# 给 mkdocs 增加 gitalk 评论系统 https://50u1w4y.github.io/site/misc/gitalkBuild/
 ```
 
 ## B 站短视频地址(连载中)
