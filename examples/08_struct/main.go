@@ -1,11 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Animal struct {
-	Name    string
-	Age     int
-	petName string
+	Name    string `json:"name"`
+	Age     int    `json:"age"`
+	petName string `json:"pet_name"`
 }
 
 func (a Animal) Sleep() {

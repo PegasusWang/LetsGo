@@ -237,6 +237,40 @@ func main() {
 到这里我们还有一个 OOP 中重要的概念没有介绍，就是多态的概念。简单的说，多态就是同一个接口，对于不同的实例执行不同的操作。
 下一章我们将介绍下 go 的接口(interface)，以及如何在 go 中实现多态。
 
+## 序列化
+
+如果想要通过网络进行传输，我们就需要使用序列化协议，将 go 的结构体按照一种方式编码成字节串。
+常见的序列化方式有 json/protobuf 等，如果你编写 web 服务的话对它们不会陌生。在 go 里是通过给 struct 添加 tag 来实现的。
+我们这里简单提一下，在编写 web 应用的时候你会频繁使用到它，注意看 Animal 每个字段后边我们都加上了名为 json 的 tag。
+
+```go
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"log"
+)
+
+type Animal struct {
+	Name    string `json:"name"`
+	Age     int    `json:"age"`
+	petName string `json:"pet_name"`
+}
+
+func main() {
+	animals := []Animal{
+		Animal{"dog", 3, "little dog"},
+		Animal{"cat", 4, "little cat"},
+	}
+	bs, err := json.Marshal(animals)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(string(bs)) // [{"name":"dog","age":3},{"name":"cat","age":4}]
+}
+```
+
 ## 练习
 
 - 之前我们学过 go 的 map，但是 go 里边没有直接提供一个 set，请你使用 struct 封装一个 Set，并且提供 Add/Delete/Exist 方法
