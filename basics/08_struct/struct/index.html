@@ -430,13 +430,20 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    练习
+    序列化
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    练习
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     参考
   </a>
   
@@ -541,13 +548,20 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    练习
+    序列化
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    练习
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     参考
   </a>
   
@@ -914,12 +928,68 @@ Animal，我们想复用 Animal 里的成员，可以在 Dog struct 里嵌入一
 <h2 id="_3">多态<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>到这里我们还有一个 OOP 中重要的概念没有介绍，就是多态的概念。简单的说，多态就是同一个接口，对于不同的实例执行不同的操作。
 下一章我们将介绍下 go 的接口(interface)，以及如何在 go 中实现多态。</p>
-<h2 id="_4">练习<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">序列化<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>如果想要通过网络进行传输，我们就需要使用序列化协议，将 go 的结构体按照一种方式编码成字节串。
+常见的序列化方式有 json/protobuf 等，如果你编写 web 服务的话对它们不会陌生。在 go 里是通过给 struct 添加 tag 来实现的。
+我们这里简单提一下，在编写 web 应用的时候你会频繁使用到它，注意看 Animal 每个字段后边我们都加上了名为 json 的 tag。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;encoding/json&quot;</span>
+    <span class="s">&quot;fmt&quot;</span>
+    <span class="s">&quot;log&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">Animal</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">Name</span>    <span class="kt">string</span> <span class="s">`json:&quot;name&quot;`</span>
+    <span class="nx">Age</span>     <span class="kt">int</span>    <span class="s">`json:&quot;age&quot;`</span>
+    <span class="nx">petName</span> <span class="kt">string</span> <span class="s">`json:&quot;pet_name&quot;`</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">animals</span> <span class="o">:=</span> <span class="p">[]</span><span class="nx">Animal</span><span class="p">{</span>
+        <span class="nx">Animal</span><span class="p">{</span><span class="s">&quot;dog&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&quot;little dog&quot;</span><span class="p">},</span>
+        <span class="nx">Animal</span><span class="p">{</span><span class="s">&quot;cat&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&quot;little cat&quot;</span><span class="p">},</span>
+    <span class="p">}</span>
+    <span class="nx">bs</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="nx">animals</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">bs</span><span class="p">))</span> <span class="c1">// [{&quot;name&quot;:&quot;dog&quot;,&quot;age&quot;:3},{&quot;name&quot;:&quot;cat&quot;,&quot;age&quot;:4}]</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="_5">练习<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
 <li>之前我们学过 go 的 map，但是 go 里边没有直接提供一个 set，请你使用 struct 封装一个 Set，并且提供 Add/Delete/Exist 方法</li>
 <li>通过使用嵌入实现一个 Cat struct，加入一个数据成员叫做 Height，并且给你的 Cat 加上 Eat 方法。</li>
 </ul>
-<h2 id="_5">参考<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">参考<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://golang.org/doc/effective_go.html#pointers_vs_values">Effective Go pointers vs. Values</a></li>
 <li><a href="https://hackthology.com/object-oriented-inheritance-in-go.html">Object Oriented Inheritance in Go</a></li>
