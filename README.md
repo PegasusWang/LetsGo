@@ -85,7 +85,7 @@ pip install mkdocs    # 制作电子书, http://markdown-docs-zh.readthedocs.io/
 # https://stackoverflow.com/questions/27882261/mkdocs-and-mathjax/31874157
 pip install https://github.com/mitya57/python-markdown-math/archive/master.zip
 
-# 或者直接
+# 建议直接安装 requirements.txt 中的依赖。已经锁定了版本，不同的 mkdocs 之间有一定差异
 pip install -r requirements.txt
 
 # 如果你 fork 了本项目，可以定期拉取主仓库的代码来获取更新，目前还在不断更新相关章节
