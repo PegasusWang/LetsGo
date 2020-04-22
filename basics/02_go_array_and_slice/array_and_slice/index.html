@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.1">
     
     
       
@@ -42,7 +42,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.30686662.css">
       
         <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -53,12 +53,12 @@
       
     
     
-      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
@@ -179,7 +179,7 @@
         
       
       
-      <main class="md-main" role="main">
+      <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -308,42 +308,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#go-arrayslice" class="md-nav__link">
+  <a href="#go-arrayslice" title="Go 数组(array)和切片(slice)" class="md-nav__link">
     Go 数组(array)和切片(slice)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_1" title="数组" class="md-nav__link">
     数组
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#slice" class="md-nav__link">
+  <a href="#slice" title="切片(slice)" class="md-nav__link">
     切片(slice)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_2" title="如何给一个切片排序？" class="md-nav__link">
     如何给一个切片排序？
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_3" title="小练习" class="md-nav__link">
     小练习
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_4" title="参考" class="md-nav__link">
     参考
   </a>
   
@@ -444,6 +444,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../10_goroutine/goroutine/" title="Goroutine 初探" class="md-nav__link">
+      Goroutine 初探
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -470,42 +482,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#go-arrayslice" class="md-nav__link">
+  <a href="#go-arrayslice" title="Go 数组(array)和切片(slice)" class="md-nav__link">
     Go 数组(array)和切片(slice)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_1" title="数组" class="md-nav__link">
     数组
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#slice" class="md-nav__link">
+  <a href="#slice" title="切片(slice)" class="md-nav__link">
     切片(slice)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_2" title="如何给一个切片排序？" class="md-nav__link">
     如何给一个切片排序？
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_3" title="小练习" class="md-nav__link">
     小练习
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_4" title="参考" class="md-nav__link">
     参考
   </a>
   
@@ -542,18 +554,18 @@
 <h2 id="_1">数组<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>数组是一个包含相同类型的固定长度的序列，不像动态语言那样可以在 list 中存储不同类型的值，go 语言中数组中的类型需要一致。
 我们来看一下如何创建一个数组，有这么几种形式，注意长度也是数组的一部分（不同长度的数组不是一种类型）:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>声明: <span class="o">[</span>length<span class="o">]</span>Type
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>声明: <span class="o">[</span>length<span class="o">]</span>Type
 初始化：<span class="o">[</span>N<span class="o">]</span>Type<span class="o">{</span>value1, value2,..., valueN<span class="o">}</span>
 省略长度：<span class="o">[</span>...<span class="o">]</span>Type<span class="o">{</span>value1, value2,..., valueN<span class="o">}</span>
 二维数组: <span class="o">[</span>N<span class="o">][</span>M<span class="o">]</span>Type
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>我们来几个小例子，不要光看代码，打开你的开发工具来编辑以下代码吧，又是一个练习手感的好机会:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -579,7 +591,7 @@
 24
 25
 26
-27</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+27</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 
@@ -606,24 +618,24 @@
 <span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">testArray</span><span class="p">()</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>一般对于数组的操作也就是获取长度(len函数，0到n-1)，获取指定下标的元素([index])，给数组第 i 个元素赋值等。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">testArrayOperation</span><span class="p">()</span> <span class="p">{</span>
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kd">func</span> <span class="nx">testArrayOperation</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">names</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;zhang&quot;</span><span class="p">,</span> <span class="s">&quot;wang&quot;</span><span class="p">,</span> <span class="s">&quot;li&quot;</span><span class="p">,</span> <span class="s">&quot;zhao&quot;</span><span class="p">}</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;names has %d elements\n&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">names</span><span class="p">))</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">names</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1">// NOTE: 注意如果下标超过范围会 panic</span>
     <span class="nx">names</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;lao zhao&quot;</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">names</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>数组的示例就到这，接下来我们看下切片(slice)，其实在业务开发中切片要远比数组更加常用也更加灵活，甚至可能你都不会用到数组，
@@ -632,14 +644,14 @@
 <p>切片比数组更加灵活，长度是可以变化的。你可能会好奇它和数组的区别以及底层实现。实际上它和 python 的 list
 比较类似，可以自动扩容。你可以简单地理解为切片是一个指向数组的指针，这个数组有它的总容量(capacity)，和目前使用使用的长度(length)。
 创建一个切片我们可以使用构造方式或者内置的 make 函数。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="err">// 创建一个类型为 Type, 长度为 length, 容量为 capacity 的 slice。一般我们不太关心容量而是关心长度</span>
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">// 创建一个类型为 Type, 长度为 length, 容量为 capacity 的 slice。一般我们不太关心容量而是关心长度</span>
 <span class="err">make([]Type, length, c capacity)</span>
 <span class="err">// 创建一个类型为 Type, 长度为 length 的 slice，一般我们不太关心容量，而是让 go 帮我们自动处理扩容问题</span>
 <span class="err"> make([]Type, length) // 最常用的一种方式, 如果实现知道 slice 的长度，可以避免 slice 扩容操作，性能更好</span>
@@ -647,13 +659,13 @@
 <span class="err">[]Type{} // 和 make([]Type, 0) 等价</span>
 <span class="err">// 创建并且初始化一个 slice。注意和数组的区别是 [] 里边没有省略号 ...</span>
 <span class="err">[]Type{value1, value2, ... , valueN}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>以下是 slice 的常见操作，很多和数组比较类似：</p>
 <p><img alt="slice操作" src="../slice_operation.png" /></p>
 <p>同样编写一些示例代码来快速学习它，这里将使用笔者业务中最常用的一些方式:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -678,7 +690,7 @@
 23
 24
 25
-26</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">testSlice</span><span class="p">()</span> <span class="p">{</span>
+26</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kd">func</span> <span class="nx">testSlice</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// 创建并且初始化一个 slice</span>
     <span class="nx">names</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;zhang&quot;</span><span class="p">,</span> <span class="s">&quot;wang&quot;</span><span class="p">,</span> <span class="s">&quot;li&quot;</span><span class="p">,</span> <span class="s">&quot;zhao&quot;</span><span class="p">}</span>
     <span class="c1">// 打印 names, 长度和容量</span>
@@ -704,7 +716,7 @@
     <span class="nx">newVals</span> <span class="o">:=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">vals</span><span class="p">,</span> <span class="nx">vals2</span><span class="o">...</span><span class="p">)</span> <span class="c1">// 可以使用省略号的方式『解包』一个 slice 来连接两个 slice</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">newVals</span><span class="p">)</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <div class="admonition tip">
@@ -712,7 +724,7 @@
 <p>如果在创建一个 slice 之前预先知道了它的长度，make 函数最好传递长度进去，防止 append 操作可能导致重新分配内存降低效率。
     比如下边这个例子，使用第二种方式效率更高一些：</p>
 </div>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -732,7 +744,7 @@
 18
 19
 20
-21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 
@@ -753,7 +765,7 @@
     <span class="p">}</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <h2 id="_2">如何给一个切片排序？<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
@@ -761,12 +773,12 @@
 另外 go 只支持正数的索引，你需要保证 slice 索引值必须要在 0 到 length-1，否则会出现 panic 导致程序退出。</p>
 <p>这里介绍一下如何来排序和搜索一个 slice，除了自己写排序算法之外，标准库提供了 sort 包来帮助我们处理排序问题。
 常用的有几个函数，go 标准库文档已经有非常好的示例（好好学英语啊）：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nx">sort</span><span class="p">.</span><span class="nx">Ints</span><span class="p">(</span><span class="nx">a</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="c1">// Ints sorts a slice of ints in increasing order.</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">sort</span><span class="p">.</span><span class="nx">Ints</span><span class="p">(</span><span class="nx">a</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="c1">// Ints sorts a slice of ints in increasing order.</span>
 <span class="nx">sort</span><span class="p">.</span><span class="nx">Float64s</span><span class="p">(</span><span class="nx">a</span> <span class="p">[]</span><span class="kt">float64</span><span class="p">)</span> <span class="c1">// Float64s sorts a slice of float64s in increasing order (not-a-number values are treated as less than other values).</span>
 <span class="nx">sort</span><span class="p">.</span><span class="nx">Search</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="kt">int</span> <span class="c1">// Search uses binary search to find and return the smallest index i in [0, n) at which f(i) is true</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <h2 id="_3">小练习<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
@@ -782,28 +794,11 @@
                 
                   
                 
+              
+              
                 
-              
-              
-                <h2 id="__comments">Comments</h2>
-<form id="gitalk-form" onsubmit="return false;">
-    <div id="gitalk-container"></div>
-</form>
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script src="https://cdnjs.loli.net/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
-<script>
-    const gitalk = new Gitalk({
-        clientID: 'f1d7be62c76080ddd6a4',
-        clientSecret: '0902cb9f1b36d579d82874864f1c2d929f91ea03',
-        repo: 'LetsGo',
-        owner: 'PegasusWang',
-        admin: ['PegasusWang'],
-        id: md5(location.pathname),
-        distractionFreeMode: false
-    })
-    gitalk.render('gitalk-container')
-</script>
+
+
               
             </article>
           </div>
@@ -876,7 +871,7 @@
       
     </div>
     
-      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       

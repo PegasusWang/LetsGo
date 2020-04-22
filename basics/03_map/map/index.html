@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.1">
     
     
       
@@ -42,7 +42,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.30686662.css">
       
         <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -53,12 +53,12 @@
       
     
     
-      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
@@ -179,7 +179,7 @@
         
       
       
-      <main class="md-main" role="main">
+      <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -320,21 +320,21 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#map" class="md-nav__link">
+  <a href="#map" title="映射(map)" class="md-nav__link">
     映射(map)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#set" class="md-nav__link">
+  <a href="#set" title="如何实现 set？" class="md-nav__link">
     如何实现 set？
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_1" title="练习" class="md-nav__link">
     练习
   </a>
   
@@ -423,6 +423,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../10_goroutine/goroutine/" title="Goroutine 初探" class="md-nav__link">
+      Goroutine 初探
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -449,21 +461,21 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#map" class="md-nav__link">
+  <a href="#map" title="映射(map)" class="md-nav__link">
     映射(map)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#set" class="md-nav__link">
+  <a href="#set" title="如何实现 set？" class="md-nav__link">
     如何实现 set？
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_1" title="练习" class="md-nav__link">
     练习
   </a>
   
@@ -500,14 +512,14 @@
 map 的键的，但是像切片或者不能比较的结构体无法作为键。而映射的值没有要求，任何内置或者自定义的类型都可以作为值，这样一来
 我们可以创建复杂的嵌套 map 结构，比如 map 的 value 值依然是一个 map。</p>
 <p>先来看下如何去创建一个映射，同样也有几种形式，最常用的方式就是使用内置的 make 函数：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// 创建一个容纳 capacity 个键值对的 map，键的类型是 KeyType，值的类型是 ValueType</span>
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1">// 创建一个容纳 capacity 个键值对的 map，键的类型是 KeyType，值的类型是 ValueType</span>
 <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="nx">KeyType</span><span class="p">]</span><span class="nx">ValueType</span><span class="p">,</span> <span class="nx">capacity</span><span class="p">)</span>
 <span class="c1">// 创建一个空的 map</span>
 <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="nx">KeyType</span><span class="p">]</span><span class="nx">ValueType</span><span class="p">)</span>
@@ -515,7 +527,7 @@ map 的键的，但是像切片或者不能比较的结构体无法作为键。�
 <span class="kd">map</span><span class="p">[</span><span class="nx">KeyType</span><span class="p">]</span><span class="nx">ValueType</span><span class="p">{}</span> <span class="c1">// 等价于 make(map[KeyType]ValueType)</span>
 <span class="c1">// 创建并且初始化一个 map</span>
 <span class="kd">map</span><span class="p">[</span><span class="nx">KeyType</span><span class="p">]</span><span class="nx">ValueType</span><span class="p">{</span><span class="nx">key1</span><span class="p">:</span> <span class="nx">value1</span><span class="p">,</span> <span class="nx">key2</span><span class="p">:</span> <span class="nx">value2</span><span class="p">,</span><span class="o">...</span><span class="p">,</span> <span class="nx">keyN</span><span class="p">:</span> <span class="nx">valueN</span><span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>再来看一下 map 的操作，和 python 比较类似。</p>
@@ -527,7 +539,7 @@ map 的键的，但是像切片或者不能比较的结构体无法作为键。�
 </p>
 </div>
 <p>我们同样编写一些小的测试代码来熟悉 map 的使用:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -557,7 +569,7 @@ map 的键的，但是像切片或者不能比较的结构体无法作为键。�
 28
 29
 30
-31</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+31</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 
@@ -588,14 +600,14 @@ map 的键的，但是像切片或者不能比较的结构体无法作为键。�
 <span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">testMap</span><span class="p">()</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <h2 id="set">如何实现 set？<a class="headerlink" href="#set" title="Permanent link">&para;</a></h2>
 <p>set 经常在讲 map 的时候提到，它是集合类型，和数学上的集合概念类似，保存唯一的值的容器，经常用来判断一个元素是否已经存在
 。go 里不像 python 直接提供了一个内置 set 类型，但其实根据 map 我们也可以用来实现一个简单的 set 结构，只需要创建一个 map
 ，然后让 map 的值是 bool 类型，标识是否存在即可。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -603,7 +615,7 @@ map 的键的，但是像切片或者不能比较的结构体无法作为键。�
 6
 7
 8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">testUseMapAsSet</span><span class="p">()</span> <span class="p">{</span>
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kd">func</span> <span class="nx">testUseMapAsSet</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">m</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">bool</span><span class="p">)</span>
     <span class="nx">m</span><span class="p">[</span><span class="s">&quot;hello&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="kc">true</span>
     <span class="nx">m</span><span class="p">[</span><span class="s">&quot;world&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="kc">true</span>
@@ -612,7 +624,7 @@ map 的键的，但是像切片或者不能比较的结构体无法作为键。�
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%s key exists\n&quot;</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <h2 id="_1">练习<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
@@ -624,28 +636,11 @@ map 的键的，但是像切片或者不能比较的结构体无法作为键。�
                 
                   
                 
+              
+              
                 
-              
-              
-                <h2 id="__comments">Comments</h2>
-<form id="gitalk-form" onsubmit="return false;">
-    <div id="gitalk-container"></div>
-</form>
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script src="https://cdnjs.loli.net/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
-<script>
-    const gitalk = new Gitalk({
-        clientID: 'f1d7be62c76080ddd6a4',
-        clientSecret: '0902cb9f1b36d579d82874864f1c2d929f91ea03',
-        repo: 'LetsGo',
-        owner: 'PegasusWang',
-        admin: ['PegasusWang'],
-        id: md5(location.pathname),
-        distractionFreeMode: false
-    })
-    gitalk.render('gitalk-container')
-</script>
+
+
               
             </article>
           </div>
@@ -718,7 +713,7 @@ map 的键的，但是像切片或者不能比较的结构体无法作为键。�
       
     </div>
     
-      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       

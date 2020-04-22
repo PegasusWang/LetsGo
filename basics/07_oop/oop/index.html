@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.1">
     
     
       
@@ -42,7 +42,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.30686662.css">
       
         <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -53,12 +53,12 @@
       
     
     
-      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
@@ -179,7 +179,7 @@
         
       
       
-      <main class="md-main" role="main">
+      <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -368,42 +368,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_1" title="面向对象编程" class="md-nav__link">
     面向对象编程
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_2" title="如何自定义类型？" class="md-nav__link">
     如何自定义类型？
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_3" title="给自定义类型添加方法" class="md-nav__link">
     给自定义类型添加方法
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_4" title="源码延伸" class="md-nav__link">
     源码延伸
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_5" title="小练习" class="md-nav__link">
     小练习
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_6" title="参考" class="md-nav__link">
     参考
   </a>
   
@@ -444,6 +444,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../10_goroutine/goroutine/" title="Goroutine 初探" class="md-nav__link">
+      Goroutine 初探
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -470,42 +482,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_1" title="面向对象编程" class="md-nav__link">
     面向对象编程
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_2" title="如何自定义类型？" class="md-nav__link">
     如何自定义类型？
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_3" title="给自定义类型添加方法" class="md-nav__link">
     给自定义类型添加方法
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_4" title="源码延伸" class="md-nav__link">
     源码延伸
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_5" title="小练习" class="md-nav__link">
     小练习
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_6" title="参考" class="md-nav__link">
     参考
   </a>
   
@@ -547,7 +559,7 @@ Java/C++/Python 等都支持 OOP。如果你使用过 Java/Python 的 OOP，应�
 <h2 id="_2">如何自定义类型？<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>go 支持使用 type 关键词来定义自己的类型，比如我们来定义一个 Enum 类型，go 默认没有提供 enum 类型，我们可以通过 type
 自己定义一个枚举类型(在业务代码中经常用到枚举):</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -563,7 +575,7 @@ Java/C++/Python 等都支持 OOP。如果你使用过 Java/Python 的 OOP，应�
 14
 15
 16
-17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 
@@ -580,64 +592,64 @@ Java/C++/Python 等都支持 OOP。如果你使用过 Java/Python 的 OOP，应�
 <span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Init</span><span class="p">)</span> <span class="c1">// 0</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <h2 id="_3">给自定义类型添加方法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>上面我们自己定义了一个 Enum 类型，但是它的使用有些局限，比如你可以试试如下代码：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">status</span> <span class="o">:=</span> <span class="mi">0</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Init</span> <span class="o">==</span> <span class="nx">status</span><span class="p">)</span> <span class="c1">// main.go|18 col 19| invalid operation: Init == status (mismatched types Enum and int)</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>你会发现虽然 Enum 是使用 int 定义的，但是你是无法直接进行比较的，go 认为它们是不同的类型。怎么办呢？
 你可以使用 int 来进行类型转换，比如使用 <code>fmt.Println(int(Init) == status)</code>，这里我们使用另一个种方式，
 就是给自定义类型增加方法(method)。</p>
 <p>go 允许我们给自定义类型定义方法，所谓的方法其实就是有接收者(receiver)的函数，之前我们已经介绍过函数的定义格式如下：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">functionName</span><span class="p">(</span><span class="nx">optionalParameters</span><span class="p">)</span> <span class="nx">optionalReturnType</span> <span class="p">{</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kd">func</span> <span class="nx">functionName</span><span class="p">(</span><span class="nx">optionalParameters</span><span class="p">)</span> <span class="nx">optionalReturnType</span> <span class="p">{</span>
   <span class="nx">body</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>方法的定义方式比较类似，只不过多了一个接收者，你可以理解为方法就是有接收者的函数，它的格式如下：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="nx">Receiver</span><span class="p">)</span> <span class="nx">functionName</span><span class="p">(</span><span class="nx">optionalParameters</span><span class="p">)</span> <span class="nx">optionalReturnType</span> <span class="p">{</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="nx">Receiver</span><span class="p">)</span> <span class="nx">functionName</span><span class="p">(</span><span class="nx">optionalParameters</span><span class="p">)</span> <span class="nx">optionalReturnType</span> <span class="p">{</span>
   <span class="nx">body</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>比如我们要给 Enum 定一个方法叫做 Int()，它返回  Enum 对应的 int 值，可以这么写:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="nx">Enum</span><span class="p">)</span> <span class="nx">Int</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="nx">Enum</span><span class="p">)</span> <span class="nx">Int</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>这样一来就可以直接使用</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">status</span> <span class="o">:=</span> <span class="mi">0</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Init</span><span class="p">.</span><span class="nx">Int</span><span class="p">()</span> <span class="o">==</span> <span class="nx">status</span><span class="p">)</span> <span class="c1">// 调用 Init 的 Int 方法返回 int</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>一般业务代码里边我们还会给所有状态定义对应的中文或者英文字符串，完整的代码和使用示例如下：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -674,7 +686,7 @@ Java/C++/Python 等都支持 OOP。如果你使用过 Java/Python 的 OOP，应�
 35
 36
 37
-38</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+38</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 
@@ -712,13 +724,13 @@ Java/C++/Python 等都支持 OOP。如果你使用过 Java/Python 的 OOP，应�
     <span class="nx">status2</span> <span class="o">:=</span> <span class="nx">Fail</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">status2</span><span class="p">.</span><span class="nx">String</span><span class="p">())</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>这样我们就自己定义了一个业务代码常用的枚举类型，通过给自定义类型添加方法，我们可以给类型加入非常多有用的功能。
 可以看到方法和普通函数相比，就是多了一个接收者， <code>func (e Enum) String() string {}</code>，之后学习 struct 定义方法的时候也是类似的。</p>
 <p>除了基本类型，我们还可以自定义一些复杂类型，比如以下一些例子：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -729,7 +741,7 @@ Java/C++/Python 等都支持 OOP。如果你使用过 Java/Python 的 OOP，应�
  9
 10
 11
-12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// 定义一个 counter 类型</span>
     <span class="kd">type</span> <span class="nx">Counter</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span>
     <span class="nx">c</span> <span class="o">:=</span> <span class="nx">Counter</span><span class="p">{}</span>
@@ -741,7 +753,7 @@ Java/C++/Python 等都支持 OOP。如果你使用过 Java/Python 的 OOP，应�
     <span class="nx">q</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">q</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">q</span><span class="p">)</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>可以看到相比使用内置类型，我们自己命名的 Counter/Queue 等含义更加清晰和明确，还能通过增加方法实现更多功能。
@@ -750,7 +762,7 @@ Java/C++/Python 等都支持 OOP。如果你使用过 Java/Python 的 OOP，应�
 <h2 id="_4">源码延伸<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>通过看一些 go 的源码，我们可以学习并且模仿 go 的惯用法，比如本文提到的 Enum 类型，在 go 的源码你可以找到类似实现。
 以下是 go 的内置的 http server 中关于枚举的实现方式(去掉了注释)：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -771,7 +783,7 @@ Java/C++/Python 等都支持 OOP。如果你使用过 Java/Python 的 OOP，应�
 19
 20
 21
-22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// https://golang.google.cn/src/net/http/server.go</span>
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1">// https://golang.google.cn/src/net/http/server.go</span>
 <span class="kd">type</span> <span class="nx">ConnState</span> <span class="kt">int</span>
 
 <span class="kd">const</span> <span class="p">(</span>
@@ -793,7 +805,7 @@ Java/C++/Python 等都支持 OOP。如果你使用过 Java/Python 的 OOP，应�
 <span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">ConnState</span><span class="p">)</span> <span class="nx">String</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">stateName</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>在你的业务代码中，你也可以使用类似的方式来实现枚举类型。经常在调用一些内置函数的时候跳进去看看，可以让你学到很多 go 的
@@ -810,28 +822,11 @@ Java/C++/Python 等都支持 OOP。如果你使用过 Java/Python 的 OOP，应�
                 
                   
                 
+              
+              
                 
-              
-              
-                <h2 id="__comments">Comments</h2>
-<form id="gitalk-form" onsubmit="return false;">
-    <div id="gitalk-container"></div>
-</form>
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script src="https://cdnjs.loli.net/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
-<script>
-    const gitalk = new Gitalk({
-        clientID: 'f1d7be62c76080ddd6a4',
-        clientSecret: '0902cb9f1b36d579d82874864f1c2d929f91ea03',
-        repo: 'LetsGo',
-        owner: 'PegasusWang',
-        admin: ['PegasusWang'],
-        id: md5(location.pathname),
-        distractionFreeMode: false
-    })
-    gitalk.render('gitalk-container')
-</script>
+
+
               
             </article>
           </div>
@@ -904,7 +899,7 @@ Java/C++/Python 等都支持 OOP。如果你使用过 Java/Python 的 OOP，应�
       
     </div>
     
-      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       

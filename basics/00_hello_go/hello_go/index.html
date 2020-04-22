@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.1">
     
     
       
@@ -42,7 +42,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.30686662.css">
       
         <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -53,12 +53,12 @@
       
     
     
-      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
@@ -179,7 +179,7 @@
         
       
       
-      <main class="md-main" role="main">
+      <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -284,49 +284,49 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-golang-go" class="md-nav__link">
+  <a href="#why-golang-go" title="Why Golang(后文均简称 Go) ?" class="md-nav__link">
     Why Golang(后文均简称 Go) ?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#golang" class="md-nav__link">
+  <a href="#golang" title="下载和安装 Golang" class="md-nav__link">
     下载和安装 Golang
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_1" title="配置环境变量" class="md-nav__link">
     配置环境变量
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_2" title="开发工具" class="md-nav__link">
     开发工具
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_3" title="善用工具" class="md-nav__link">
     善用工具
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#go" class="md-nav__link">
+  <a href="#go" title="你的第一个 Go 程序" class="md-nav__link">
     你的第一个 Go 程序
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_4" title="练习" class="md-nav__link">
     练习
   </a>
   
@@ -451,6 +451,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../10_goroutine/goroutine/" title="Goroutine 初探" class="md-nav__link">
+      Goroutine 初探
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -477,49 +489,49 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-golang-go" class="md-nav__link">
+  <a href="#why-golang-go" title="Why Golang(后文均简称 Go) ?" class="md-nav__link">
     Why Golang(后文均简称 Go) ?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#golang" class="md-nav__link">
+  <a href="#golang" title="下载和安装 Golang" class="md-nav__link">
     下载和安装 Golang
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_1" title="配置环境变量" class="md-nav__link">
     配置环境变量
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_2" title="开发工具" class="md-nav__link">
     开发工具
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_3" title="善用工具" class="md-nav__link">
     善用工具
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#go" class="md-nav__link">
+  <a href="#go" title="你的第一个 Go 程序" class="md-nav__link">
     你的第一个 Go 程序
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_4" title="练习" class="md-nav__link">
     练习
   </a>
   
@@ -587,10 +599,10 @@
 <p>go 需要配置环境变量指定其安装路径(GOROOT)和(GOPATH)，笔者在类 unix 系统下一般只需要配置一下 GOPATH 指定你的项目路径。
 比如加入如下配置到你的 <code>.bashrc</code> 或者 <code>.zshrc</code> 里边。
 这里比如我在我的用户根目录建立一个名字为 go 的文件夹存放我的 go 代码。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">GOPATH</span><span class="o">=</span><span class="nv">$HOME</span>/go        <span class="c1"># don&#39;t forget to change your path correctly!</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nb">export</span> <span class="nv">GOPATH</span><span class="o">=</span><span class="nv">$HOME</span>/go        <span class="c1"># don&#39;t forget to change your path correctly!</span>
 <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GOPATH</span>/bin
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>之后重启终端或者 source 一下你改的 rc 文件就可以了。 到这里如果安装完成并且配置好了环境变量就可以开始编写代码了。</p>
@@ -614,14 +626,14 @@
 <p>在你的 GOPATH 下创建一个文件夹用来编写测试代码。 比如笔者的是 GOPATH 是 <code>$HOME/go</code>，然后进入到 src 里边，
 随便创建一个文件夹比如叫做 expamples，然后编写一个 main.go 就可以了</p>
 <p>好了，让我们来编写和运行第一个 Go 代码吧，打开你的开发工具然后输入以下代码：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// hello_go.go</span>
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1">// hello_go.go</span>
 <span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
@@ -629,7 +641,7 @@
 <span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Hello Golang!&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>麻雀虽小五脏俱全，简单看下这段代码都用到了哪些语法特性：</p>
@@ -654,28 +666,11 @@
                 
                   
                 
+              
+              
                 
-              
-              
-                <h2 id="__comments">Comments</h2>
-<form id="gitalk-form" onsubmit="return false;">
-    <div id="gitalk-container"></div>
-</form>
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script src="https://cdnjs.loli.net/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
-<script>
-    const gitalk = new Gitalk({
-        clientID: 'f1d7be62c76080ddd6a4',
-        clientSecret: '0902cb9f1b36d579d82874864f1c2d929f91ea03',
-        repo: 'LetsGo',
-        owner: 'PegasusWang',
-        admin: ['PegasusWang'],
-        id: md5(location.pathname),
-        distractionFreeMode: false
-    })
-    gitalk.render('gitalk-container')
-</script>
+
+
               
             </article>
           </div>
@@ -748,7 +743,7 @@
       
     </div>
     
-      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       

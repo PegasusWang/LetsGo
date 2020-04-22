@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.1">
     
     
       
@@ -42,7 +42,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.30686662.css">
       
         <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -53,12 +53,12 @@
       
     
     
-      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
@@ -179,7 +179,7 @@
         
       
       
-      <main class="md-main" role="main">
+      <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -356,42 +356,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_1" title="错误处理" class="md-nav__link">
     错误处理
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#defer" class="md-nav__link">
+  <a href="#defer" title="defer 语句" class="md-nav__link">
     defer 语句
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#go-error" class="md-nav__link">
+  <a href="#go-error" title="go 的 error 类型" class="md-nav__link">
     go 的 error 类型
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#go_1" class="md-nav__link">
+  <a href="#go_1" title="go 如何自定义自己的业务异常" class="md-nav__link">
     go 如何自定义自己的业务异常
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#go-panicrecover" class="md-nav__link">
+  <a href="#go-panicrecover" title="Go 的异常处理 panic/recover" class="md-nav__link">
     Go 的异常处理 panic/recover
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_2" title="参考：" class="md-nav__link">
     参考：
   </a>
   
@@ -444,6 +444,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../10_goroutine/goroutine/" title="Goroutine 初探" class="md-nav__link">
+      Goroutine 初探
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -470,42 +482,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_1" title="错误处理" class="md-nav__link">
     错误处理
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#defer" class="md-nav__link">
+  <a href="#defer" title="defer 语句" class="md-nav__link">
     defer 语句
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#go-error" class="md-nav__link">
+  <a href="#go-error" title="go 的 error 类型" class="md-nav__link">
     go 的 error 类型
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#go_1" class="md-nav__link">
+  <a href="#go_1" title="go 如何自定义自己的业务异常" class="md-nav__link">
     go 如何自定义自己的业务异常
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#go-panicrecover" class="md-nav__link">
+  <a href="#go-panicrecover" title="Go 的异常处理 panic/recover" class="md-nav__link">
     Go 的异常处理 panic/recover
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_2" title="参考：" class="md-nav__link">
     参考：
   </a>
   
@@ -541,7 +553,7 @@
 <p>在 go 中使用的是类似 c 的返回错误的方式，比如我们在 go 代码中经常会看到很多这种错误检查代码。go
 的这种比较原始的错误处理方式实际上也招来了很多人的批评，认为是设计上的一个败笔，很多习惯使用了异常机制的开发者可能会
 感觉 go 的错误处理写起来非常繁琐，比如下面这个例子，每个流程你都要去处理返回的错误值。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -562,7 +574,7 @@
 19
 20
 21
-22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// from https://8thlight.com/blog/kyle-krull/2018/08/13/exploring-error-handling-patterns-in-go.html</span>
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1">// from https://8thlight.com/blog/kyle-krull/2018/08/13/exploring-error-handling-patterns-in-go.html</span>
 <span class="kd">func</span> <span class="p">(</span><span class="nx">router</span> <span class="nx">HttpRouter</span><span class="p">)</span> <span class="nx">parse</span><span class="p">(</span><span class="nx">reader</span> <span class="o">*</span><span class="nx">bufio</span><span class="p">.</span><span class="nx">Reader</span><span class="p">)</span> <span class="p">(</span><span class="nx">Request</span><span class="p">,</span> <span class="nx">Response</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">requestText</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">readCRLFLine</span><span class="p">(</span><span class="nx">reader</span><span class="p">)</span> <span class="c1">//string, err Response</span>
   <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
@@ -584,7 +596,7 @@
   <span class="c1">//Valid request, but no route to handle it</span>
   <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">requestLine</span><span class="p">.</span><span class="nx">NotImplemented</span><span class="p">()</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>在 go 的惯例中，一般函数多个返回值的最后一个值用来返回错误，返回 nil 表示没有错误，调用者通过检查返回的错误是否是 nil
@@ -592,10 +604,7 @@
 <h2 id="defer">defer 语句<a class="headerlink" href="#defer" title="Permanent link">&para;</a></h2>
 <p>go 中提供了一个 defer 语句用来延迟一个函数(匿名函数)或者方法的执行，它会在函数执行完成(return)之后调用。一般为了防止代码里有资源泄露，
 对于打开的资源比如文件等我们需要显式关闭，这种场合就是 defer 发挥作用最好的场景，也是 go 代码中使用 defer 最常用的场景。</p>
-<div class="superfences-tabs">
-<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
-<label for="__tab_1_0">Go</label>
-<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -604,7 +613,9 @@
  7
  8
  9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nx">f</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1">// go</span>
+<span class="nx">f</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
 <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
   <span class="c1">// handle err</span>
   <span class="k">return</span> <span class="nx">err</span>
@@ -614,20 +625,21 @@
 <span class="c1">// 也常用在使用锁的地方，防止忘记释放锁</span>
 <span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
 <span class="k">defer</span> <span class="nx">mu</span><span class="p">.</span><span class="nx">UnLock</span><span class="p">()</span>
-</pre></div>
-</td></tr></table></div>
-<input name="__tabs_1" type="radio" id="__tab_1_1" />
-<label for="__tab_1_1">Python</label>
-<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;filepath&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</code></pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1"># python</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;filepath&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="c1"># do with file</span>
-</pre></div>
-</td></tr></table></div>
-</div>
+</code></pre></div>
+</td></tr></table>
+
 <p>如果你用过 python 的话，go 中的 defer 和 python 使用 with 语句保证资源会被关闭目的类似。
 另外函数里可以使用多个 defer 语句，如果有多个 defer 它们会按照后进先出(Last In First Out)的顺序执行。
 运行以下小例子，看看输出是否和你想的一样：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -642,7 +654,7 @@
 13
 14
 15
-16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="p">(</span>
     <span class="s">&quot;fmt&quot;</span>
@@ -658,27 +670,27 @@
 <span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">testDefer</span><span class="p">())</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <h2 id="go-error">go 的 error 类型<a class="headerlink" href="#go-error" title="Permanent link">&para;</a></h2>
 <p>上文提到一般我们在 go 中通过返回一个 error 来表示错误或者异常状态，这是 go 代码中最常见的方式。那 error 究竟是什么呢？
 其实 error 是 go 的一个内置的接口类型，比如你可以使用开发工具跳进去看下 error 的定义（注意这里使用到了接口，后面会介绍）。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// The error built-in interface type is the conventional interface for</span>
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1">// The error built-in interface type is the conventional interface for</span>
 <span class="c1">// representing an error condition, with the nil value representing no error.</span>
 <span class="kd">type</span> <span class="kt">error</span> <span class="kd">interface</span> <span class="p">{</span>
     <span class="nx">Error</span><span class="p">()</span> <span class="kt">string</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>error 的定义很简单，只要我们自己实现了一个类型的 Error() 方法返回一个字符串，就可以当做错误类型了。举一个简单小例子，
 比如计算两个整数相除，我们知道除数是不能为 0 的，这个时候我们就可以写个函数：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -699,7 +711,7 @@
 19
 20
 21
-22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="p">(</span>
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="p">(</span>
     <span class="s">&quot;errors&quot;</span> <span class="c1">// 使用内置的 errors</span>
     <span class="s">&quot;fmt&quot;</span>
 <span class="p">)</span>
@@ -721,18 +733,18 @@
     <span class="p">}</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>在内置库和业务代码中，你会看到很多类似的处理方式，比如我跳进去到 fmt 包里随便搜到的一个例子(看内置 package 可以学到很多惯用法)：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">pp</span><span class="p">)</span> <span class="nx">Write</span><span class="p">(</span><span class="nx">b</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">(</span><span class="nx">ret</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">pp</span><span class="p">)</span> <span class="nx">Write</span><span class="p">(</span><span class="nx">b</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">(</span><span class="nx">ret</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">p</span><span class="p">.</span><span class="nx">buf</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nx">b</span><span class="p">),</span> <span class="kc">nil</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>在我们的业务代码中也是这样，如果你希望返回一个错误，可以在函数的最后一个返回值返回一个错误类型。</p>
@@ -742,7 +754,7 @@
 <p>这里用到的了一些 struct 定义的语法，如果你现在不懂也没关系，大概了解一下就行，看完 struct 章节你就懂了。其实我们只需要自己定义一个结构体，
 然后实现 <code>Error()</code> 方法就实现了 go 的 error 接口。比如这里我们的 web 服务叫做 Article 服务，那么我们可以定义叫做
 ArticleError 的错误类型。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -762,7 +774,7 @@ ArticleError 的错误类型。</p>
 18
 19
 20
-21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">errors</span>
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">package</span> <span class="nx">errors</span>
 
 <span class="kn">import</span> <span class="p">(</span>
     <span class="s">&quot;fmt&quot;</span>
@@ -783,7 +795,7 @@ ArticleError 的错误类型。</p>
         <span class="nx">Message</span><span class="p">:</span> <span class="nx">message</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>如果出现了业务错误，你就可以调用 NewArticleError 函数并且传入你业务里定义的错误码和错误信息创建一个错误类型了。</p>
@@ -795,32 +807,32 @@ ArticleError 的错误类型。</p>
 <p>举个例子，在 web 框架启动之前经常需要读取配置文件，获取 mysql/redis 等服务的地址和端口，这个时候如果读取配置的代码失败了，
 我会使用 panic 直接退出，这就是严重错误，因为即使服务启动了也无法连接到数据库正常处理请求，反而直接退出进程早发现错误为好。
 但是比如用户传了一个错误参数这种情况不严重的错误，我们希望直接给用户返回一个错误状态码，而不至于退出进程。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">readConfig</span><span class="p">(</span><span class="s">&quot;filepath&quot;</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">readConfig</span><span class="p">(</span><span class="s">&quot;filepath&quot;</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
     <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="c1">// 读取失败直接退出</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>比如刚才除法函数的例子，如果我们碰到了个除数为 0 被认为是严重错误，也可以使用 panic 抛出异常：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">MustDivide</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kd">func</span> <span class="nx">MustDivide</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
     <span class="k">if</span> <span class="nx">b</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
         <span class="nb">panic</span><span class="p">(</span><span class="s">&quot;divide by zero&quot;</span><span class="p">)</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="nx">a</span> <span class="o">/</span> <span class="nx">b</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>如果我们不幸传入了除数为0，但是又不想让进程退出呢？go 还提供了一个 recover 函数用来从异常中恢复，比如使用 recover
 可以把一个 panic 包装成为 error 再返回，而不是让进程退出：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -828,7 +840,7 @@ ArticleError 的错误类型。</p>
 6
 7
 8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nx">Divide2</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">res</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">e</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kd">func</span> <span class="nx">Divide2</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">res</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">e</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nb">recover</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
             <span class="nx">e</span> <span class="p">=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;%v&quot;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
@@ -837,7 +849,7 @@ ArticleError 的错误类型。</p>
     <span class="nx">res</span> <span class="p">=</span> <span class="nx">MustDivide</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span>
     <span class="k">return</span> <span class="c1">// 命名返回值不用加上返回的参数</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>这样一来我们就『捕获』了 panic 异常并且返回了一个错误，代码也可以正常执行而不会退出啦。</p>
@@ -860,28 +872,11 @@ ArticleError 的错误类型。</p>
                 
                   
                 
+              
+              
                 
-              
-              
-                <h2 id="__comments">Comments</h2>
-<form id="gitalk-form" onsubmit="return false;">
-    <div id="gitalk-container"></div>
-</form>
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script src="https://cdnjs.loli.net/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
-<script>
-    const gitalk = new Gitalk({
-        clientID: 'f1d7be62c76080ddd6a4',
-        clientSecret: '0902cb9f1b36d579d82874864f1c2d929f91ea03',
-        repo: 'LetsGo',
-        owner: 'PegasusWang',
-        admin: ['PegasusWang'],
-        id: md5(location.pathname),
-        distractionFreeMode: false
-    })
-    gitalk.render('gitalk-container')
-</script>
+
+
               
             </article>
           </div>
@@ -954,7 +949,7 @@ ArticleError 的错误类型。</p>
       
     </div>
     
-      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
