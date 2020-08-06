@@ -806,11 +806,12 @@ ArticleError 的错误类型。</p>
 <p>go 里区分对待异常(panic)和错误(error)的，绝大部分场景下我们使用的都是错误，只有少数场景下发生了严重错误我们想让整个进程都退出了才会使用异常。</p>
 <p>举个例子，在 web 框架启动之前经常需要读取配置文件，获取 mysql/redis 等服务的地址和端口，这个时候如果读取配置的代码失败了，
 我会使用 panic 直接退出，这就是严重错误，因为即使服务启动了也无法连接到数据库正常处理请求，反而直接退出进程早发现错误为好。
-但是比如用户传了一个错误参数这种情况不严重的错误，我们希望直接给用户返回一个错误状态码，而不至于退出进程。</p>
+但是比如用户传了一个错误参数这种情况不严重的错误，我们希望直接给用户返回一个错误状态码，而不至于退出进程。
+(Rail early 也是一种常见思想，错误越是往后越难排查)</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">readConfig</span><span class="p">(</span><span class="s">&quot;filepath&quot;</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-    <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="c1">// 读取失败直接退出</span>
+    <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="c1">// 读取失败直接退出 （及早失败退出可以提前发现严重的配置错误问题）</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
