@@ -805,10 +805,51 @@ go 语言中如何实现它们。</p>
 其实 break 和 continue 还支持后边跟一个跳转标签，但是一般代码中用得比较少，你只需要知道还有这个功能，
 万不得已需要使用的时候再 google 就好，你很可能永远都用不到这个。</p>
 <h2 id="goto">goto<a class="headerlink" href="#goto" title="Permanent link">&para;</a></h2>
-<p>go 和 c 一样支持 goto 语句，但是根据笔者的经验，业务代码中其实用的非常少。大部分逻辑我们不用 goto 就可以处理。
-除了极少数情况外，不太提倡使用 goto，但如果万不得已，你可以去搜索一下 goto 的用法。(goto 来回跳代码比较难读)。
-go 支持标签语法(label)，实际上 break 和 goto 后边都可以跟上 label，比如一种使用场景是当深层嵌套的 for
+<p>go 和 c 一样支持 goto 语句，但是根据笔者的经验，业务代码中其实用的比较少，大部分逻辑我们不用 goto 就可以处理。
+除了极少数情况外，不太提倡使用 goto，来回跳会导致代码可读性降低。</p>
+<p>go 支持标签语法(label)，实际上 break/goto/continue 后边都可以跟上 label，比如一种使用场景是当深层嵌套的 for
 循环想要直接快速退出所有循环体的时候，我们可以使用 break 标签语法来实现，示例如下：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span>
+
+<span class="c1">// loop 标签。注意 break和continue 的标签需要在代码块前边，goto 没有这个限制</span>
+<span class="nx">loop</span><span class="p">:</span>
+    <span class="k">for</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="nx">j</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="nx">i</span><span class="o">+</span><span class="nx">j</span> <span class="p">&gt;</span> <span class="mi">3</span> <span class="p">{</span> <span class="c1">// 如果 i + j &gt; 3 ，跳出所有循环</span>
+                <span class="k">break</span> <span class="nx">loop</span>
+            <span class="p">}</span>
+            <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;i[%d] j[%d] i+j[%d]\n&quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="p">,</span> <span class="nx">i</span><span class="o">+</span><span class="nx">j</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="nx">j</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>再来看一个使用 goto 跳转的例子，如果满足条件，直接跳转到标签的地方：</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -833,15 +874,15 @@ go 支持标签语法(label)，实际上 break 和 goto 后边都可以跟上 la
 <span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span>
 
-<span class="nx">loop</span><span class="p">:</span>
     <span class="k">for</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
         <span class="k">for</span> <span class="nx">j</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
             <span class="k">if</span> <span class="nx">i</span><span class="o">+</span><span class="nx">j</span> <span class="p">&gt;</span> <span class="mi">3</span> <span class="p">{</span> <span class="c1">// 如果 i + j &gt; 3 ，跳出所有循环</span>
-                <span class="k">break</span> <span class="nx">loop</span>
+                <span class="k">goto</span> <span class="nx">exit</span>
             <span class="p">}</span>
-            <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;i[%d] j[%d] i+j[%d]\n&quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="p">,</span> <span class="nx">i</span><span class="o">+</span><span class="nx">j</span><span class="p">)</span>
         <span class="p">}</span>
     <span class="p">}</span>
+
+<span class="nx">exit</span><span class="p">:</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="nx">j</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
