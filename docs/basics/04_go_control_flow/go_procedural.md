@@ -157,9 +157,10 @@ func testFor() {
 
 ## goto
 
-go 和 c 一样支持 goto 语句，但是根据笔者的经验，业务代码中其实用的非常少。大部分逻辑我们不用 goto 就可以处理。
-除了极少数情况外，不太提倡使用 goto，但如果万不得已，你可以去搜索一下 goto 的用法。(goto 来回跳代码比较难读)。
-go 支持标签语法(label)，实际上 break 和 goto 后边都可以跟上 label，比如一种使用场景是当深层嵌套的 for
+go 和 c 一样支持 goto 语句，但是根据笔者的经验，业务代码中其实用的比较少，大部分逻辑我们不用 goto 就可以处理。
+除了极少数情况外，不太提倡使用 goto，来回跳会导致代码可读性降低。
+
+go 支持标签语法(label)，实际上 break/goto/continue 后边都可以跟上 label，比如一种使用场景是当深层嵌套的 for
 循环想要直接快速退出所有循环体的时候，我们可以使用 break 标签语法来实现，示例如下：
 
 ```go
@@ -170,6 +171,7 @@ import "fmt"
 func main() {
 	var i, j int
 
+// loop 标签。注意 break和continue 的标签需要在代码块前边，goto 没有这个限制
 loop:
 	for i = 0; i < 10; i++ {
 		for j = 0; j < 3; j++ {
@@ -179,6 +181,29 @@ loop:
 			fmt.Printf("i[%d] j[%d] i+j[%d]\n", i, j, i+j)
 		}
 	}
+	fmt.Println(i + j)
+}
+```
+
+再来看一个使用 goto 跳转的例子，如果满足条件，直接跳转到标签的地方：
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var i, j int
+
+	for i = 0; i < 10; i++ {
+		for j = 0; j < 3; j++ {
+			if i+j > 3 { // 如果 i + j > 3 ，跳出所有循环
+				goto exit
+			}
+		}
+	}
+
+exit:
 	fmt.Println(i + j)
 }
 ```
