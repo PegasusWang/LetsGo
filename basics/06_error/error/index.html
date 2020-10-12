@@ -602,7 +602,7 @@
 <p>在 go 的惯例中，一般函数多个返回值的最后一个值用来返回错误，返回 nil 表示没有错误，调用者通过检查返回的错误是否是 nil
 就知道是否需要处理错误了。</p>
 <h2 id="defer">defer 语句<a class="headerlink" href="#defer" title="Permanent link">&para;</a></h2>
-<p>go 中提供了一个 defer 语句用来延迟一个函数(匿名函数)或者方法的执行，它会在函数执行完成(return)之后调用。一般为了防止代码里有资源泄露，
+<p>go 中提供了一个 defer 语句用来延迟一个函数(匿名函数)或者方法的执行，它会在函数执行完成(return)之前调用。一般为了防止代码里有资源泄露(文件、数据库连接、锁)，
 对于打开的资源比如文件等我们需要显式关闭，这种场合就是 defer 发挥作用最好的场景，也是 go 代码中使用 defer 最常用的场景。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
