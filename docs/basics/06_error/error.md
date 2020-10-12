@@ -42,7 +42,7 @@ func (router HttpRouter) parse(reader *bufio.Reader) (Request, Response) {
 
 ## defer 语句
 
-go 中提供了一个 defer 语句用来延迟一个函数(匿名函数)或者方法的执行，它会在函数执行完成(return)之后调用。一般为了防止代码里有资源泄露，
+go 中提供了一个 defer 语句用来延迟一个函数(匿名函数)或者方法的执行，它会在函数执行完成(return)之前调用。一般为了防止代码里有资源泄露(文件、数据库连接、锁)，
 对于打开的资源比如文件等我们需要显式关闭，这种场合就是 defer 发挥作用最好的场景，也是 go 代码中使用 defer 最常用的场景。
 
 ```go
